@@ -1,0 +1,103 @@
+/* ====== Base ====== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Merriweather', serif;
+  line-height: 1.6;
+  background: #fdf6e3;
+  color: #2c2c2c;
+}
+
+/* ====== Header ====== */
+header {
+  background: linear-gradient(135deg, #4b2e83, #2c2c2c);
+  color: white;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  border-bottom-left-radius: 25% 8%;
+  border-bottom-right-radius: 25% 8%;
+}
+
+header h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  color: #d4af37;
+}
+
+nav a {
+  margin: 0 14px;
+  color: #fdf6e3;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #d4af37;
+}
+
+/* ====== Sections ====== */
+section {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+section h2 {
+  font-family: 'Raleway', sans-serif;
+  color: #4b2e83;
+  margin-bottom: 1rem;
+  border-left: 5px solid #d4af37;
+  padding-left: 0.5rem;
+}
+
+/* ====== Images ====== */
+section img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ====== Boutons ====== */
+.btn {
+  display: inline-block;
+  background: #4b2e83;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #2c2c2c;
+  color: #d4af37;
+}
+
+/* ====== Footer ====== */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #2c2c2c;
+  font-size: 0.9em;
+  color: #fdf6e3;
+  margin-top: 2rem;
+  border-top: 3px solid #d4af37;
+}
+
+/* ====== Animations ====== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
