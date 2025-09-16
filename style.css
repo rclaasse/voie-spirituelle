@@ -128,4 +128,74 @@ footer {
     height: auto;
   }
 }
+/* ====== Thème spécial BLOG ====== */
+body.blog {
+  background: #f5f0fa ; /* fond violet clair */
+}
 
+body.blog header {
+  background: linear-gradient(135deg, #2c2c54, #4b2e83) ; /* bleu-nuit + violet */
+}
+
+body.blog section {
+  background: #ffffff ;
+  border: 2px solid #d4af37 ;
+}
+
+body.blog h2, 
+body.blog h3 {
+  color: #2c2c54 ;
+}
+
+body.blog .btn {
+  background: #d4af37 ;
+  color: #2c2c54 ;
+}
+body.blog .btn:hover {
+  background: #2c2c54 ;
+  color: #d4af37 ;
+}
+
+body.blog header {
+  background: linear-gradient(135deg, #14213d, #00b4d8);
+  color: #fff;
+}
+body.blog header nav a { color: #fff; }
+body.blog header nav a:hover { color: #d4af37; }
+
+#floating-blog {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #d4af37;
+  color: #2c2c2c;
+  padding: 12px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+#floating-blog:hover {
+  background: #4b2e83;
+  color: #fff;
+}
+
+/* ----- Services en cartes élégantes ----- */
+.services ul {
+  list-style: none;              /* supprime les puces */
+  padding-left: 0;
+  display: grid;                 /* mise en grille */
+  gap: 1.2rem;                   /* espace entre cartes */
+}
+
+.services li {
+  background: #fff;              /* fond blanc */
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* ombre douce */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.services li:hover {
+  transform: translateY(-5px);   /* effet au survol */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
