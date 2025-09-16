@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <title>Administration – Voie spirituelle</title>
-    <style>
-      body {
-        font-family: "Merriweather", serif;
-        text-align: center;
-        background: linear-gradient(135deg, #4b2e83, #2c2c2c);
-        color: #fff;
-        margin: 0;
-        padding: 2rem;
-      }
-      .welcome {
-        margin-bottom: 2rem;
-      }
-      .welcome h1 {
-        font-size: 2rem;
-        color: #d4af37;
-      }
-      .welcome p {
-        font-size: 1.1rem;
-        opacity: 0.9;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="welcome">
-      <h1>✨ Espace Administration ✨</h1>
-      <p>Connectez-vous pour publier vos articles et mettre à jour le site.</p>
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil - Voie Spirituelle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Chemin vers la Lumière</h1>
+    <nav>
+      <a href="index.html" class="active">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html" class="btn" style="margin-left:15px;">Articles ✨</a>
+    </nav>
+  </header>
 
-    <!-- Netlify CMS -->
-    <script src="https://unpkg.com/netlify-cms-app@^2.0.0/dist/netlify-cms.js"></script>
-    <script>
-      NetlifyCmsApp.init();
-    </script>
-  </body>
+  <!-- Section d'accueil -->
+  <section>
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80" alt="Bougies spirituelles">
+    <h2>Un chemin intérieur vers la paix</h2>
+    <p>
+      Dans la lumière des bougies et le silence sacré,
+      je vous accompagne à renouer avec votre âme et à ouvrir la voie de la guérison intérieure.
+    </p>
+    <p>
+      Par la spiritualité et la psychothérapie, trouvez l’harmonie entre l’esprit, le cœur et le divin.
+    </p>
+    <a href="services.html" class="btn">Explorer l’accompagnement</a>
+  </section>
+
+  <!-- Témoignages -->
+  <section>
+    <img src="https://images.unsplash.com/photo-1471440671318-55bdbb772f93?auto=format&fit=crop&w=1200&q=80" alt="Rayons de lumière divine">
+    <h2>Témoignages</h2>
+    <p><em>"Un accompagnement qui m’a permis de retrouver ma foi intérieure."</em></p>
+    <p><em>"Une expérience spirituelle et thérapeutique profonde, éclairée par une lumière bienveillante."</em></p>
+  </section>
+
+  <!-- Bouton flottant -->
+  <a href="blog.html" class="btn" id="floating-blog">Articles ✨</a>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Maria Cristina Bussani — Tous droits réservés
+  </footer>
+</body>
 </html>
