@@ -2,6 +2,9 @@ backend:
   name: git-gateway
   branch: main
 
+media_folder: "images/uploads"   # où les fichiers seront stockés dans ton repo
+public_folder: "/images/uploads" # comment ils seront accessibles depuis le site
+
 collections:
   - name: "test"
     label: "Test"
