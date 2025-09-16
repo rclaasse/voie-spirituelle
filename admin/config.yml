@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: rclaasse/voie-spirituelle   # ton dépôt GitHub
   branch: main                      # ta branche principale
 
