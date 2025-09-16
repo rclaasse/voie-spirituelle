@@ -1,8 +1,7 @@
 backend:
   name: github
-  repo: rclaasse/voie-spirituelle   # ton repo GitHub exact
+  repo: rclaasse/voie-spirituelle
   branch: main
-
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
