@@ -1,9 +1,8 @@
 backend:
   name: git-gateway
-  repo: rclaasse/voie-spirituelle   # ton dépôt GitHub
-  branch: main                      # ta branche principale
+  branch: main
 
-media_folder: "images/uploads"      # où stocker les images
+media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
