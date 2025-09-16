@@ -1,40 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <title>Administration – Voie spirituelle</title>
-    <style>
-      body {
-        font-family: "Merriweather", serif;
-        text-align: center;
-        background: linear-gradient(135deg, #4b2e83, #2c2c2c);
-        color: #fff;
-        margin: 0;
-        padding: 2rem;
-      }
-      .welcome {
-        margin-bottom: 2rem;
-      }
-      .welcome h1 {
-        font-size: 2rem;
-        color: #d4af37;
-      }
-      .welcome p {
-        font-size: 1.1rem;
-        opacity: 0.9;
-      }
-    </style>
+    <title>Administration</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
   </head>
   <body>
-    <div class="welcome">
-      <h1>✨ Espace Administration ✨</h1>
-      <p>Connectez-vous pour publier vos articles et mettre à jour le site.</p>
-    </div>
-
-    <!-- Netlify CMS -->
-    <script src="https://unpkg.com/netlify-cms-app@^2.0.0/dist/netlify-cms.js"></script>
-    <script>
-      NetlifyCmsApp.init();
-    </script>
+    <!-- Charge Decap CMS (nouveau nom de Netlify CMS) -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
