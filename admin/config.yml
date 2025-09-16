@@ -1,8 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: rclaasse/voie-spirituelle   # ton repo GitHub exact
   branch: main
-  identity_url: "https://voie-spirituelle.netlify.app/.netlify/identity"
-  gateway_url: "https://voie-spirituelle.netlify.app/.netlify/git"
+
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
