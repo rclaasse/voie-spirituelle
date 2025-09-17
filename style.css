@@ -870,3 +870,21 @@ body.podcasts header {
 body.podcasts header h1 {
   color: #ffd700; /* doré plus vif pour le titre */
 }
+
+#floating-podcasts {
+  position: fixed;
+  bottom: 80px; /* placé au-dessus du bouton Articles */
+  right: 20px;
+  background: #4b2e83; /* violet foncé */
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+#floating-podcasts:hover {
+  background: #d4af37; /* doré au survol */
+  color: #2c2c2c;
+}
+
