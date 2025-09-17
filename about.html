@@ -3,46 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>À propos - Voie spirituelle</title>
+  <title>À propos - Voie Spirituelle</title>
+  <meta name="description" content="Découvrez le parcours de Maria Cristina Bussani, guide spirituelle et thérapeute, unissant psychothérapie et traditions spirituelles.">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Raleway:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+  <!-- Header -->
+  <header role="banner">
     <h1>À propos</h1>
-    <nav>
+    <nav aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
       <a href="services.html">Services</a>
       <a href="about.html" class="active">À propos</a>
       <a href="contact.html">Contact</a>
-      <a href="blog.html" class="btn" style="margin-left:15px;">Articles ✨</a>
+      <a href="blog.html" class="btn nav-btn">Articles ✨</a>
     </nav>
   </header>
 
-  <section>
-  <img src="https://picsum.photos/1200/600" 
-     alt="Image aléatoire" 
-     style="max-width:100%;border-radius:12px;box-shadow:0 6px 14px rgba(0,0,0,0.15);">
-
-
-    <h2>Qui suis-je ?</h2>
-    <p>
-      Je suis une guide spirituelle et thérapeute, passionnée par l’accompagnement des âmes
-      en quête de lumière et de guérison intérieure.
-    </p>
-    <p>
-      Mon parcours allie la profondeur de la psychothérapie et la sagesse des traditions spirituelles,
-      afin d’offrir une approche unique et bienveillante.
-    </p>
-  </section>
+  <!-- Contenu principal -->
+  <main>
+    <section aria-labelledby="apropos">
+      <img src="https://picsum.photos/1200/600" 
+           alt="Illustration spirituelle aléatoire" 
+           loading="lazy" 
+           class="img-hero">
+      <h2 id="apropos">Qui suis-je ?</h2>
+      <p>
+        Je suis une guide spirituelle et thérapeute, passionnée par l’accompagnement des âmes
+        en quête de lumière et de guérison intérieure.
+      </p>
+      <p>
+        Mon parcours allie la profondeur de la psychothérapie et la sagesse des traditions spirituelles,
+        afin d’offrir une approche unique et bienveillante.
+      </p>
+    </section>
+  </main>
 
   <!-- Bouton flottant -->
   <a href="blog.html" class="btn" id="floating-blog">Articles ✨</a>
 
-  <footer>
+  <!-- Footer -->
+  <footer role="contentinfo">
     © 2025 Maria Cristina Bussani — Tous droits réservés
   </footer>
 </body>
 </html>
-
-

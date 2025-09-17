@@ -3,34 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Le chemin de la paix - Blog</title>
+  <title>Le chemin de la paix 🌿 - Voie Spirituelle</title>
+  <meta name="description" content="Découvrez comment cultiver la paix intérieure grâce à l’écoute, la méditation et la bienveillance.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="blog">
-  <header>
+  <header role="banner">
     <h1>Le chemin de la paix 🌿</h1>
-    <nav>
+    <nav aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
-      <a href="blog.html">Blog</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html" class="btn nav-btn active">Articles ✨</a>
     </nav>
   </header>
 
-  <section>
-    <p><em>Publié le 10 septembre 2025</em></p>
-    <img src="https://picsum.photos/seed/peace/1200/500" alt="Chemin de la paix">
-    <p>
-      La paix intérieure se construit pas à pas, grâce à l’écoute, à la
-      méditation et à la présence à soi-même.
-    </p>
-    <p>
-      En cultivant la bienveillance, on apprend à apaiser son mental et
-      à se relier à l’essentiel.
-    </p>
-    <a href="blog.html" class="btn">← Retour au blog</a>
-  </section>
+  <main>
+  <article aria-labelledby="titre-article">
+  <span class="post-date"><em>Publié le 10 septembre 2025</em></span>
+<img 
+  src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80" 
+  alt="Chemin paisible menant à la paix intérieure" 
+  loading="lazy" 
+  referrerpolicy="no-referrer">
 
-  <footer>
-    © 2025 Voie Spirituelle — Tous droits réservés
+      <h2 id="titre-article">Avancer pas à pas vers la paix intérieure</h2>
+      <p>
+        La paix intérieure se construit pas à pas, grâce à l’écoute, à la
+        méditation et à la présence à soi-même.
+      </p>
+      <p>
+        En cultivant la bienveillance, on apprend à apaiser son mental et
+        à se relier à l’essentiel.
+      </p>
+    </article>
+
+    <!-- Navigation articles -->
+    <nav class="post-nav">
+      <a href="article1.html" class="btn">← Article précédent</a>
+      <a href="blog.html" class="btn">Retour aux articles</a>
+      <a href="article3.html" class="btn">Article suivant →</a>
+    </nav>
+  </main>
+
+  <footer role="contentinfo">
+    © 2025 Maria Cristina Bussani — Tous droits réservés
   </footer>
 </body>
 </html>

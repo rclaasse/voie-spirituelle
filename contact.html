@@ -3,47 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Voie spirituelle</title>
+  <title>Contact - Voie Spirituelle</title>
+  <meta name="description" content="Contactez Maria Cristina Bussani pour toute question ou pour prendre rendez-vous en psychothérapie et guidance spirituelle.">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Raleway:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+  <!-- Header -->
+  <header role="banner">
     <h1>Contact</h1>
-    <nav>
+    <nav aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
       <a href="services.html">Services</a>
-      <a href="about.html" class="active">À propos</a>
-      <a href="contact.html">Contact</a>
-      <a href="blog.html" class="btn" style="margin-left:15px;">Articles ✨</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="blog.html" class="btn nav-btn">Articles ✨</a>
     </nav>
   </header>
 
-  <section>
-    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" alt="Chemin spirituel avec lumière">
-    <h2>Entrer en contact</h2>
-    <p>
-      Pour toute question ou pour prendre rendez-vous, vous pouvez m’écrire directement.
-    </p>
+  <!-- Contenu principal -->
+  <main>
+    <section aria-labelledby="contact">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" 
+           alt="Chemin spirituel avec lumière" 
+           loading="lazy"
+           class="img-hero">
+      <h2 id="contact">Entrer en contact</h2>
+      <p>
+        Pour toute question ou pour prendre rendez-vous, vous pouvez m’écrire directement :
+      </p>
 
-    <form>
-      <label for="name">Nom :</label><br>
-      <input type="text" id="name" name="name" required><br><br>
+      <form aria-label="Formulaire de contact">
+        <label for="name">Nom :</label><br>
+        <input type="text" id="name" name="name" placeholder="Votre nom" required><br><br>
 
-      <label for="email">Email :</label><br>
-      <input type="email" id="email" name="email" required><br><br>
+        <label for="email">Email :</label><br>
+        <input type="email" id="email" name="email" placeholder="votremail@example.com" required><br><br>
 
-      <label for="message">Message :</label><br>
-      <textarea id="message" name="message" rows="6" required></textarea><br><br>
+        <label for="message">Message :</label><br>
+        <textarea id="message" name="message" rows="6" placeholder="Votre message..." required></textarea><br><br>
 
-      <button type="submit" class="btn">Envoyer</button>
-    </form>
-  </section>
+        <button type="submit" class="btn">Envoyer</button>
+      </form>
+    </section>
+  </main>
 
   <!-- Bouton flottant -->
   <a href="blog.html" class="btn" id="floating-blog">Articles ✨</a>
 
-  <footer>
+  <!-- Footer -->
+  <footer role="contentinfo">
     © 2025 Maria Cristina Bussani — Tous droits réservés
   </footer>
 </body>

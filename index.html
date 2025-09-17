@@ -4,48 +4,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accueil - Voie Spirituelle</title>
+  <meta name="description" content="Psychothérapie et guidance spirituelle pour retrouver paix, sérénité et lumière intérieure.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Header -->
-  <header>
+  <header role="banner">
     <h1>Chemin vers la Lumière</h1>
-    <nav>
+    <nav aria-label="Navigation principale">
       <a href="index.html" class="active">Accueil</a>
       <a href="services.html">Services</a>
       <a href="about.html">À propos</a>
       <a href="contact.html">Contact</a>
-      <a href="blog.html" class="btn" style="margin-left:15px;">Articles ✨</a>
+      <a href="blog.html" class="btn nav-btn">Articles ✨</a>
     </nav>
   </header>
 
-  <!-- Section d'accueil -->
-  <section>
-    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80" alt="Bougies spirituelles">
-    <h2>Un chemin intérieur vers la paix</h2>
-    <p>
-      Dans la lumière des bougies et le silence sacré,
-      je vous accompagne à renouer avec votre âme et à ouvrir la voie de la guérison intérieure.
-    </p>
-    <p>
-      Par la spiritualité et la psychothérapie, trouvez l’harmonie entre l’esprit, le cœur et le divin.
-    </p>
-    <a href="services.html" class="btn">Explorer l’accompagnement</a>
-  </section>
+  <!-- Contenu principal -->
+  <main>
+    <!-- Section d'accueil -->
+    <section aria-labelledby="intro">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80" 
+           alt="Bougies spirituelles" 
+           loading="lazy">
+      <h2 id="intro">Un chemin intérieur vers la paix</h2>
+      <p>
+        Dans la lumière des bougies et le silence sacré,
+        je vous accompagne à renouer avec votre âme et à ouvrir la voie de la guérison intérieure.
+      </p>
+      <p>
+        Par la spiritualité et la psychothérapie, trouvez l’harmonie entre l’esprit, le cœur et le divin.
+      </p>
+      <a href="services.html" class="btn">Explorer l’accompagnement</a>
+    </section>
 
-  <!-- Témoignages -->
-  <section>
-    <img src="https://images.unsplash.com/photo-1471440671318-55bdbb772f93?auto=format&fit=crop&w=1200&q=80" alt="Rayons de lumière divine">
-    <h2>Témoignages</h2>
-    <p><em>"Un accompagnement qui m’a permis de retrouver ma foi intérieure."</em></p>
-    <p><em>"Une expérience spirituelle et thérapeutique profonde, éclairée par une lumière bienveillante."</em></p>
-  </section>
+    <!-- Témoignages -->
+    <section aria-labelledby="temoignages">
+      <img src="https://images.unsplash.com/photo-1471440671318-55bdbb772f93?auto=format&fit=crop&w=1200&q=80" 
+           alt="Rayons de lumière divine" 
+           loading="lazy">
+      <h2 id="temoignages">Témoignages</h2>
+      <blockquote>
+        <p>“Un accompagnement qui m’a permis de retrouver ma foi intérieure.”</p>
+      </blockquote>
+      <blockquote>
+        <p>“Une expérience spirituelle et thérapeutique profonde, éclairée par une lumière bienveillante.”</p>
+      </blockquote>
+    </section>
+  </main>
 
   <!-- Bouton flottant -->
   <a href="blog.html" class="btn" id="floating-blog">Articles ✨</a>
 
   <!-- Footer -->
-  <footer>
+  <footer role="contentinfo">
     © 2025 Maria Cristina Bussani — Tous droits réservés
   </footer>
 </body>

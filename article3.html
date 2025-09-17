@@ -3,34 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Le lotus sacré - Blog</title>
+  <title>Le lotus sacré 🌸 - Voie Spirituelle</title>
+  <meta name="description" content="Le lotus sacré, symbole de pureté et de résilience, nous enseigne l’éveil et la transformation spirituelle.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="blog">
-  <header>
+  <header role="banner">
     <h1>Le lotus sacré 🌸</h1>
-    <nav>
+    <nav aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
-      <a href="blog.html">Blog</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html" class="btn nav-btn active">Articles ✨</a>
     </nav>
   </header>
 
-  <section>
-    <p><em>Publié le 1er septembre 2025</em></p>
-    <img src="https://picsum.photos/seed/lotus/1200/500" alt="Lotus sacré">
-    <p>
-      Le lotus, symbole de pureté et de transformation, nous enseigne que
-      la beauté peut naître même de la boue.
-    </p>
-    <p>
-      Dans de nombreuses traditions spirituelles, il représente l’éveil,
-      la résilience et la connexion au divin.
-    </p>
-    <a href="blog.html" class="btn">← Retour au blog</a>
-  </section>
+  <main>
+<article aria-labelledby="titre-article">
+  <span class="post-date"><em>Publié le 1er septembre 2025</em></span>
+  <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80" 
+       alt="Fleur de lotus sacrée en pleine eau" 
+       loading="lazy">
+      <h2 id="titre-article">Le lotus, symbole d’éveil et de transformation</h2>
+      <p>
+        Le lotus, symbole de pureté et de transformation, nous enseigne que
+        la beauté peut naître même de la boue.
+      </p>
+      <p>
+        Dans de nombreuses traditions spirituelles, il représente l’éveil,
+        la résilience et la connexion au divin.
+      </p>
+    </article>
 
-  <footer>
-    © 2025 Voie Spirituelle — Tous droits réservés
+    <!-- Navigation articles -->
+    <nav class="post-nav">
+      <a href="article2.html" class="btn">← Article précédent</a>
+      <a href="blog.html" class="btn">Retour aux articles</a>
+    </nav>
+  </main>
+
+  <footer role="contentinfo">
+    © 2025 Maria Cristina Bussani — Tous droits réservés
   </footer>
 </body>
 </html>

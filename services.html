@@ -3,50 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accompagnement - Voie spirituelle</title>
+  <title>Accompagnement - Voie Spirituelle</title>
+  <meta name="description" content="Découvrez les services proposés : guidance spirituelle, psychothérapie, méditation guidée et cercles de guérison.">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Raleway:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
+  <!-- Header -->
+  <header role="banner">
     <h1>Accompagnement</h1>
-    <nav>
+    <nav aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
-      <a href="services.html">Services</a>
-      <a href="about.html" class="active">À propos</a>
+      <a href="services.html" class="active">Services</a>
+      <a href="about.html">À propos</a>
       <a href="contact.html">Contact</a>
-      <a href="blog.html" class="btn" style="margin-left:15px;">Articles ✨</a>
+      <a href="blog.html" class="btn nav-btn">Articles ✨</a>
     </nav>
   </header>
 
-  <section class="services">
-    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Méditation au coucher du soleil">
-    <h2>Mes services</h2>
-    <ul>
-      <li>
-        <span class="icon">🕯️</span>
-        <strong>Guidance spirituelle :</strong> retrouver sens et clarté.
-      </li>
-      <li>
-        <span class="icon">💜</span>
-        <strong>Psychothérapie :</strong> libérer les blocages intérieurs.
-      </li>
-      <li>
-        <span class="icon">✨</span>
-        <strong>Méditation guidée :</strong> cultiver sérénité et présence.
-      </li>
-      <li>
-        <span class="icon">🌙</span>
-        <strong>Cercles de guérison :</strong> cheminer dans un cadre sacré.
-      </li>
-    </ul>
-    <a href="contact.html" class="btn">Prendre rendez-vous</a>
-  </section>
+  <!-- Contenu principal -->
+  <main>
+    <section class="services" aria-labelledby="mes-services">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" 
+           alt="Méditation au coucher du soleil" 
+           loading="lazy"
+           class="img-hero">
+      <h2 id="mes-services">Mes services</h2>
+      <ul>
+        <li>
+          <span class="icon" aria-hidden="true">🕯️</span>
+          <strong>Guidance spirituelle :</strong> retrouver sens et clarté.
+        </li>
+        <li>
+          <span class="icon" aria-hidden="true">💜</span>
+          <strong>Psychothérapie :</strong> libérer les blocages intérieurs.
+        </li>
+        <li>
+          <span class="icon" aria-hidden="true">✨</span>
+          <strong>Méditation guidée :</strong> cultiver sérénité et présence.
+        </li>
+        <li>
+          <span class="icon" aria-hidden="true">🌙</span>
+          <strong>Cercles de guérison :</strong> cheminer dans un cadre sacré.
+        </li>
+      </ul>
+      <a href="contact.html" class="btn">Prendre rendez-vous</a>
+    </section>
+  </main>
 
   <!-- Bouton flottant -->
   <a href="blog.html" class="btn" id="floating-blog">Articles ✨</a>
   
-  <footer>
+  <!-- Footer -->
+  <footer role="contentinfo">
     © 2025 Maria Cristina Bussani — Tous droits réservés
   </footer>
 </body>
