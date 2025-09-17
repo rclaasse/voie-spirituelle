@@ -615,3 +615,129 @@ body.blog .article-card p {
     margin: 0 20px;
   }
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-photo img {
+    margin-bottom: 1.5rem;
+    max-width: 200px;
+  }
+}
+
+/* ====== Page À propos ====== */
+
+/* === Mise en page intro (photo + texte) === */
+.intro-about {
+  display: flex;
+  align-items: center;            /* Alignement vertical */
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;                /* Pour que ça passe bien en mobile */
+}
+
+/* Taille de l’image et style */
+.intro-about .portrait {
+  width: 280px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  flex-shrink: 0;
+}
+
+/* Texte à côté */
+.intro-about div {
+  flex: 1;
+  min-width: 250px;
+}
+
+
+/* Portrait dans la section À propos */
+.intro-about .portrait {
+  width: 85%; /* réduit un peu la taille (au lieu de 100%) */
+  max-width: 380px; /* limite la largeur max */
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  margin: 0 auto; /* centre l’image dans sa colonne */
+  display: block;
+}
+
+
+
+/* Texte plus lisible */
+.intro-about h2 {
+  color: #4b2e83;
+  margin-bottom: 1rem;
+}
+
+.intro-about p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+/* Biographie, workshops, thèses, CV */
+.bio-section, .workshops, .theses, .cv {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.bio-section h2, 
+.workshops h2, 
+.theses h2, 
+.cv h2 {
+  color: #4b2e83;
+  margin-bottom: 1rem;
+  border-left: 5px solid #d4af37;
+  padding-left: 0.5rem;
+}
+
+/* Icônes alignées verticalement sans puces */
+.workshops ul, .theses ul, .cv ul {
+  list-style: none;
+  padding: 0;
+}
+
+.workshops li, .theses li, .cv li {
+  margin: 0.8rem 0;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.workshops li::before, 
+.theses li::before, 
+.cv li::before {
+  content: attr(data-icon);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2rem;
+  color: #4b2e83;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .intro-about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-about .portrait {
+    width: 80%;
+    margin-bottom: 1.5rem;
+  }
+}
+
