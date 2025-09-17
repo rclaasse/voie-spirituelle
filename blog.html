@@ -72,6 +72,29 @@
     </section>
   </main>
 
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const articles = document.querySelectorAll("body.blog section > article");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // évite de rejouer l'anim
+          }
+        });
+      },
+      { threshold: 0.1 } // déclenche quand 10% est visible
+    );
+
+    articles.forEach((article) => {
+      observer.observe(article);
+    });
+  });
+</script>
+
+
   <!-- Footer -->
   <footer role="contentinfo">
     © 2025 Maria Cristina Bussani — Tous droits réservés
