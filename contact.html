@@ -4,56 +4,81 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Voie Spirituelle</title>
-  <meta name="description" content="Contactez Maria Cristina Bussani pour toute question ou pour prendre rendez-vous en psychothérapie et guidance spirituelle.">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Raleway:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header -->
-  <header role="banner">
+  <header>
     <h1>Contact</h1>
-    <nav aria-label="Navigation principale">
+    <nav>
       <a href="index.html">Accueil</a>
       <a href="services.html">Services</a>
       <a href="about.html">À propos</a>
       <a href="contact.html" class="active">Contact</a>
-      <a href="blog.html" class="btn nav-btn">Articles ✨</a>
+      <a href="blog.html" class="btn" style="margin-left:15px;">Articles ✨</a>
     </nav>
   </header>
 
-  <!-- Contenu principal -->
-  <main>
-    <section aria-labelledby="contact">
-      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80" 
-           alt="Chemin spirituel avec lumière" 
-           loading="lazy"
-           class="img-hero">
-      <h2 id="contact">Entrer en contact</h2>
-      <p>
-        Pour toute question ou pour prendre rendez-vous, vous pouvez m’écrire directement :
-      </p>
+  <section class="contact">
+    <div class="contact-container">
+      <!-- Bloc gauche : texte -->
+      <div class="contact-info">
+        <h2>Entrer en contact</h2>
+        <p>
+          Je serai ravie de répondre à vos questions ou de fixer un rendez-vous.  
+          Remplissez simplement le formulaire ci-dessous 🌸
+        </p>
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80" 
+             alt="Bougie et fleur de lotus, ambiance spirituelle" 
+             loading="lazy">
+      </div>
 
-      <form aria-label="Formulaire de contact">
-        <label for="name">Nom :</label><br>
-        <input type="text" id="name" name="name" placeholder="Votre nom" required><br><br>
+      <!-- Bloc droit : formulaire avec Formspree -->
+      <form class="contact-form" action="https://formspree.io/f/xnnbkbdk" method="POST">
+        <label for="name">Nom</label>
+        <input type="text" id="name" name="name" placeholder="Votre nom" required>
 
-        <label for="email">Email :</label><br>
-        <input type="email" id="email" name="email" placeholder="votremail@example.com" required><br><br>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="_replyto" placeholder="votre@email.com" required>
 
-        <label for="message">Message :</label><br>
-        <textarea id="message" name="message" rows="6" placeholder="Votre message..." required></textarea><br><br>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Écrivez votre message..." required></textarea>
 
-        <button type="submit" class="btn">Envoyer</button>
+        <button type="submit" class="btn">Envoyer ✉️</button>
+
+        <!-- Message de confirmation -->
+        <p id="form-status" style="margin-top:1rem; color:#4b2e83; font-weight:bold;"></p>
       </form>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <!-- Bouton flottant -->
   <a href="blog.html" class="btn" id="floating-blog">Articles ✨</a>
 
-  <!-- Footer -->
-  <footer role="contentinfo">
+  <footer>
     © 2025 Maria Cristina Bussani — Tous droits réservés
   </footer>
+
+  <!-- Script confirmation -->
+  <script>
+  const form = document.querySelector(".contact-form");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      status.innerHTML = "🙏 Merci, votre message a bien été envoyé !";
+      form.reset();
+    } else {
+      status.innerHTML = "⚠️ Une erreur est survenue. Merci de réessayer.";
+    }
+  });
+  </script>
 </body>
 </html>
