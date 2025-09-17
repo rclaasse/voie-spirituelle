@@ -419,9 +419,166 @@ body.blog .article-card p {
   margin-top: 1.5rem;
 }
 
-/* Responsive */
+/* ----- Responsive ----- */
 @media (max-width: 768px) {
+  header {
+    padding: 1.2rem 0.8rem; /* réduit la hauteur du header */
+  }
+
+  header h1 {
+    font-size: 1.6rem;   /* plus petit */
+    margin-bottom: 0.4rem;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;      /* permet de passer sur 2 lignes */
+    justify-content: center;
+    gap: 0.6rem;          /* espace réduit entre liens */
+  }
+
+  nav a {
+    font-size: 0.9rem;    /* texte plus petit */
+    margin: 0 6px;
+  }
+
+  section {
+    padding: 1rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Contact en mobile */
   .contact-container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
+}
+
+/* ===== MENU BURGER ===== */
+.burger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001; /* reste au-dessus */
+}
+
+/* Styles mobiles */
+@media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: #2c2c2c;
+    flex-direction: column;
+    text-align: center;
+    border-bottom: 3px solid #d4af37;
+
+    /* Animation cachée */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  nav a {
+    display: block;
+    margin: 12px 0;
+    font-size: 1.1rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .burger {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  /* Quand actif */
+  nav.active {
+    max-height: 300px; /* espace suffisant pour tout afficher */
+  }
+
+  nav.active a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Icône burger ===== */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.burger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+/* Animation croix */
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Affichage mobile */
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+/* Overlay semi-transparent */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+  z-index: 1000;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
 }

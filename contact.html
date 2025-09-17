@@ -10,6 +10,14 @@
 <body>
   <header>
     <h1>Contact</h1>
+
+    <!-- Bouton burger -->
+    <button class="burger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <nav>
       <a href="index.html">Accueil</a>
       <a href="services.html">Services</a>
@@ -17,6 +25,9 @@
       <a href="contact.html" class="active">Contact</a>
       <a href="blog.html" class="btn" style="margin-left:15px;">Articles ✨</a>
     </nav>
+
+   <div class="overlay"></div>
+
   </header>
 
   <section class="contact">
@@ -79,6 +90,27 @@
       status.innerHTML = "⚠️ Une erreur est survenue. Merci de réessayer.";
     }
   });
+
   </script>
+
+    <script>
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('nav');
+    const overlay = document.querySelector('.overlay');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      nav.classList.toggle('active');
+      overlay.classList.toggle('active'); // active/désactive overlay
+    });
+
+    // Fermer le menu si on clique sur l’overlay
+    overlay.addEventListener('click', () => {
+      burger.classList.remove('active');
+      nav.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+  </script>
+
 </body>
 </html>

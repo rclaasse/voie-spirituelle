@@ -10,6 +10,14 @@
 <body class="blog">
   <header role="banner">
     <h1>Le chemin de la paix 🌿</h1>
+
+    <!-- Bouton burger -->
+    <button class="burger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <nav aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
       <a href="services.html">Services</a>
@@ -17,6 +25,9 @@
       <a href="contact.html">Contact</a>
       <a href="blog.html" class="btn nav-btn active">Articles ✨</a>
     </nav>
+
+  <div class="overlay"></div>
+
   </header>
 
   <main>
@@ -47,6 +58,25 @@
       </nav>
     </section>
   </main>
+  
+    <script>
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('nav');
+    const overlay = document.querySelector('.overlay');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      nav.classList.toggle('active');
+      overlay.classList.toggle('active'); // active/désactive overlay
+    });
+
+    // Fermer le menu si on clique sur l’overlay
+    overlay.addEventListener('click', () => {
+      burger.classList.remove('active');
+      nav.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+  </script>
 
   <footer role="contentinfo">
     © 2025 Maria Cristina Bussani — Tous droits réservés
