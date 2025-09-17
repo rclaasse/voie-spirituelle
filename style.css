@@ -582,3 +582,36 @@ body.blog .article-card p {
   opacity: 1;
   visibility: visible;
 }
+
+/* Icônes sociales centrées dans le footer */
+.social-links {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.social-icon {
+  margin: 0 15px;
+  display: inline-block;
+  color: #d4af37; /* doré */
+  transition: color 0.3s, transform 0.2s;
+}
+
+.social-icon:hover {
+  transform: scale(1.3);
+}
+
+/* Couleurs spécifiques au hover */
+.social-icon.facebook:hover { color: #1877F2; }  /* bleu FB */
+.social-icon.instagram:hover { color: #C13584; } /* rose/violet Insta */
+.social-icon.youtube:hover { color: #FF0000; }   /* rouge YouTube */
+
+/* ----- Responsive : agrandir les icônes sur mobile ----- */
+@media (max-width: 768px) {
+  .social-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+  .social-icon {
+    margin: 0 20px;
+  }
+}
