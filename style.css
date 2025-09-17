@@ -861,3 +861,12 @@ body.blog section > .podcast-card {
   opacity: 1;
   transform: none;
 }
+
+body.podcasts header {
+  background: linear-gradient(135deg, #1e3c72, #2a5298); /* bleu profond */
+  color: #fff;
+}
+
+body.podcasts header h1 {
+  color: #ffd700; /* doré plus vif pour le titre */
+}
