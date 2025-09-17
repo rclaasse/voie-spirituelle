@@ -816,3 +816,48 @@ body.blog .article-card p {
   color: #333;
   margin-bottom: 1.5rem;
 }
+
+/* ----- Podcasts ----- */
+.podcast-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.podcast-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.podcast-card img {
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.podcast-card h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.4rem;
+  color: #4b2e83;
+  margin-bottom: 0.5rem;
+}
+
+.podcast-card p {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.podcast-card audio {
+  width: 100%;
+  margin-top: 0.8rem;
+}
+body.blog section > .podcast-card {
+  opacity: 1;
+  transform: none;
+}
