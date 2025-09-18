@@ -490,6 +490,8 @@ body.blog .article-card p {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease;
+
+    z-index: 1002;
   }
 
   nav a {
@@ -888,3 +890,36 @@ body.podcasts header h1 {
   color: #2c2c2c;
 }
 
+/* ===== Ajustements personnalisés ===== */
+
+/* Cacher Articles et Podcasts dans le menu burger (mobile) */
+@media (max-width: 768px) {
+  nav a[href*="blog"],
+  nav a[href*="podcasts"] {
+    display: none !important;
+  }
+}
+
+/* Supprimer la ligne orange sous le menu mobile */
+@media (max-width: 768px) {
+  nav {
+    border-bottom: none !important;
+  }
+}
+
+/* Taille adaptative des titres dans le header */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.4rem;   /* tablette */
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.2rem;   /* smartphone */
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
+  }
+}
