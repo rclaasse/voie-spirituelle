@@ -1028,3 +1028,133 @@ body.podcasts header h1 {
   box-shadow: 0 0 2px rgba(0,0,0,0.2);
 }
 
+.lab-highlight {
+  background: linear-gradient(120deg, #f5f0fa, #ede7f6);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin: 3rem auto;
+  max-width: 950px;
+  animation: fadeIn 1s ease;
+}
+.lab-highlight h2 {
+  color: #4b2e83;
+  margin-bottom: 1rem;
+  font-family: 'Raleway', sans-serif;
+}
+.lab-highlight p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #3c2c55;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.lab-focus {
+  text-align: center;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  padding: 3rem 2rem;
+  margin: 4rem auto 2rem auto;
+  max-width: 900px;
+}
+.lab-focus h2 {
+  color: #4b2e83;
+  margin-bottom: 1.5rem;
+  font-family: 'Raleway', sans-serif;
+}
+.lab-focus ul {
+  list-style: none;
+  margin: 1.5rem auto 2rem auto;
+  max-width: 700px;
+  text-align: left;
+  line-height: 1.8;
+}
+.lab-focus li::before {
+  content: "✨ ";
+  color: #d4af37;
+}
+.lab-focus a.btn {
+  margin-top: 1rem;
+}
+/* ====== Sections spéciales : Laboratoires ====== */
+
+/* --- Encadré intuitif avant la grille --- */
+.lab-choice {
+  text-align: center;
+  margin: 2rem auto 3rem auto;
+  max-width: 700px;
+  font-size: 1.1rem;
+  color: #4b2e83;
+  font-style: italic;
+  animation: fadeIn 1s ease;
+}
+
+/* --- Texte sous les boutons des cartes --- */
+.mini-invite {
+  text-align: center;
+  color: #5a4a8a;
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+  transition: color 0.3s ease;
+}
+.service-card:hover .mini-invite {
+  color: #d4af37;
+}
+
+/* --- Bloc d'appel à l’action “Vivre l’expérience” --- */
+.call-to-action {
+  background: linear-gradient(135deg, #ede7f6, #f5f0fa);
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  margin: 4rem auto;
+  max-width: 900px;
+  animation: fadeIn 1s ease;
+}
+.call-to-action h2 {
+  color: #4b2e83;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 1rem;
+}
+.call-to-action p {
+  font-size: 1.15rem;
+  color: #3c2c55;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.call-to-action .cta {
+  background: linear-gradient(90deg, #b28dd2, #d4af37);
+  color: #fff;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: 1.05rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.call-to-action .cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* --- Citation finale inspirante --- */
+.closing-quote {
+  text-align: center;
+  font-style: italic;
+  background: #f5f0fa;
+  border-left: 5px solid #d4af37;
+  margin: 3rem auto;
+  padding: 1.5rem;
+  border-radius: 12px;
+  color: #2c2c54;
+  max-width: 800px;
+  line-height: 1.8;
+  animation: fadeIn 1s ease;
+}
+
+/* --- Animation d’apparition douce (déjà utilisée ailleurs) --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

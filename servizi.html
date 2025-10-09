@@ -4,51 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accompagnamento - Voie Spirituelle</title>
-  <meta name="description" content="Scopri i percorsi proposti: guida spirituale, psicoterapia, meditazione guidata e laboratori di crescita personale.">
+  <meta name="description" content="Scopri i laboratori e i percorsi proposti: riflessione, scrittura, arte, simboli e riconnessione con la luce interiore.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Header -->
   <header role="banner">
     <h1>Accompagnamento</h1>
 
-    <!-- Menu burger -->
+    <!-- Bottone burger -->
     <button class="burger" aria-label="Menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <!-- Navigation principale -->
     <nav aria-label="Navigazione principale">
-      <a href="index_it.html">Home</a>
+      <a href="index.html">Home</a>
       <a href="servizi.html" class="active">Servizi</a>
-      <a href="chi_sono.html">Chi sono</a>
-      <a href="contatti.html">Contatti</a>
-      <a href="articoli.html" class="btn">Articoli ✨</a>
-      <a href="podcast_it.html" class="btn">Podcast 🎧</a>
+      <a href="about.html">Chi sono</a>
+      <a href="contact.html">Contatti</a>
+      <a href="blog.html" class="btn">Articoli ✨</a>
+      <a href="podcasts.html" class="btn">Podcast 🎧</a>
     </nav>
-        <!-- ✅ Garde seulement ceci -->
-  <div class="lang-switch">
-  <a href="services.html" title="Version française">
-    <img src="images/fr.png" alt="Français" width="20" height="14"> FR
-  </a>
-  |
-  <a href="servizi.html" title="Versione italiana">
-    <img src="images/it.png" alt="Italiano" width="20" height="14"> IT
-  </a>
-</div>
+
+    <!-- Selettore di lingua -->
+    <div class="lang-switch">
+      <a href="services.html" title="Version française">
+        <img src="images/fr.png" alt="Français" width="20" height="14"> FR
+      </a>
+      |
+      <a href="servizi.html" title="Versione italiana">
+        <img src="images/it.png" alt="Italiano" width="20" height="14"> IT
+      </a>
+    </div>
 
     <div class="overlay"></div>
   </header>
 
+  <!-- Contenuto principale -->
   <main>
+
+    <!-- Introduzione spirituale -->
+    <section class="lab-highlight">
+      <h2>✨ I Laboratori: spazi di esplorazione e trasformazione ✨</h2>
+      <p>
+        Questi laboratori sono <strong>spazi vivi</strong> in cui la parola, l’arte e la presenza diventano cammini di guarigione.  
+        Non sono corsi, ma <em>esperienze interiori</em>: ogni laboratorio invita a riconnettersi con una dimensione di sé — la luce, l’ombra, il legame, il senso, la creazione.  
+        Un luogo dove <strong>la spiritualità diventa esperienza concreta</strong>.
+      </p>
+    </section>
+
+    <!-- Invito intuitivo -->
+    <div class="lab-choice">
+      <h3>Quale laboratorio ti chiama oggi?</h3>
+      <p>🌑 Ombra o luce, 🌺 nascita o parola: ogni cammino rivela una parte di te.  
+      Lasciati attrarre da quello il cui simbolo risuona di più — spesso è il punto di partenza giusto.</p>
+    </div>
+
     <section class="services-section">
       <p class="services-intro" style="text-align:center; max-width:750px; margin:2rem auto; font-size:1.1rem;">
         Cinque percorsi esperienziali per riflettere, creare e riconnettersi con la propria luce interiore.  
         Ogni laboratorio è un invito a esplorare una dimensione diversa della vita, attraverso il simbolo, la parola e la presenza.
       </p>
 
-      <div class="services-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(350px, 1fr)); gap:2.5rem; padding:1.5rem 3%; align-items:start;">
+      <div class="services-grid" 
+           style="display:grid; grid-template-columns:repeat(auto-fit, minmax(350px, 1fr)); gap:2.5rem; padding:1.5rem 3%; align-items:start;">
 
         <!-- LAB 1 -->
         <div class="service-card" style="animation:fadeIn 1s ease;">
@@ -56,52 +77,58 @@
           <h3>L’errore come via alla vita</h3>
           <p class="synthese">
             Scoprire il potere trasformativo dell’errore.  
-            Un cammino junghiano che insegna a guardare l’inciampo come soglia di luce, dove ombra e consapevolezza si incontrano per generare nuova forza creativa.
+            Un cammino junghiano che insegna a guardare la caduta come una soglia di luce, dove ombra e consapevolezza si incontrano per generare nuova forza creativa.
           </p>
           <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=1200&q=80" 
-               alt="Simbolo dell’errore come via di luce" loading="lazy" class="service-image">
+               alt="Simbolo dell’errore come via di luce" 
+               loading="lazy" class="service-image">
           <p>
             Un laboratorio di gruppo per riscoprire il valore dell’errore come passaggio necessario dell’esperienza umana.  
-            Ispirato al pensiero junghiano, questo spazio invita a riflettere sull’inciampo, sull’ombra e sugli ostacoli come porte verso la sintesi e la crescita.  
-            Attraverso scrittura creativa, musica, arte e tecniche analogiche, i partecipanti trasformano ciò che è stato “perduto” in materia viva e creativa.
+            Ispirato al pensiero junghiano, questo spazio invita a riflettere sulla caduta, sull’ombra e sugli ostacoli come porte verso la comprensione e la crescita.  
+            Attraverso scrittura, musica, arte e tecniche analogiche, i partecipanti trasformano ciò che sembrava “perduto” in materia viva e creativa.
           </p>
-          <a href="lab1_it.html" class="btn">Leggi di più</a>
+          <a href="lab1.html" class="btn">Leggi di più</a>
+          <p class="mini-invite">🌸 Vivi questo percorso →</p>
         </div>
 
         <!-- LAB 2 -->
         <div class="service-card" style="animation:fadeIn 1.1s ease;">
           <span class="icon">🕯️</span>
-          <h3>Il mistero del figlio</h3>
+          <h3>Il mistero del bambino</h3>
           <p class="synthese">
-            Un viaggio nel mistero dell’infanzia, per chi accompagna e educa.  
-            Qui il bambino è un’anima da ascoltare, non da correggere — una luce che rivela il senso profondo del nascere e dell’essere.
+            Un viaggio nel cuore del mistero dell’infanzia, per chi accompagna ed educa.  
+            Il bambino è un’anima da ascoltare, non da correggere — una luce che rivela il senso profondo del nascere e dell’essere.
           </p>
           <img src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?auto=format&fit=crop&w=1200&q=80" 
-               alt="Luce e mistero dell’infanzia" loading="lazy" class="service-image">
+               alt="Luce e mistero dell’infanzia" 
+               loading="lazy" class="service-image">
           <p>
-            Un laboratorio dedicato al mistero dell’infanzia, rivolto a genitori, educatori e professionisti del mondo infantile.  
-            Si esplora il bambino non come oggetto da decodificare o correggere, ma come essere portatore di un mistero e di una luce propria.  
-            Attraverso la riflessione transgenerazionale, la scrittura creativa e il disegno, si impara ad accompagnare ogni bambino nel suo filo d’anima, restituendogli una parola di auspicio che onori la sua unicità.
+            Un laboratorio dedicato al mistero dell’infanzia, rivolto a genitori, educatori e professionisti.  
+            Il bambino non è un oggetto da interpretare o correggere, ma una presenza viva, portatrice di mistero e di luce.  
+            Attraverso la riflessione transgenerazionale, la scrittura creativa e il disegno, si impara ad accompagnare ogni bambino lungo il suo filo d’anima, restituendogli una parola di speranza che onori la sua unicità.
           </p>
-          <a href="lab2_it.html" class="btn">Leggi di più</a>
+          <a href="lab2.html" class="btn">Leggi di più</a>
+          <p class="mini-invite">🌸 Vivi questo percorso →</p>
         </div>
 
         <!-- LAB 3 -->
         <div class="service-card" style="animation:fadeIn 1.2s ease;">
           <span class="icon">🌺</span>
-          <h3>Fecondità e maternità: il grembo della vita</h3>
+          <h3>Fecondità e maternità: la culla della vita</h3>
           <p class="synthese">
             Un laboratorio per onorare la maternità come fecondità interiore.  
-            Ogni fase — dal desiderio al distacco — diventa occasione per ritrovare la pienezza del corpo e dello spirito che danno vita.
+            Ogni fase — dal desiderio alla separazione — diventa un’occasione per ritrovare la pienezza del corpo e dello spirito che danno vita.
           </p>
           <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1200&q=80" 
-               alt="Madre e figlio, simbolo di vita" loading="lazy" class="service-image">
+               alt="Madre e figlio, simbolo di vita" 
+               loading="lazy" class="service-image">
           <p>
-            Un laboratorio dedicato a riscoprire la maternità come esperienza di fecondità interiore.  
-            Attraverso riflessioni ispirate al libro <em>Matrescenza</em>, si esplorano le fasi della maternità — dal desiderio al parto, dall’allattamento al distacco — per riconnettersi alla pienezza e alla forza creativa che ogni donna porta in sé.  
-            Aperto a madri, aspiranti madri e donne che non hanno generato biologicamente, questo spazio invita a onorare il grembo come simbolo universale di vita e di trasformazione.
+            Un laboratorio per riscoprire la maternità come esperienza di fecondità interiore.  
+            Attraverso letture, scrittura e dialogo, si esplorano le fasi della maternità — dal desiderio alla nascita, dall’allattamento alla separazione — per riconnettersi alla forza creativa che ogni donna porta in sé.  
+            Aperto a madri, future madri e a chi desidera comprendere il potere del “generare” nella sua dimensione simbolica e spirituale.
           </p>
-          <a href="lab3_it.html" class="btn">Leggi di più</a>
+          <a href="lab3.html" class="btn">Leggi di più</a>
+          <p class="mini-invite">🌸 Vivi questo percorso →</p>
         </div>
 
         <!-- LAB 4 -->
@@ -109,17 +136,19 @@
           <span class="icon">🌱</span>
           <h3>Riconnettersi con il senso</h3>
           <p class="synthese">
-            Ritrovare il nutrimento autentico della vita oltre la performance.  
-            Un percorso di scrittura e riflessione per far germogliare la felicità nel processo, non nel risultato.
+            Ritrovare la sorgente autentica della vita oltre la performance.  
+            Un percorso di scrittura e meditazione per far sbocciare la gioia nel processo, e non nel risultato.
           </p>
           <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" 
-               alt="Sentiero verde, simbolo del senso interiore" loading="lazy" class="service-image">
+               alt="Sentiero verde, simbolo del senso interiore" 
+               loading="lazy" class="service-image">
           <p>
-            Un laboratorio per ritrovare ciò che nella vita nutre davvero, oltre la corsa alla performance e al riconoscimento.  
-            Attraverso scrittura, meditazione, sogni e arte, si esplora la propria storia per scoprire nei fallimenti e negli ostacoli la sorgente vitale del senso.  
-            Un percorso collettivo che invita a radicare la felicità nel processo, non nel risultato — accedendo a quella forza silenziosa che anima il nostro essere qui e ora.
+            Un laboratorio per ritrovare ciò che nella vita nutre davvero, oltre la ricerca della performance o del riconoscimento.  
+            Attraverso scrittura, meditazione, sogni e arte, si esplora la propria storia per scoprire, negli ostacoli e nelle pause, la sorgente viva del senso.  
+            Un cammino collettivo che invita a radicare la felicità nel processo, e a connettersi con quella forza silenziosa che anima il nostro essere qui e ora.
           </p>
-          <a href="lab4_it.html" class="btn">Leggi di più</a>
+          <a href="lab4.html" class="btn">Leggi di più</a>
+          <p class="mini-invite">🌸 Vivi questo percorso →</p>
         </div>
 
         <!-- LAB 5 -->
@@ -131,41 +160,82 @@
             Qui nasce il “curriculum dell’anima”, dove esperienze e desideri trovano la loro armonia.
           </p>
           <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80" 
-               alt="Luce e scrittura, simbolo del potenziale" loading="lazy" class="service-image">
+               alt="Luce e scrittura, simbolo del potenziale" 
+               loading="lazy" class="service-image">
           <p>
-            Un laboratorio dedicato a costruire il proprio “curriculum dell’anima”, una narrazione autentica delle proprie esperienze e talenti.  
-            Lontano dagli schemi rigidi e standardizzati, questo percorso aiuta a riconoscere il proprio potenziale unico e a tradurlo in parole che risuonano.  
-            Un invito a creare un “perfect fit” interiore, dove competenze, desideri e senso personale trovano finalmente armonia.
+            Un laboratorio dedicato alla narrazione di sé e alla scoperta del proprio potenziale.  
+            Lontano da schemi rigidi e standardizzati, aiuta a riconoscere la propria unicità e a darle voce.  
+            Scrittura e introspezione diventano strumenti per costruire un “curriculum dell’anima” dove competenze, desideri e senso personale trovano armonia.
           </p>
-          <a href="lab5_it.html" class="btn">Leggi di più</a>
+          <a href="lab5.html" class="btn">Leggi di più</a>
+          <p class="mini-invite">🌸 Vivi questo percorso →</p>
         </div>
 
       </div>
     </section>
+
+    <!-- Blocco motivazionale -->
+    <section class="call-to-action">
+      <h2>✨ Vivi l’esperienza ✨</h2>
+      <p>
+        I laboratori non si leggono, si vivono.  
+        Ogni incontro è una porta aperta su di sé, un momento sospeso in cui la parola diventa luce.  
+        Scegli quello che risuona con il tuo cammino interiore — oppure lasciati guidare per trovare quello che ti chiama.
+      </p>
+      <a href="contact.html" class="btn cta">Desidero partecipare 🌿</a>
+    </section>
+
+    <!-- Citazione finale -->
+    <blockquote class="closing-quote">
+      “Ciò che esplori in te, illumina il mondo.”  
+      <br><em>— Maria Cristina Bussani</em>
+    </blockquote>
+
   </main>
 
-  <!-- Boutons flottants -->
-  <a href="articoli.html" class="btn" id="floating-blog">Articoli ✨</a>
-  <a href="podcast_it.html" class="btn" id="floating-podcasts">Podcast 🎧</a>
+  <!-- Pulsanti flottanti -->
+  <a href="blog.html" class="btn" id="floating-blog">Articoli ✨</a>
+  <a href="podcasts.html" class="btn" id="floating-podcasts">Podcast 🎧</a>
 
-  <footer>
-    © 2025 Maria Cristina Bussani — Tutti i diritti riservati
-  </footer>
-
+  <!-- Script burger -->
   <script>
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('nav');
     const overlay = document.querySelector('.overlay');
+
     burger.addEventListener('click', () => {
       burger.classList.toggle('active');
       nav.classList.toggle('active');
       overlay.classList.toggle('active');
     });
+
     overlay.addEventListener('click', () => {
       burger.classList.remove('active');
       nav.classList.remove('active');
       overlay.classList.remove('active');
     });
   </script>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Maria Cristina Bussani — Tutti i diritti riservati  
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=61558747770364" target="_blank" class="social-icon facebook" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.2 3-3.2.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/ta-page" target="_blank" class="social-icon instagram" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.9a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/>
+        </svg>
+      </a>
+      <a href="https://www.youtube.com/ta-page" target="_blank" class="social-icon youtube" aria-label="YouTube">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M10 15l5.2-3L10 9v6zm12-3c0-2.5-.2-4.2-.5-5-.3-.8-.8-1.3-1.6-1.6C18.2 5 12 5 12 5s-6.2 0-7.9.4c-.8.3-1.3.8-1.6 1.6C2.2 7.8 2 9.5 2 12s.2 4.2.5 5c.3.8.8 1.3 1.6 1.6C5.8 19 12 19 12 19s6.2 0 7.9-.4c.8-.3 1.3-.8 1.6-1.6.3-.8.5-2.5.5-5z"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
 </body>
 </html>
