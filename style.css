@@ -329,8 +329,8 @@ body.blog section > article img {
 
 /* --- Texte d'introduction des services (version agrandie et poétique) --- */
 .services-intro {
-  font-family: "Merriweather", serif; /* ou "Raleway", selon ton goût */
-  font-size: 1.7rem;             /* ← taille agrandie */
+  font-family: "Merriweather", serif;
+  font-size: 1.7rem;
   line-height: 2;
   color: #3c2c55;
   text-align: center;
@@ -339,7 +339,8 @@ body.blog section > article img {
   padding: 0 1.5rem;
   font-weight: 400;
   background: linear-gradient(90deg, #a981d7, #decaf3);
-  -webkit-background-clip: text;
+  background-clip: text;          /* ✅ version standard */
+  -webkit-background-clip: text;  /* ✅ version WebKit */
   -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 10px rgba(180, 160, 220, 0.25);
   animation: fadeInText 2s ease;
@@ -968,3 +969,62 @@ body.podcasts header h1 {
     margin-bottom: 0.2rem;
   }
 }
+
+/* ===== Sélecteur de langue ===== */
+.lang-switch {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 0.95rem;
+  color: #fdf6e3;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 6px 14px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+  z-index: 1002;
+  transition: background 0.3s ease;
+  letter-spacing: 0.8px;
+}
+
+.lang-switch a {
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 8px;
+}
+
+.lang-switch a:hover {
+  color: #fff;
+}
+
+.lang-switch:hover {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* 🚫 Empêche les doublons automatiques de "FR" et "IT" */
+.lang-switch a::before,
+.lang-switch a::after {
+  content: none !important;
+}
+
+/* Responsive : replacer sous le menu sur mobile */
+@media (max-width: 768px) {
+  .lang-switch {
+    position: static;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    background: none;
+  }
+  .lang-switch a {
+    margin: 0 10px;
+  }
+}
+
+.lang-switch img {
+  vertical-align: middle;
+  border-radius: 3px;
+  margin: 0 4px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+

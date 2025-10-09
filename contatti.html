@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contatti - Voie Spirituelle</title>
+  <meta name="description" content="Contatta Maria Cristina Bussani per informazioni, appuntamenti o incontri di accompagnamento spirituale.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Contatti</h1>
+
+    <!-- Bouton burger -->
+    <button class="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- Navigation principale -->
+    <nav aria-label="Navigazione principale">
+      <a href="index_it.html">Home</a>
+      <a href="servizi.html">Servizi</a>
+      <a href="chi_sono.html">Chi sono</a>
+      <a href="contatti.html" class="active">Contatti</a>
+      <a href="articoli.html" class="btn">Articoli ✨</a>
+      <a href="podcast_it.html" class="btn">Podcast 🎧</a>
+    </nav>
+    <!-- ✅ Garde seulement ceci -->
+  <div class="lang-switch">
+  <a href="contact.html" title="Version française">
+    <img src="images/fr.png" alt="Français" width="20" height="14"> FR
+  </a>
+  |
+  <a href="contatti.html" title="Versione italiana">
+    <img src="images/it.png" alt="Italiano" width="20" height="14"> IT
+  </a>
+</div>
+
+    <div class="overlay"></div>
+  </header>
+
+  <section class="contact">
+    <div class="contact-container">
+      <!-- Bloc gauche -->
+      <div class="contact-info">
+        <h2>Scrivimi</h2>
+        <p>
+          Sarò felice di rispondere alle tue domande o di fissare un incontro.  
+          Compila semplicemente il modulo qui sotto 🌸
+        </p>
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80" 
+             alt="Candela e fiore di loto, atmosfera spirituale" loading="lazy">
+      </div>
+
+      <!-- Formulaire -->
+      <form class="contact-form" action="https://formspree.io/f/xnnbkbdk" method="POST">
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="_replyto" placeholder="tua@email.com" required>
+
+        <label for="message">Messaggio</label>
+        <textarea id="message" name="message" rows="6" placeholder="Scrivi il tuo messaggio..." required></textarea>
+
+        <button type="submit" class="btn">Invia ✉️</button>
+
+        <p id="form-status" style="margin-top:1rem; color:#4b2e83; font-weight:bold;"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Boutons flottants -->
+  <a href="articoli.html" class="btn" id="floating-blog">Articoli ✨</a>
+  <a href="podcast_it.html" class="btn" id="floating-podcasts">Podcast 🎧</a>
+
+  <footer>
+    © 2025 Maria Cristina Bussani — Tutti i diritti riservati
+  </footer>
+
+  <!-- Script formulaire -->
+  <script>
+  const form = document.querySelector(".contact-form");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      status.innerHTML = "🙏 Grazie, il tuo messaggio è stato inviato con successo!";
+      form.reset();
+    } else {
+      status.innerHTML = "⚠️ Si è verificato un errore. Riprova più tardi.";
+    }
+  });
+  </script>
+
+  <!-- Script burger -->
+  <script>
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('nav');
+    const overlay = document.querySelector('.overlay');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      nav.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+    overlay.addEventListener('click', () => {
+      burger.classList.remove('active');
+      nav.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+  </script>
+</body>
+</html>

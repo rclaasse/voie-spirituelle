@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi sono - Voie Spirituelle</title>
+  <meta name="description" content="Scopri il percorso umano e professionale di Maria Cristina Bussani: psicoterapia, spiritualità e ricerca interiore.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Chi sono</h1>
+
+    <!-- Bouton burger -->
+    <button class="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav aria-label="Navigazione principale">
+      <a href="index_it.html">Home</a>
+      <a href="servizi.html">Servizi</a>
+      <a href="chi_sono.html" class="active">Chi sono</a>
+      <a href="contatti.html">Contatti</a>
+      <a href="articoli.html" class="btn">Articoli ✨</a>
+      <a href="podcast_it.html" class="btn">Podcast 🎧</a>
+    </nav>
+    <!-- ✅ Garde seulement ceci -->
+  <div class="lang-switch">
+  <a href="about.html" title="Version française">
+    <img src="images/fr.png" alt="Français" width="20" height="14"> FR
+  </a>
+  |
+  <a href="chi_sono.html" title="Versione italiana">
+    <img src="images/it.png" alt="Italiano" width="20" height="14"> IT
+  </a>
+</div>
+
+    <div class="overlay"></div>
+  </header>
+
+  <main>
+    <!-- Introduction -->
+    <section class="intro-about">
+      <img src="images/mcr.jpg" alt="Maria Cristina Bussani" class="portrait" loading="lazy">
+      <div>
+        <h2>Un cammino di ascolto e di luce</h2>
+        <p>
+          La mia formazione unisce psicologia, spiritualità e linguaggio simbolico.  
+          Attraverso l’incontro con le persone, accompagno il processo di riconnessione con la propria verità interiore.  
+          Credo che ogni storia, anche la più fragile, custodisca una possibilità di rinascita.
+        </p>
+        <p>
+          Mi ispira la prospettiva junghiana e la psicologia simbolica, dove sogno, arte e parola diventano strumenti di guarigione.
+        </p>
+      </div>
+    </section>
+
+    <!-- Biografia -->
+    <section class="bio-section">
+      <h2>Formazione e percorso</h2>
+      <p>
+        Laureata in Economia e successivamente in Psicologia, ho intrapreso un percorso di specializzazione in psicoterapia ad orientamento analitico.  
+        Ho approfondito gli studi sui processi simbolici, la spiritualità e il rapporto tra anima e mondo contemporaneo.
+      </p>
+      <p>
+        Il mio lavoro integra l’ascolto clinico con un approccio poetico alla vita, ponendo al centro la relazione come spazio di trasformazione.
+      </p>
+    </section>
+
+    <!-- Workshops -->
+    <section class="workshops">
+      <h2>Laboratori e incontri</h2>
+      <ul>
+        <li data-icon="🌑">L’errore come via alla vita — percorsi di scrittura e riflessione junghiana.</li>
+        <li data-icon="🕯️">Il mistero del figlio — accompagnamento genitoriale e simbolico.</li>
+        <li data-icon="🌺">Fecondità e maternità — riscoperta della forza creativa del grembo.</li>
+        <li data-icon="🌱">Riconnettersi con il senso — scrittura meditativa e sogno.</li>
+        <li data-icon="🌟">Narrazione del potenziale — creare il proprio “curriculum dell’anima”.</li>
+      </ul>
+    </section>
+
+    <!-- Thèses et recherche -->
+    <section class="theses">
+      <h2>Ricerche e scritti</h2>
+      <ul>
+        <li data-icon="📘">Tesi di laurea in psicologia sul simbolo come via di trasformazione psichica.</li>
+        <li data-icon="📙">Progetto di ricerca sulla fragilità come risorsa relazionale.</li>
+        <li data-icon="📗">Studio sul linguaggio del sogno e la sua funzione terapeutica.</li>
+      </ul>
+    </section>
+
+    <!-- CV -->
+    <section class="cv">
+      <h2>Esperienze professionali</h2>
+      <ul>
+        <li data-icon="🏫">Collaborazione con istituti scolastici e associazioni educative.</li>
+        <li data-icon="🏥">Attività clinica e di sostegno psicologico per adulti e adolescenti.</li>
+        <li data-icon="🕊️">Creazione di percorsi di crescita spirituale e simbolica per gruppi.</li>
+      </ul>
+      <a href="#" class="btn">Scarica il CV</a>
+    </section>
+  </main>
+
+  <!-- Boutons flottants -->
+  <a href="articoli.html" class="btn" id="floating-blog">Articoli ✨</a>
+  <a href="podcast_it.html" class="btn" id="floating-podcasts">Podcast 🎧</a>
+
+  <footer>
+    © 2025 Maria Cristina Bussani — Tutti i diritti riservati
+  </footer>
+
+  <script>
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('nav');
+    const overlay = document.querySelector('.overlay');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      nav.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+    overlay.addEventListener('click', () => {
+      burger.classList.remove('active');
+      nav.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+  </script>
+</body>
+</html>

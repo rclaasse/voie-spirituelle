@@ -1,75 +1,77 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Podcasts - Voie Spirituelle</title>
-  <meta name="description" content="Écoutez les podcasts de Maria Cristina Bussani sur la spiritualité, la méditation et la guérison intérieure.">
+  <title>Il cammino della pace 🌿 - Voie Spirituelle</title>
+  <meta name="description" content="Scopri come coltivare la pace interiore attraverso l’ascolto, la meditazione e la benevolenza.">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="podcasts">
-  <!-- Header -->
+<body class="blog">
   <header role="banner">
-    <h1>🎧 Podcasts & Méditations Guidées</h1>
+    <h1>Il cammino della pace 🌿</h1>
 
-    <!-- Bouton burger -->
+    <!-- Bottone burger -->
     <button class="burger" aria-label="Menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <nav aria-label="Navigation principale">
-      <a href="index.html">Accueil</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">À propos</a>
-      <a href="contact.html">Contact</a>
-      <a href="blog.html" class="btn">Articles 📖</a>
+    <!-- Navigazione principale -->
+    <nav aria-label="Navigazione principale">
+      <a href="index_it.html">Home</a>
+      <a href="servizi.html">Servizi</a>
+      <a href="chi_sono.html">Chi sono</a>
+      <a href="contatti.html">Contatti</a>
+      <a href="articoli.html" class="btn active">Articoli ✨</a>
+      <a href="podcast_it.html" class="btn">Podcast 🎧</a>
     </nav>
     <!-- ✅ Garde seulement ceci -->
   <div class="lang-switch">
-  <a href="podcasts.html" title="Version française">
+  <a href="article2.html" title="Version française">
     <img src="images/fr.png" alt="Français" width="20" height="14"> FR
   </a>
   |
-  <a href="podcast_it.html" title="Versione italiana">
+  <a href="articolo2_it.html" title="Versione italiana">
     <img src="images/it.png" alt="Italiano" width="20" height="14"> IT
   </a>
 </div>
+
     <div class="overlay"></div>
   </header>
 
-  <!-- Contenu principal -->
   <main>
-    <section aria-labelledby="derniers-podcasts">
-      <h2 id="derniers-podcasts">Derniers podcasts</h2>
+    <!-- Scheda articolo -->
+    <section class="article-card">
+      <span class="post-date"><em>Pubblicato il 10 settembre 2025</em></span>
 
-      <!-- Podcast 1 -->
-      <article class="podcast-card">
-        <img src="images\podcast1.jpg" 
-             alt="Méditation guidée lumière intérieure" 
-             loading="lazy">
-        <h3><a href="podcast1.html">Méditation guidée : Retrouver sa lumière intérieure ✨</a></h3>
-        <p><em>Publié le 15 septembre 2025</em></p>
-        <p>Un voyage méditatif pour se reconnecter à soi-même et cultiver la paix intérieure.</p>
-        <a href="podcast1.html" class="btn">Écouter</a>
-      </article>
+      <img 
+        src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80" 
+        alt="Sentiero tranquillo che conduce alla pace interiore" 
+        loading="lazy" 
+        referrerpolicy="no-referrer">
 
-      <!-- Podcast 2 -->
-      <article class="podcast-card">
-        <img src=images\podcast2.jpg 
-             alt="Main posée sur le cœur, écoute intérieure" 
-             loading="lazy">
-        <h3><a href="podcast2.html">Écouter ton cœur ❤️</a></h3>
-        <p><em>Publié le 20 septembre 2025</em></p>
-        <p>Une pratique de pleine conscience pour tendre l’oreille à la voix subtile de ton cœur.</p>
-        <a href="podcast2.html" class="btn">Écouter</a>
-      </article>
+      <h2 id="titolo-articolo">Avanzare passo dopo passo verso la pace interiore</h2>
+      <p>
+        La pace interiore si costruisce un passo alla volta, attraverso l’ascolto,
+        la meditazione e la presenza a sé stessi.
+      </p>
+      <p>
+        Coltivando la benevolenza impariamo a calmare la mente e
+        a riconnetterci con l’essenziale.
+      </p>
 
+      <!-- Navigazione articoli -->
+      <nav class="post-nav">
+        <a href="articolo1_it.html" class="btn">← Articolo precedente</a>
+        <a href="articoli.html" class="btn">Torna agli articoli</a>
+        <a href="articolo3_it.html" class="btn">Articolo successivo →</a>
+      </nav>
     </section>
   </main>
 
-  <!-- Script burger -->
+  <!-- Script menu burger -->
   <script>
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('nav');
@@ -87,31 +89,25 @@
       overlay.classList.remove('active');
     });
   </script>
-  <!-- Bouton flottant -->
-   <a href="blog.html" class="btn" id="floating-blog">Articles ✨</a>
 
   <!-- Footer -->
   <footer>
-    © 2025 Maria Cristina Bussani — Tous droits réservés  
+    © 2025 Maria Cristina Bussani — Tutti i diritti riservati  
 
-    <!-- Icônes réseaux sociaux -->
     <div class="social-links">
       <a href="https://www.facebook.com/profile.php?id=61558747770364" target="_blank" class="social-icon facebook" aria-label="Facebook">
-        <!-- Icône Facebook -->
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
           <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.2 3-3.2.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12z"/>
         </svg>
       </a>
 
       <a href="https://www.instagram.com/ta-page" target="_blank" class="social-icon instagram" aria-label="Instagram">
-        <!-- Icône Instagram -->
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
           <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.9a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/>
         </svg>
       </a>
 
       <a href="https://www.youtube.com/ta-page" target="_blank" class="social-icon youtube" aria-label="YouTube">
-        <!-- Icône YouTube -->
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
           <path d="M10 15l5.2-3L10 9v6zm12-3c0-2.5-.2-4.2-.5-5-.3-.8-.8-1.3-1.6-1.6C18.2 5 12 5 12 5s-6.2 0-7.9.4c-.8.3-1.3.8-1.6 1.6C2.2 7.8 2 9.5 2 12s.2 4.2.5 5c.3.8.8 1.3 1.6 1.6C5.8 19 12 19 12 19s6.2 0 7.9-.4c.8-.3 1.3-.8 1.6-1.6.3-.8.5-2.5.5-5z"/>
         </svg>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articoli - Voie Spirituelle</title>
+  <meta name="description" content="Leggi gli articoli di Maria Cristina Bussani sulla luce interiore, la pace e la guida spirituale.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="blog">
+  <!-- Header -->
+  <header role="banner">
+    <h1>📖 Articoli e riflessioni</h1>
+
+    <!-- Bouton burger -->
+    <button class="burger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Navigazione -->
+    <nav aria-label="Navigazione principale">
+      <a href="index_it.html">Home</a>
+      <a href="servizi.html">Servizi</a>
+      <a href="chi_sono.html">Chi sono</a>
+      <a href="contatti.html">Contatti</a>
+      <a href="podcast_it.html" class="btn">Podcast 🎧</a>
+    </nav>
+    <!-- ✅ Garde seulement ceci -->
+  <div class="lang-switch">
+  <a href="blog.html" title="Version française">
+    <img src="images/fr.png" alt="Français" width="20" height="14"> FR
+  </a>
+  |
+  <a href="articoli.html" title="Versione italiana">
+    <img src="images/it.png" alt="Italiano" width="20" height="14"> IT
+  </a>
+</div>
+
+    <div class="overlay"></div>
+  </header>
+
+  <!-- Contenuto principale -->
+  <main>
+    <section aria-labelledby="ultimi-articoli">
+      <h2 id="ultimi-articoli">Ultimi articoli</h2>
+
+      <!-- Articolo 1 -->
+      <article>
+        <img 
+          src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?auto=format&fit=crop&w=1200&q=80" 
+          alt="Candela e luce spirituale in un’atmosfera meditativa" 
+          loading="lazy"
+          referrerpolicy="no-referrer">
+        <h3><a href="articolo1_it.html">La luce interiore ✨</a></h3>
+        <p><em>Pubblicato il 15 settembre 2025</em></p>
+        <p>
+          Ogni essere umano porta in sé una scintilla di luce, spesso nascosta sotto i veli del dubbio...
+        </p>
+        <a href="articolo1_it.html" class="btn">Leggi l’articolo</a>
+      </article>
+
+      <!-- Articolo 2 -->
+      <article>
+        <img 
+          src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80" 
+          alt="Sentiero che conduce alla pace interiore" 
+          loading="lazy" 
+          referrerpolicy="no-referrer">
+        <h3><a href="articolo2_it.html">Il cammino della pace 🌿</a></h3>
+        <p><em>Pubblicato il 10 settembre 2025</em></p>
+        <p>
+          La pace interiore si costruisce passo dopo passo, attraverso l’ascolto, la meditazione e la presenza a sé stessi...
+        </p>
+        <a href="articolo2_it.html" class="btn">Leggi l’articolo</a>
+      </article>
+
+      <!-- Articolo 3 -->
+      <article>
+        <img 
+          src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80" 
+          alt="Fiore di loto che galleggia sull’acqua calma" 
+          loading="lazy" 
+          referrerpolicy="no-referrer">
+        <h3><a href="articolo3_it.html">Il loto sacro 🌸</a></h3>
+        <p><em>Pubblicato il 1º settembre 2025</em></p>
+        <p>
+          Il loto, simbolo di purezza e trasformazione, ci insegna che la bellezza può nascere anche dal fango...
+        </p>
+        <a href="articolo3_it.html" class="btn">Leggi l’articolo</a>
+      </article>
+
+      <!-- Articolo 4 -->
+      <article>
+        <img src="images/gioele_and_maja.jpg" 
+             alt="Momento di famiglia in cerchio" 
+             loading="lazy" 
+             style="max-width:95%;border-radius:12px;margin:1.5rem auto;display:block;box-shadow:0 6px 14px rgba(0,0,0,0.2);">
+        <h3><a href="articolo4_it.html">Una giornata piena di significato ✨</a></h3>
+        <p><em>Pubblicato il 29 aprile 2024</em></p>
+        <p>
+          Una storia personale di famiglia, connessione e memoria — come un momento d’amore e unità 
+          è diventato eterno nel cuore. 🌅
+        </p>
+        <a href="articolo4_it.html" class="btn">Leggi l’articolo</a>
+      </article>
+    </section>
+  </main>
+
+  <!-- Script effetto apparizione -->
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const articles = document.querySelectorAll("body.blog section > article");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    articles.forEach((article) => observer.observe(article));
+  });
+  </script>
+
+  <!-- Script burger -->
+  <script>
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('nav');
+    const overlay = document.querySelector('.overlay');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      nav.classList.toggle('active');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      burger.classList.remove('active');
+      nav.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+  </script>
+  
+  <!-- Bottone flottante -->
+  <a href="podcast_it.html" class="btn" id="floating-podcasts">Podcast 🎧</a>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Maria Cristina Bussani — Tutti i diritti riservati  
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=61558747770364" target="_blank" class="social-icon facebook" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.2 3-3.2.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12z"/>
+        </svg>
+      </a>
+
+      <a href="https://www.instagram.com/ta-page" target="_blank" class="social-icon instagram" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.9a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/>
+        </svg>
+      </a>
+
+      <a href="https://www.youtube.com/ta-page" target="_blank" class="social-icon youtube" aria-label="YouTube">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M10 15l5.2-3L10 9v6zm12-3c0-2.5-.2-4.2-.5-5-.3-.8-.8-1.3-1.6-1.6C18.2 5 12 5 12 5s-6.2 0-7.9.4c-.8.3-1.3.8-1.6 1.6C2.2 7.8 2 9.5 2 12s.2 4.2.5 5c.3.8.8 1.3 1.6 1.6C5.8 19 12 19 12 19s6.2 0 7.9-.4c.8-.3 1.3-.8 1.6-1.6.3-.8.5-2.5.5-5z"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
