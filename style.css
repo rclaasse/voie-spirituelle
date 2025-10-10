@@ -1158,3 +1158,343 @@ body.podcasts header h1 {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ================================================
+   🌿 STYLE MOBILE — version allégée et fluide
+   S'applique uniquement sur écrans ≤ 768px
+   ================================================ */
+@media (max-width: 768px) {
+
+  /* --- Corps du texte : plus clair, plus lisible --- */
+  body {
+    font-size: 1rem;             /* un peu plus grand pour le confort visuel */
+    line-height: 1.8;
+    padding: 0;
+    background: #fefbf7;         /* fond légèrement plus clair */
+  }
+
+  h1, h2, h3 {
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    color: #4b2e83;
+  }
+
+  p {
+    font-size: 1.05rem;
+    text-align: justify;
+    margin-bottom: 1rem;
+  }
+
+  /* --- Espacement des sections --- */
+  section {
+    padding: 1.2rem;
+    margin: 1.5rem auto;
+    border-radius: 12px;
+  }
+
+  /* --- Boutons et appels à l’action --- */
+  .btn, .cta, .mini-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    padding: 14px 22px;
+    border-radius: 30px;
+    margin: 1rem auto;
+    background: linear-gradient(90deg, #a981d7, #d4af37);
+    color: #fff !important;
+    text-decoration: none;
+  }
+
+  .btn:hover, .cta:hover {
+    background: linear-gradient(90deg, #d4af37, #a981d7);
+    transform: scale(1.04);
+  }
+
+  /* --- Cartes de service / laboratoires --- */
+  .service-card {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .service-card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .service-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* --- Section de mise en valeur (lab-highlight / call-to-action) --- */
+  .lab-highlight,
+  .call-to-action {
+    padding: 2rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .lab-highlight h2,
+  .call-to-action h2 {
+    font-size: 1.3rem;
+  }
+
+  .lab-highlight p,
+  .call-to-action p {
+    font-size: 1rem;
+  }
+
+  /* --- Citations --- */
+  .closing-quote {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 1rem;
+    margin: 2rem 0;
+  }
+
+  /* --- Navigation & header --- */
+  header {
+    padding: 1.2rem 0.8rem;
+  }
+
+  header h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    display: block;
+  }
+
+  /* --- Widgets et intégrations (vidéos, iframes, etc.) --- */
+  iframe, .widget {
+    width: 100% !important;
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 1rem auto;
+    display: block;
+  }
+
+  /* --- Footer --- */
+  footer {
+    padding: 1.5rem 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .social-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* --- Ajustements lang-switch (sélecteur de langue) --- */
+  .lang-switch {
+    position: static;
+    display: block;
+    text-align: center;
+    margin: 0.8rem auto;
+    background: none;
+  }
+
+  .lang-switch a {
+    margin: 0 10px;
+    font-size: 0.95rem;
+  }
+
+  /* --- Espacement du menu burger --- */
+  .burger {
+    top: 14px;
+    right: 16px;
+  }
+}
+
+/* ================================================
+   🌾 STYLE TABLETTE — pour écrans entre 769px et 1024px
+   Adoucit la mise en page sans la déformer
+   ================================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  /* --- Corps du texte --- */
+  body {
+    font-size: 1rem;
+    line-height: 1.7;
+    background: #fcfaf7;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 1.05rem;
+  }
+
+  /* --- Sections principales --- */
+  section {
+    max-width: 95%;
+    margin: 2rem auto;
+    padding: 1.8rem;
+    border-radius: 14px;
+  }
+
+  /* --- Grille de services / laboratoires --- */
+  .services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .service-card {
+    padding: 2rem 1.2rem;
+    text-align: left;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .service-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .service-card p {
+    font-size: 1rem;
+  }
+
+  /* --- Boutons et CTA --- */
+  .btn, .cta {
+    font-size: 1rem;
+    padding: 12px 26px;
+    border-radius: 26px;
+  }
+
+  .btn:hover, .cta:hover {
+    transform: scale(1.04);
+  }
+
+  /* --- Texte sous les boutons (mini-invite) --- */
+  .mini-invite {
+    font-size: 0.95rem;
+  }
+
+  /* --- Encadrés de mise en avant --- */
+  .lab-highlight, .call-to-action {
+    padding: 2.5rem 1.5rem;
+    max-width: 90%;
+  }
+
+  .lab-highlight h2, .call-to-action h2 {
+    font-size: 1.5rem;
+  }
+
+  .lab-highlight p, .call-to-action p {
+    font-size: 1.05rem;
+  }
+
+  /* --- Citation finale --- */
+  .closing-quote {
+    max-width: 90%;
+    font-size: 1rem;
+    line-height: 1.7;
+    padding: 1.3rem 1.5rem;
+  }
+
+  /* --- Navigation --- */
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+    margin: 0 10px;
+  }
+
+  /* --- Widgets et vidéos intégrées --- */
+  iframe, .widget {
+    width: 100%;
+    max-width: 95%;
+    border-radius: 14px;
+    margin: 1rem auto;
+    display: block;
+  }
+
+  /* --- Footer --- */
+  footer {
+    font-size: 0.95rem;
+    padding: 1.8rem;
+  }
+
+  .social-icon svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* --- Sélecteur de langue --- */
+  .lang-switch {
+    top: 20px;
+    right: 30px;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+}
+
+
+/* ================================================
+   📱 Version mobile — Boutons flottants plus petits
+   ================================================ */
+@media (max-width: 768px) {
+
+  /* Boutons flottants : alignés à gauche */
+  #floating-blog,
+  #floating-podcasts {
+    left: 16px;              /* passe du côté gauche */
+    right: auto;             /* supprime la position droite */
+    border-radius: 25px;
+    font-size: 0.85rem;      /* plus petit */
+    padding: 8px 14px;       /* plus compact */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  }
+
+  /* Ajuste la position verticale pour éviter la superposition */
+  #floating-blog {
+    bottom: 70px;  /* un peu au-dessus du podcast */
+  }
+
+  #floating-podcasts {
+    bottom: 20px;  /* plus bas */
+  }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+#floating-blog,
+#floating-podcasts {
+  animation: float 4s ease-in-out infinite;
+}
+
+
