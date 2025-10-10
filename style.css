@@ -1528,3 +1528,44 @@ body.podcasts header h1 {
     color: #fff !important;
   }
 }
+/* ================================================
+   📱 MENU MOBILE — Liens en colonne centrée
+   ================================================ */
+@media (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: column;       /* disposition en colonne */
+    align-items: center;          /* centrage horizontal */
+    justify-content: center;      /* centrage vertical */
+    background: #2c2c2c;
+    padding: 1.5rem 0;
+    gap: 1rem;                    /* espace vertical entre les liens */
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* ligne subtile entre les liens */
+    transition: color 0.3s ease, background 0.3s ease;
+  }
+
+  nav a:last-child {
+    border-bottom: none; /* pas de ligne sur le dernier lien */
+  }
+
+  nav a:hover {
+    background: rgba(255,255,255,0.1);
+    color: #d4af37;
+  }
+
+  /* pour éviter que les boutons "Articles" et "Podcasts" apparaissent ici */
+  nav a.btn {
+    display: none !important;
+  }
+}
