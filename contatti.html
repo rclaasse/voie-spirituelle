@@ -1,120 +1,162 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contatti - Voie Spirituelle</title>
-  <meta name="description" content="Contatta Maria Cristina Bussani per informazioni, appuntamenti o incontri di accompagnamento spirituale.">
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Contatta Maria Cristina Bussani per informazioni, appuntamenti o percorsi di accompagnamento spirituale.">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <!-- ===== HEADER ===== -->
   <header>
     <h1>Contatti</h1>
 
-    <!-- Bouton burger -->
+    <!-- Bottone menu -->
     <button class="burger" aria-label="Menu">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
 
-    <!-- Navigation principale -->
-    <nav aria-label="Navigazione principale">
+    <!-- Navigazione -->
+    <nav>
       <a href="index_it.html">Home</a>
-      <a href="servizi.html">Servizi</a>
       <a href="chi_sono.html">Chi sono</a>
       <a href="contatti.html" class="active">Contatti</a>
-      <a href="articoli.html" class="btn">Articoli ✨</a>
-      <a href="podcast_it.html" class="btn">Podcast 🎧</a>
+      <a href="servizi.html" class="btn nav-btn">Servizi 💫</a>
+      <a href="articoli.html" class="btn nav-btn">Articoli ✨</a>
+      <a href="podcast_it.html" class="btn nav-btn">Podcast 🎧</a>
     </nav>
-    <!-- ✅ Garde seulement ceci -->
-  <div class="lang-switch">
-  <a href="contact.html" title="Version française">
-    <img src="images/fr.png" alt="Français" width="20" height="14"> FR
-  </a>
-  |
-  <a href="contatti.html" title="Versione italiana">
-    <img src="images/it.png" alt="Italiano" width="20" height="14"> IT
-  </a>
-</div>
+
+    <!-- Selettore lingua -->
+    <div class="lang-switch">
+      <a href="contact.html" title="Version française">
+        <img src="images/fr.png" alt="Français" width="20" height="14"> FR
+      </a>
+      |
+      <a href="contatti.html" title="Versione italiana">
+        <img src="images/it.png" alt="Italiano" width="20" height="14"> IT
+      </a>
+    </div>
 
     <div class="overlay"></div>
   </header>
 
-  <section class="contact">
-    <div class="contact-container">
-      <!-- Bloc gauche -->
-      <div class="contact-info">
-        <h2>Scrivimi</h2>
-        <p>
-          Sarò felice di rispondere alle tue domande o di fissare un incontro.  
-          Compila semplicemente il modulo qui sotto 🌸
-        </p>
-        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80" 
-             alt="Candela e fiore di loto, atmosfera spirituale" loading="lazy">
+  <!-- ===== CONTENUTO PRINCIPALE ===== -->
+  <main>
+    <section class="contact">
+      <div class="contact-container">
+        <!-- Blocco sinistro -->
+        <div class="contact-info">
+          <h2>Mettiti in contatto</h2>
+          <p>
+            Sarò lieta di rispondere alle tue domande o di fissare un appuntamento.  
+            Compila semplicemente il modulo qui sotto 🌿
+          </p>
+          <img 
+            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80" 
+            alt="Candela e fiore di loto - atmosfera spirituale" 
+            loading="lazy"
+          >
+        </div>
+
+        <!-- Blocco destro: modulo -->
+        <form class="contact-form" action="https://formspree.io/f/xnnbkbdk" method="POST">
+          <label for="name">Nome e cognome</label>
+          <input type="text" id="name" name="name" placeholder="Il tuo nome completo" required>
+
+          <label for="email">Indirizzo e-mail</label>
+          <input type="email" id="email" name="_replyto" placeholder="esempio@email.com" required>
+
+          <label for="subject">Oggetto</label>
+          <input type="text" id="subject" name="subject" placeholder="Oggetto del messaggio">
+
+          <label for="message">Messaggio</label>
+          <textarea id="message" name="message" rows="6" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+
+          <button type="submit" class="btn">Invia ✉️</button>
+
+          <p id="form-status" aria-live="polite"></p>
+        </form>
       </div>
+    </section>
+  </main>
 
-      <!-- Formulaire -->
-      <form class="contact-form" action="https://formspree.io/f/xnnbkbdk" method="POST">
-        <label for="name">Nome</label>
-        <input type="text" id="name" name="name" placeholder="Il tuo nome" required>
+  <!-- ===== PULSANTI FISSI ===== -->
+  <a href="servizi.html" class="btn floating" id="floating-services">Servizi 💫</a>
+  <a href="articoli.html" class="btn floating" id="floating-blog">Articoli ✨</a>
+  <a href="podcast_it.html" class="btn floating" id="floating-podcasts">Podcast 🎧</a>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="_replyto" placeholder="tua@email.com" required>
-
-        <label for="message">Messaggio</label>
-        <textarea id="message" name="message" rows="6" placeholder="Scrivi il tuo messaggio..." required></textarea>
-
-        <button type="submit" class="btn">Invia ✉️</button>
-
-        <p id="form-status" style="margin-top:1rem; color:#4b2e83; font-weight:bold;"></p>
-      </form>
-    </div>
-  </section>
-
-  <!-- Boutons flottants -->
-  <a href="articoli.html" class="btn" id="floating-blog">Articoli ✨</a>
-  <a href="podcast_it.html" class="btn" id="floating-podcasts">Podcast 🎧</a>
-
+  <!-- ===== FOOTER ===== -->
   <footer>
-    © 2025 Maria Cristina Bussani — Tutti i diritti riservati
+    © 2025 Maria Cristina Bussani — Tutti i diritti riservati  
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=61558747770364" target="_blank" class="social-icon facebook" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.2 3-3.2.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12z"/>
+        </svg>
+      </a>
+
+      <a href="https://www.instagram.com/ta-page" target="_blank" class="social-icon instagram" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.9a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/>
+        </svg>
+      </a>
+
+      <a href="https://www.youtube.com/ta-page" target="_blank" class="social-icon youtube" aria-label="YouTube">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M10 15l5.2-3L10 9v6zm12-3c0-2.5-.2-4.2-.5-5-.3-.8-.8-1.3-1.6-1.6C18.2 5 12 5 12 5s-6.2 0-7.9.4c-.8.3-1.3.8-1.6 1.6C2.2 7.8 2 9.5 2 12s.2 4.2.5 5c.3.8.8 1.3 1.6 1.6C5.8 19 12 19 12 19s6.2 0 7.9-.4c.8-.3 1.3-.8 1.6-1.6.3-.8.5-2.5.5-5z"/>
+        </svg>
+      </a>
+    </div>
   </footer>
 
-  <!-- Script formulaire -->
+  <!-- ===== SCRIPT : messaggio di conferma ===== -->
   <script>
-  const form = document.querySelector(".contact-form");
-  const status = document.getElementById("form-status");
+    const form = document.querySelector(".contact-form");
+    const status = document.getElementById("form-status");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: { 'Accept': 'application/json' }
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        status.textContent = "🙏 Grazie, il tuo messaggio è stato inviato con successo!";
+        status.style.color = "#4b2e83";
+        form.reset();
+        setTimeout(() => { status.textContent = ""; }, 4000);
+      } else {
+        status.textContent = "⚠️ Si è verificato un errore. Ti preghiamo di riprovare.";
+        status.style.color = "#b80000";
+      }
     });
-    if (response.ok) {
-      status.innerHTML = "🙏 Grazie, il tuo messaggio è stato inviato con successo!";
-      form.reset();
-    } else {
-      status.innerHTML = "⚠️ Si è verificato un errore. Riprova più tardi.";
-    }
-  });
   </script>
 
-  <!-- Script burger -->
+  <!-- ===== SCRIPT : menu burger ===== -->
   <script>
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('nav');
     const overlay = document.querySelector('.overlay');
+
     burger.addEventListener('click', () => {
       burger.classList.toggle('active');
       nav.classList.toggle('active');
       overlay.classList.toggle('active');
     });
+
     overlay.addEventListener('click', () => {
       burger.classList.remove('active');
       nav.classList.remove('active');
       overlay.classList.remove('active');
     });
   </script>
+
 </body>
 </html>

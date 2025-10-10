@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact - Voie Spirituelle</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Contactez Maria Cristina Bussani pour toute demande d'information, de rendez-vous ou d'accompagnement spirituel.">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <!-- ===== HEADER ===== -->
   <header>
     <h1>Contact</h1>
 
@@ -17,119 +20,127 @@
       <span></span>
     </button>
 
+    <!-- Navigation -->
     <nav>
       <a href="index.html">Accueil</a>
-      <a href="services.html">Services</a>
       <a href="about.html">À propos</a>
       <a href="contact.html" class="active">Contact</a>
-      <a href="blog.html" class="btn" style="margin-left:15px;">Articles ✨</a>
+      <a href="services.html" class="btn">Services 💫</a>
+      <a href="blog.html" class="btn">Articles ✨</a>
       <a href="podcasts.html" class="btn">Podcasts 🎧</a>
     </nav>
-    <!-- ✅ Garde seulement ceci -->
-  <div class="lang-switch">
-  <a href="contact.html" title="Version française">
-    <img src="images/fr.png" alt="Français" width="20" height="14"> FR
-  </a>
-  |
-  <a href="contatti.html" title="Versione italiana">
-    <img src="images/it.png" alt="Italiano" width="20" height="14"> IT
-  </a>
-</div>
 
-   <div class="overlay"></div>
+    <!-- Sélecteur de langue -->
+    <div class="lang-switch">
+      <a href="contact.html" title="Version française">
+        <img src="images/fr.png" alt="Français" width="20" height="14"> FR
+      </a>
+      |
+      <a href="contatti.html" title="Versione italiana">
+        <img src="images/it.png" alt="Italiano" width="20" height="14"> IT
+      </a>
+    </div>
 
+    <div class="overlay"></div>
   </header>
 
-  <section class="contact">
-    <div class="contact-container">
-      <!-- Bloc gauche : texte -->
-      <div class="contact-info">
-        <h2>Entrer en contact</h2>
-        <p>
-          Je serai ravie de répondre à vos questions ou de fixer un rendez-vous.  
-          Remplissez simplement le formulaire ci-dessous 🌸
-        </p>
-        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80" 
-             alt="Bougie et fleur de lotus, ambiance spirituelle" 
-             loading="lazy">
+  <!-- ===== CONTENU PRINCIPAL ===== -->
+  <main>
+    <section class="contact">
+      <div class="contact-container">
+        <!-- Bloc gauche -->
+        <div class="contact-info">
+          <h2>Entrer en contact</h2>
+          <p>
+            Je serai ravie de répondre à vos questions ou de convenir d’un rendez-vous.  
+            Remplissez simplement le formulaire ci-dessous 🌿
+          </p>
+          <img 
+            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80" 
+            alt="Bougie et fleur de lotus - ambiance spirituelle" 
+            loading="lazy"
+          >
+        </div>
+
+        <!-- Bloc droit : formulaire -->
+        <form class="contact-form" action="https://formspree.io/f/xnnbkbdk" method="POST">
+          <label for="name">Nom et prénom</label>
+          <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
+
+          <label for="email">Adresse e-mail</label>
+          <input type="email" id="email" name="_replyto" placeholder="exemple@email.com" required>
+
+          <label for="subject">Objet</label>
+          <input type="text" id="subject" name="subject" placeholder="Sujet de votre message">
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" placeholder="Écrivez votre message ici..." required></textarea>
+
+          <button type="submit" class="btn">Envoyer ✉️</button>
+
+          <p id="form-status" aria-live="polite"></p>
+        </form>
       </div>
+    </section>
+  </main>
 
-      <!-- Bloc droit : formulaire avec Formspree -->
-      <form class="contact-form" action="https://formspree.io/f/xnnbkbdk" method="POST">
-        <label for="name">Nom</label>
-        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+  <!-- ===== BOUTONS FLOTTANTS ===== -->
+  <a href="services.html" class="btn floating" id="floating-services">Services 💫</a>
+  <a href="blog.html" class="btn floating" id="floating-blog">Articles ✨</a>
+  <a href="podcasts.html" class="btn floating" id="floating-podcasts">Podcasts 🎧</a>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="_replyto" placeholder="votre@email.com" required>
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    © 2025 Maria Cristina Bussani — Tous droits réservés  
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" placeholder="Écrivez votre message..." required></textarea>
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=61558747770364" target="_blank" class="social-icon facebook" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.2 3-3.2.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12z"/>
+        </svg>
+      </a>
 
-        <button type="submit" class="btn">Envoyer ✉️</button>
+      <a href="https://www.instagram.com/ta-page" target="_blank" class="social-icon instagram" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.9a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/>
+        </svg>
+      </a>
 
-        <!-- Message de confirmation -->
-        <p id="form-status" style="margin-top:1rem; color:#4b2e83; font-weight:bold;"></p>
-      </form>
+      <a href="https://www.youtube.com/ta-page" target="_blank" class="social-icon youtube" aria-label="YouTube">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M10 15l5.2-3L10 9v6zm12-3c0-2.5-.2-4.2-.5-5-.3-.8-.8-1.3-1.6-1.6C18.2 5 12 5 12 5s-6.2 0-7.9.4c-.8.3-1.3.8-1.6 1.6C2.2 7.8 2 9.5 2 12s.2 4.2.5 5c.3.8.8 1.3 1.6 1.6C5.8 19 12 19 12 19s6.2 0 7.9-.4c.8-.3 1.3-.8 1.6-1.6.3-.8.5-2.5.5-5z"/>
+        </svg>
+      </a>
     </div>
-  </section>
+  </footer>
 
-  <!-- Bouton flottant -->
-  <a href="blog.html" class="btn" id="floating-blog">Articles ✨</a>
-    <a href="podcasts.html" class="btn" id="floating-podcasts">Podcasts 🎧</a>
-
-  <!-- Footer -->
-<footer>
-  © 2025 Maria Cristina Bussani — Tous droits réservés  
-
-  <!-- Icônes réseaux sociaux -->
-  <div class="social-links">
-    <a href="https://www.facebook.com/profile.php?id=61558747770364" target="_blank" class="social-icon facebook" aria-label="Facebook">
-      <!-- Icône Facebook -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.2 3-3.2.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12z"/>
-      </svg>
-    </a>
-
-    <a href="https://www.instagram.com/ta-page" target="_blank" class="social-icon instagram" aria-label="Instagram">
-      <!-- Icône Instagram -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.9a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/>
-      </svg>
-    </a>
-
-    <a href="https://www.youtube.com/ta-page" target="_blank" class="social-icon youtube" aria-label="YouTube">
-      <!-- Icône YouTube -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M10 15l5.2-3L10 9v6zm12-3c0-2.5-.2-4.2-.5-5-.3-.8-.8-1.3-1.6-1.6C18.2 5 12 5 12 5s-6.2 0-7.9.4c-.8.3-1.3.8-1.6 1.6C2.2 7.8 2 9.5 2 12s.2 4.2.5 5c.3.8.8 1.3 1.6 1.6C5.8 19 12 19 12 19s6.2 0 7.9-.4c.8-.3 1.3-.8 1.6-1.6.3-.8.5-2.5.5-5z"/>
-      </svg>
-    </a>
-  </div>
-</footer>
-
-  <!-- Script confirmation -->
+  <!-- ===== SCRIPT : message de confirmation ===== -->
   <script>
-  const form = document.querySelector(".contact-form");
-  const status = document.getElementById("form-status");
+    const form = document.querySelector(".contact-form");
+    const status = document.getElementById("form-status");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: data,
-      headers: { 'Accept': 'application/json' }
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        status.textContent = "🙏 Merci, votre message a bien été envoyé !";
+        status.style.color = "#4b2e83";
+        form.reset();
+        setTimeout(() => { status.textContent = ""; }, 4000);
+      } else {
+        status.textContent = "⚠️ Une erreur est survenue. Merci de réessayer.";
+        status.style.color = "#b80000";
+      }
     });
-    if (response.ok) {
-      status.innerHTML = "🙏 Merci, votre message a bien été envoyé !";
-      form.reset();
-    } else {
-      status.innerHTML = "⚠️ Une erreur est survenue. Merci de réessayer.";
-    }
-  });
-
   </script>
 
-    <script>
+  <!-- ===== SCRIPT : burger menu ===== -->
+  <script>
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('nav');
     const overlay = document.querySelector('.overlay');
@@ -137,10 +148,9 @@
     burger.addEventListener('click', () => {
       burger.classList.toggle('active');
       nav.classList.toggle('active');
-      overlay.classList.toggle('active'); // active/désactive overlay
+      overlay.classList.toggle('active');
     });
 
-    // Fermer le menu si on clique sur l’overlay
     overlay.addEventListener('click', () => {
       burger.classList.remove('active');
       nav.classList.remove('active');

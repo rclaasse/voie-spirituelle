@@ -1,27 +1,19 @@
 /* ============================================================
    🌿 STYLE PRINCIPAL — Voie Spirituelle
-   Fichier optimisé et nettoyé (2025)
+   Version finale complète (2025)
    ============================================================ */
 
 /* ===== BASE ===== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: 'Merriweather', serif;
   line-height: 1.6;
-  background: #fdf6e3;
+  background: linear-gradient(180deg, #fdf6e3 0%, #f9f3e7 100%);
   color: #2c2c2c;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+img { max-width: 100%; height: auto; display: block; }
 
 /* ===== HEADER ===== */
 header {
@@ -42,9 +34,7 @@ header h1 {
 }
 
 /* ===== NAVIGATION ===== */
-nav {
-  text-align: center;
-}
+nav { text-align: center; }
 
 nav a {
   margin: 0 14px;
@@ -54,330 +44,1077 @@ nav a {
   transition: 0.3s;
 }
 
-nav a:hover {
-  color: #d4af37;
+nav a:hover { color: #d4af37; }
+
+/* ✅ Boutons unifiés : Services / Articles / Podcasts */
+nav .nav-btn {
+  background: linear-gradient(90deg, #b28dd2, #d9c2ef);
+  color: #2c2c2c;
+  padding: 8px 18px;
+  border-radius: 20px;
+  margin-left: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+nav .nav-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  background: linear-gradient(90deg, #a075c6, #c8aee6);
 }
 
 /* ===== LANG SWITCH ===== */
 .lang-switch {
   position: absolute;
-  top: 18px;
-  right: 20px;
-  font-size: 0.95rem;
+  top: 18px; right: 20px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; font-size: 0.95rem;
   color: #fdf6e3;
-  background: rgba(0, 0, 0, 0.25);
-  padding: 6px 14px;
-  border-radius: 20px;
+  background: rgba(0,0,0,0.25);
+  padding: 6px 14px; border-radius: 20px;
   backdrop-filter: blur(4px);
-  z-index: 1002;
-  transition: background 0.3s ease;
-  letter-spacing: 0.8px;
+  z-index: 999;
 }
 
 .lang-switch a {
-  color: #d4af37;
-  text-decoration: none;
-  font-weight: 600;
-  margin: 0 8px;
-}
-
-.lang-switch a:hover {
-  color: #fff;
+  display: flex; align-items: center; gap: 4px;
+  color: #d4af37; text-decoration: none; font-weight: 600;
 }
 
 .lang-switch img {
-  vertical-align: middle;
-  border-radius: 3px;
-  margin: 0 4px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  display: block; width: 20px; height: 14px;
+  border-radius: 3px; box-shadow: 0 0 2px rgba(0,0,0,0.2);
 }
 
 /* ===== BURGER MENU ===== */
 .burger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 28px;
-  height: 22px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1001;
+  display: none; flex-direction: column; justify-content: space-between;
+  width: 28px; height: 22px; background: none; border: none; cursor: pointer;
+  position: absolute; top: 20px; right: 20px; z-index: 1100;
 }
 
 .burger span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: #fff;
-  border-radius: 2px;
-  transition: all 0.4s ease;
+  display: block; height: 3px; width: 100%;
+  background: #fff; border-radius: 2px; transition: all 0.4s ease;
 }
 
-/* Animation burger → croix */
-.burger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.burger.active span:nth-child(2) {
-  opacity: 0;
-}
-.burger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
+.burger.active span:nth-child(1){transform:rotate(45deg)translate(5px,5px);}
+.burger.active span:nth-child(2){opacity:0;}
+.burger.active span:nth-child(3){transform:rotate(-45deg)translate(6px,-6px);}
 
-/* Overlay du menu mobile */
+/* Overlay */
 .overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(0,0,0,0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease;
+  opacity: 0; visibility: hidden; transition: opacity 0.4s ease;
   z-index: 1000;
 }
-.overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
+.overlay.active { opacity: 1; visibility: visible; }
 
 /* ===== SECTIONS GÉNÉRALES ===== */
 section {
-  max-width: 900px;
-  margin: 2.5rem auto;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 15px;
+  max-width: 900px; margin: 2.5rem auto; padding: 2rem;
+  background: #fff; border-radius: 15px;
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
   animation: fadeIn 0.8s ease-in-out;
 }
 
 section h2 {
-  font-family: 'Raleway', sans-serif;
-  color: #4b2e83;
-  margin-bottom: 1rem;
-  border-left: 5px solid #d4af37;
-  padding-left: 0.5rem;
+  font-family: 'Raleway', sans-serif; color: #4b2e83;
+  margin-bottom: 1rem; border-left: 5px solid #d4af37; padding-left: 0.5rem;
 }
 
 /* ===== BOUTONS ===== */
 .btn, .cta {
-  display: inline-block;
-  background: #4b2e83;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
+  display: inline-block; background: #4b2e83; color: white;
+  padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
 }
 .btn:hover, .cta:hover {
-  background: #2c2c2c;
-  color: #d4af37;
-  transform: scale(1.05);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+  background: #2c2c2c; color: #d4af37;
+  transform: scale(1.05); box-shadow: 0 6px 14px rgba(0,0,0,0.2);
 }
+
+/* ===== BOUTONS FLOTTANTS ===== */
+.floating {
+  position: fixed; right: 20px;
+  background: #4b2e83; color: white;
+  font-size: 0.9rem; font-weight: 600;
+  padding: 10px 18px; border-radius: 30px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  z-index: 1050; transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#floating-services { bottom: 160px; background: #d4af37; color: #2c2c2c; }
+#floating-blog { bottom: 100px; background: #b28dd2; color: #2c2c2c; }
+#floating-podcasts { bottom: 40px; background: #4b2e83; color: #fff; }
+.floating:hover { transform: scale(1.05); box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
 
 /* ===== FOOTER ===== */
 footer {
-  text-align: center;
-  padding: 1rem;
-  background: #2c2c2c;
-  font-size: 0.9em;
-  color: #fdf6e3;
-  margin-top: 2rem;
-  border-top: 3px solid #d4af37;
+  text-align: center; padding: 1rem;
+  background: #2c2c2c; font-size: 0.9em; color: #fdf6e3;
+  margin-top: 2rem; border-top: 3px solid #d4af37;
 }
 .social-links { margin-top: 1rem; }
 .social-icon {
-  margin: 0 15px;
-  display: inline-block;
-  color: #d4af37;
+  margin: 0 15px; display: inline-block; color: #d4af37;
   transition: color 0.3s, transform 0.2s;
 }
 .social-icon:hover { transform: scale(1.3); }
-.social-icon.facebook:hover { color: #1877F2; }
-.social-icon.instagram:hover { color: #C13584; }
-.social-icon.youtube:hover { color: #FF0000; }
+.social-icon.facebook:hover { color:#1877F2; }
+.social-icon.instagram:hover { color:#C13584; }
+.social-icon.youtube:hover { color:#FF0000; }
 
 /* ===== ANIMATIONS ===== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
+@keyframes fadeIn { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
 
 /* ============================================================
-   🌸 SECTIONS SPÉCIALES
+   💫 PAGE SERVICES — Version équilibrée et animée
    ============================================================ */
 
-/* --- Services --- */
 .services-section {
-  max-width: 1100px;
+  max-width: 900px;
   margin: 3rem auto;
-  padding: 2rem;
-}
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-.service-card {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 14px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1.8rem;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+
+/* --- Cartes de service --- */
+.service-card {
+  max-width: 380px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem 1.6rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(212,175,55,0.3);
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.service-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .service-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
-.service-card .icon { font-size: 2.2rem; margin-bottom: 1rem; }
-.service-card h3 { color: #4b2e83; margin-bottom: 0.8rem; }
+
+.service-card h3 {
+  color: #4b2e83;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #2c2c2c;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
 .service-card .btn {
   background: linear-gradient(90deg, #b28dd2, #d9c2ef);
-  border-radius: 20px;
+  border-radius: 25px;
   font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 .service-card .btn:hover {
   background: linear-gradient(90deg, #a075c6, #c8aee6);
-}
-
-/* --- Laboratoires --- */
-.lab-highlight,
-.call-to-action,
-.lab-focus {
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  text-align: center;
-  animation: fadeIn 1s ease;
-}
-.lab-highlight {
-  background: linear-gradient(120deg, #f5f0fa, #ede7f6);
-  padding: 3rem 1.5rem;
-}
-.call-to-action {
-  background: linear-gradient(135deg, #ede7f6, #f5f0fa);
-  padding: 3rem 2rem;
-}
-.lab-focus {
-  background: #fff;
-  padding: 3rem 2rem;
-}
-
-/* --- Citations --- */
-.closing-quote {
-  background: #f5f0fa;
-  border-left: 5px solid #d4af37;
-  font-style: italic;
-  margin: 3rem auto;
-  padding: 1.5rem;
-  border-radius: 12px;
-  color: #2c2c54;
-  max-width: 800px;
-  line-height: 1.8;
+  transform: scale(1.05);
 }
 
 /* ============================================================
-   📱 RESPONSIVE DESIGN
+   ✨ CADRE SPIRITUEL — "Quel laboratoire vous appelle aujourd’hui ?"
+   ============================================================ */
+.lab-choice {
+  max-width: 720px;
+  margin: 3.5rem auto;
+  background: radial-gradient(circle at top left, #fffdf8 0%, #f8f3e6 100%);
+  border: 1.5px solid rgba(212,175,55,0.4);
+  border-radius: 22px;
+  box-shadow: 0 0 18px rgba(212,175,55,0.25);
+  padding: 2.8rem 2.2rem;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 1.2s ease-in-out;
+  overflow: hidden;
+}
+
+/* --- Halo doré animé --- */
+.lab-choice::before {
+  content: "";
+  position: absolute;
+  top: -3px; left: -3px; right: -3px; bottom: -3px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(255,255,255,0));
+  z-index: 0;
+  pointer-events: none;
+  animation: pulseGlow 6s ease-in-out infinite alternate;
+}
+
+.lab-choice h3 {
+  position: relative;
+  font-family: 'Raleway', sans-serif;
+  color: #4b2e83;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  z-index: 1;
+}
+
+.lab-choice h3::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #d4af37;
+  margin: 0.8rem auto 0;
+  border-radius: 2px;
+}
+
+.lab-choice p {
+  position: relative;
+  color: #2c2c2c;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  max-width: 600px;
+  margin: 0 auto;
+  z-index: 1;
+  font-style: italic;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(212,175,55,0.2), 0 0 40px rgba(212,175,55,0.15);
+  }
+  100% {
+    box-shadow: 0 0 35px rgba(212,175,55,0.3), 0 0 70px rgba(212,175,55,0.25);
+  }
+}
+
+/* ============================================================
+   💫 Bloc final (call-to-action)
+   ============================================================ */
+.call-to-action {
+  background: linear-gradient(135deg, #f5f0fa, #ede7f6);
+  padding: 2.5rem 2rem;
+  max-width: 720px;
+  margin: 3rem auto;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border: 1px solid rgba(212,175,55,0.25);
+  text-align: center;
+}
+
+.call-to-action h2 {
+  color: #4b2e83;
+  font-family: 'Raleway', sans-serif;
+  border-bottom: 2px solid #d4af37;
+  display: inline-block;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.call-to-action p {
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  color: #2c2c2c;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.call-to-action .btn {
+  margin-top: 1.5rem;
+}
+/* ============================================================
+   ✨ CITATION FINALE — mise en forme raffinée et spirituelle
    ============================================================ */
 
-/* --- Mobile --- */
+.closing-quote {
+  max-width: 720px;
+  margin: 3.5rem auto 4rem;
+  padding: 2rem 2.2rem;
+  background: radial-gradient(circle at top, #fffdf8 0%, #f7f2e8 100%);
+  border: 1.5px solid rgba(212,175,55,0.35);
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  text-align: center;
+  font-style: italic;
+  color: #2c2c2c;
+  position: relative;
+  line-height: 1.8;
+}
+
+/* --- Trait décoratif doré au-dessus --- */
+.closing-quote::before {
+  content: "❝";
+  font-size: 2.4rem;
+  color: rgba(212,175,55,0.4);
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.closing-quote::after {
+  content: "❞";
+  font-size: 2.4rem;
+  color: rgba(212,175,55,0.4);
+  position: absolute;
+  bottom: 10px;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+/* --- Ligne dorée de séparation --- */
+.closing-quote em {
+  display: block;
+  margin-top: 1rem;
+  font-style: normal;
+  color: #4b2e83;
+  font-weight: 600;
+  border-top: 1px solid rgba(212,175,55,0.5);
+  padding-top: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+/* --- Animation douce (apparition) --- */
+.closing-quote {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInQuote 1s ease forwards 0.5s;
+}
+
+@keyframes fadeInQuote {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
-  header { padding: 1.2rem 0.8rem; }
-  header h1 { font-size: 1.8rem; }
+  .closing-quote {
+    padding: 1.8rem 1.2rem;
+    font-size: 0.95rem;
+  }
+  .closing-quote::before,
+  .closing-quote::after { font-size: 1.8rem; }
+}
 
-  /* Menu mobile */
-  nav {
+
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card { max-width: 90%; }
+  .lab-choice, .call-to-action { max-width: 92%; padding: 1.6rem; }
+}
+
+
+/* ============================================================
+   🌸 CARROUSEL DE LABORATOIRES — version immersive et fluide
+   ============================================================ */
+
+.services-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  justify-content: flex-start;
+  align-items: stretch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212,175,55,0.4) transparent;
+}
+
+/* --- Masquer scrollbar sur Chrome/Safari --- */
+.services-carousel::-webkit-scrollbar {
+  height: 10px;
+}
+.services-carousel::-webkit-scrollbar-track {
+  background: transparent;
+}
+.services-carousel::-webkit-scrollbar-thumb {
+  background: rgba(212,175,55,0.4);
+  border-radius: 10px;
+}
+
+/* --- Cartes dynamiques --- */
+.service-card {
+  flex: 0 0 80%;
+  scroll-snap-align: center;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  border: 1px solid rgba(212,175,55,0.3);
+  padding: 2rem 1.6rem;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0.9;
+  width: 80%;
+  max-width: 600px;
+}
+
+/* --- Effet focus (carte centrale) --- */
+.service-card:target,
+.service-card:hover {
+  transform: scale(1.05);
+  opacity: 1;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+/* --- Adapter les images --- */
+.service-card img {
+  border-radius: 12px;
+  max-height: 220px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+/* --- Responsive mobile --- */
+@media (max-width: 768px) {
+  .services-carousel {
+    gap: 1.2rem;
+    padding: 1.5rem 0.6rem;
+  }
+  .service-card {
+    flex: 0 0 88%;
+    padding: 1.5rem;
+  }
+}
+
+
+/* ============================================================
+   🌸 CARROUSEL DE LABORATOIRES — version raffinée avec flèches
+   ============================================================ */
+
+.services-carousel {
+  position: relative;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  justify-content: flex-start;
+  align-items: stretch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212,175,55,0.4) transparent;
+}
+
+/* --- Masquer scrollbar sur Chrome/Safari --- */
+.services-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+.services-carousel::-webkit-scrollbar-track {
+  background: transparent;
+}
+.services-carousel::-webkit-scrollbar-thumb {
+  background: rgba(212,175,55,0.4);
+  border-radius: 10px;
+}
+
+/* --- Cartes raffinées --- */
+.service-card {
+  flex: 0 0 75%;
+  scroll-snap-align: center;
+  background: #fffdf8;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  border: 1px solid rgba(212,175,55,0.3);
+  padding: 1.5rem 1.2rem 1.8rem;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0.9;
+  width: 75%;
+  max-width: 580px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.service-card:hover {
+  transform: scale(1.04);
+  opacity: 1;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+/* --- Icône et titre côte à côte --- */
+.service-card h3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Raleway', sans-serif;
+  color: #4b2e83;
+  font-size: 1.25rem;
+  margin-bottom: 0.8rem;
+}
+
+.service-card .icon {
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+/* --- Texte d’introduction avant l’image (en italique) --- */
+.service-card .synthese {
+  font-style: italic;
+  color: #2c2c2c;
+  margin-bottom: 1rem;
+}
+
+/* --- Image centrée --- */
+.service-card img {
+  display: block;
+  margin: 0.5rem auto 1rem;
+  border-radius: 10px;
+  max-height: 180px;
+  width: auto;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* --- Texte principal --- */
+.service-card p {
+  font-size: 0.95rem;
+  color: #2c2c2c;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* --- Bouton --- */
+.service-card .btn {
+  background: linear-gradient(90deg, #b28dd2, #d9c2ef);
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.service-card .btn:hover {
+  background: linear-gradient(90deg, #a075c6, #c8aee6);
+  transform: scale(1.05);
+}
+
+/* --- Réduction de hauteur générale --- */
+.service-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   🌸 CARROUSEL FIXE — flèches indépendantes du scroll
+   ============================================================ */
+
+.carousel-container {
+  position: relative;
+  max-width: 900px;
+  margin: 3rem auto;
+}
+
+.services-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  justify-content: flex-start;
+  align-items: stretch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212,175,55,0.4) transparent;
+}
+
+.services-carousel::-webkit-scrollbar { height: 8px; }
+.services-carousel::-webkit-scrollbar-thumb {
+  background: rgba(212,175,55,0.4);
+  border-radius: 10px;
+}
+
+/* --- Flèches fixes --- */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  background: rgba(255,255,255,0.85);
+  border: 2px solid rgba(212,175,55,0.6);
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.carousel-arrow:hover {
+  background: #d4af37;
+  transform: translateY(-50%) scale(1.1);
+}
+.carousel-arrow svg {
+  width: 20px;
+  height: 20px;
+  fill: #4b2e83;
+}
+.carousel-arrow.left { left: -20px; }
+.carousel-arrow.right { right: -20px; }
+
+/* --- Ajustement mobile --- */
+@media (max-width: 768px) {
+  .carousel-arrow { display: none; } /* pas de flèches sur mobile */
+}
+/* ============================================================
+   💌 PAGE CONTACT — Mise en page professionnelle et responsive
+   ============================================================ */
+
+.contact {
+  background: linear-gradient(180deg, #ffffff 0%, #fdfaf4 100%);
+  padding: 3rem 1rem;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 18px;
+  border: 1.5px solid rgba(212,175,55,0.4);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* --- Bloc gauche : texte et image --- */
+.contact-info {
+  flex: 1 1 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  color: #2c2c2c;
+  line-height: 1.7;
+}
+
+.contact-info h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #4b2e83;
+  border-bottom: 2px solid #d4af37;
+  display: inline-block;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1.2rem;
+}
+
+.contact-info p {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info img {
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  margin-top: 1rem;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+/* --- Bloc droit : formulaire --- */
+.contact-form {
+  flex: 1 1 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form label {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  color: #4b2e83;
+  margin-bottom: 0.3rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid rgba(75,46,131,0.25);
+  border-radius: 10px;
+  background: #fffdf8;
+  font-family: 'Merriweather', serif;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 8px rgba(212,175,55,0.3);
+  outline: none;
+}
+
+/* --- Bouton Envoyer --- */
+.contact-form .btn {
+  align-self: center;
+  background: linear-gradient(90deg, #b28dd2, #d9c2ef);
+  color: #2c2c2c;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.contact-form .btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #a075c6, #c8aee6);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.15);
+}
+
+/* --- Message de confirmation --- */
+#form-status {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  color: #4b2e83;
+  margin-top: 1rem;
+}
+
+/* --- Responsive (mobile) --- */
+@media (max-width: 768px) {
+  .contact-container {
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background: #2c2c2c;
-    position: absolute;
-    top: 70px; left: 0; right: 0;
-    overflow: hidden;
-    border-bottom: 3px solid #d4af37;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    z-index: 1002;
+    padding: 1.5rem;
   }
-  nav.active {
-    opacity: 1;
-    transform: translateY(0);
+
+  .contact-info img {
+    margin: 1rem auto;
+    width: 90%;
   }
-  nav a {
-    display: block;
+
+  .contact-form {
     width: 100%;
-    text-align: center;
-    color: #fff;
-    font-size: 1.1rem;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
   }
-  nav.active a {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  nav a:nth-child(1){transition-delay:0.1s;}
-  nav a:nth-child(2){transition-delay:0.2s;}
-  nav a:nth-child(3){transition-delay:0.3s;}
-  nav a:nth-child(4){transition-delay:0.4s;}
-  nav a.btn { display: none !important; }
 
-  /* Texte mobile */
-  body { font-size: 1rem; line-height: 1.8; }
-  h1, h2, h3 { text-align: center; line-height: 1.3; }
-  p { font-size: 1.05rem; text-align: justify; margin-bottom: 1rem; }
-
-  /* Boutons flottants */
-  #floating-blog, #floating-podcasts {
-    position: fixed !important;
-    left: 16px !important;
-    right: auto !important;
-    font-size: 0.8rem !important;
-    padding: 8px 14px !important;
-    border-radius: 25px !important;
-    width: auto !important;
-    z-index: 9999;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-  }
-  #floating-blog { bottom: 70px !important; background: #d4af37 !important; color: #2c2c2c !important; }
-  #floating-podcasts { bottom: 20px !important; background: #4b2e83 !important; color: #fff !important; }
-
-  /* Langues */
-  .lang-switch {
-    position: static;
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-    background: none;
+  .contact-form .btn {
+    width: 100%;
   }
 }
 
-/* --- Tablette --- */
-@media (min-width: 769px) and (max-width: 1024px) {
-  body { font-size: 1rem; line-height: 1.7; }
-  h1 { font-size: 2.2rem; }
-  section { max-width: 95%; padding: 1.8rem; }
-  .services-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+/* ============================================================
+   🌸 PAGE À PROPOS — Restauration du style doré original
+   ============================================================ */
+
+.intro-about {
+  max-width: 520px;
+  margin: 3rem auto;
+  padding: 1.8rem 2rem;
+  background: #fffdf8;                  /* fond doux ivoire */
+  border: 1.5px solid rgba(212,175,55,0.6);
+  border-radius: 20px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  text-align: justify;
+  line-height: 1.75;
+  animation: fadeIn 1s ease-in-out;
+  position: relative;
 }
 
-/* --- Desktop large (>1440px) --- */
-@media (min-width: 1440px) {
-  main { max-width: 1400px; margin: 0 auto; }
-  section { max-width: 1200px; padding: 3rem 2.5rem; }
-  p { max-width: 900px; margin: 0 auto; }
-  .service-card { padding: 2.5rem; }
+.intro-about::before {
+  content: "";
+  position: absolute;
+  top: -3px; left: -3px; right: -3px; bottom: -3px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(212,175,55,0.15), transparent 70%);
+  pointer-events: none;
 }
+
+.intro-about h2 {
+  text-align: center;
+  color: #4b2e83;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  border-bottom: 1.5px solid #d4af37;
+  padding-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* ✅ Photo arrondie et douce */
+.intro-about img {
+  display: block;
+  max-width: 40%;
+  margin: 1.2rem auto 1.8rem;
+  border-radius: 50%;
+  border: 1px solid rgba(212,175,55,0.5);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  opacity: 0.95;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.intro-about img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .intro-about {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+  .intro-about img {
+    max-width: 70%;
+  }
+}
+
+/* ============================================================
+   ✨ LISTES PERSONNALISÉES — Puces dorées et icônes stylées
+   ============================================================ */
+
+section ul {
+  list-style: none;
+  margin: 1rem 0 1.5rem 0;
+  padding-left: 0;
+}
+
+section li {
+  position: relative;
+  margin-bottom: 0.6rem;
+  padding-left: 1.4rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* ✅ Puce dorée élégante */
+section li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #d4af37;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+/* --- Variante avec petite étoile à droite --- */
+section li.star::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0.3rem;
+  width: 14px;
+  height: 14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23d4af37' viewBox='0 0 24 24'%3E%3Cpath d='M12 17.27l6.18 3.73-1.64-7.03L21 9.24l-7.19-.61L12 2 10.19 8.63 3 9.24l4.46 4.73L5.82 21z'/%3E%3C/svg%3E") no-repeat center center;
+  background-size: contain;
+  opacity: 0.9;
+}
+
+/* ============================================================
+   🪶 BOUTON "TÉLÉCHARGER" — Élégance dorée et lisibilité
+   ============================================================ */
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(90deg, #d4af37, #e8d18c);
+  color: #2c2c2c;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease;
+}
+
+.download-btn:hover {
+  background: linear-gradient(90deg, #c8a028, #f2dc96);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  color: #2c2c2c;
+}
+
+/* --- Petite icône SVG dorée à gauche --- */
+.download-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: #2c2c2c;
+}
+
+
+
+/* ============================================================
+   🌿 AJUSTEMENTS FINAUX — Espacements, tailles et harmonie
+   ============================================================ */
+
+/* --- Section générale des laboratoires --- */
+.services-section {
+  margin-top: 2rem;   /* Réduit l’espace avec le bloc précédent */
+  margin-bottom: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0;
+}
+
+/* --- Cadre "Quel laboratoire..." --- */
+.lab-choice {
+  max-width: 680px;
+  margin: 1.8rem auto 2rem; /* 🔹 réduit l’espace avant/après */
+  padding: 2rem 1.6rem;
+}
+
+/* --- Carrousel --- */
+.carousel-container {
+  margin-top: 1rem;   /* 🔹 espace réduit entre intro et carrousel */
+}
+
+/* --- Cartes du carrousel --- */
+.service-card {
+  flex: 0 0 65%;               /* 🔹 cartes plus étroites */
+  max-width: 520px;
+  padding: 1.6rem 1.2rem;      /* 🔹 moins d’espace interne */
+  margin: 0 auto;
+  border-radius: 14px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Texte à l’intérieur des cartes --- */
+.service-card p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-bottom: 0.8rem; /* 🔹 réduit les espacements internes */
+}
+
+/* --- Bouton "Lire la suite" plus fin et compact --- */
+.service-card .btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #b28dd2, #d9c2ef);
+  padding: 8px 16px;         /* 🔹 plus petit */
+  font-size: 0.85rem;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.service-card .btn:hover {
+  background: linear-gradient(90deg, #a075c6, #c8aee6);
+  transform: scale(1.05);
+}
+
+/* --- Supprime la ligne "Vivre ce parcours" --- */
+.service-card .mini-invite {
+  display: none;
+}
+
+/* --- Images centrées --- */
+.service-card img {
+  display: block;
+  margin: 0.5rem auto 1rem;
+  border-radius: 10px;
+  max-height: 180px;
+  width: auto;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Ajustement responsive --- */
+@media (max-width: 768px) {
+  .service-card {
+    flex: 0 0 88%;
+    max-width: 90%;
+    padding: 1.2rem;
+  }
+  .lab-choice {
+    margin: 1.2rem auto;
+    padding: 1.5rem;
+  }
+}
+
+/* ============================================================
+   🌼 CADRE INTRO "Quel laboratoire..." — version allégée et discrète
+   ============================================================ */
+
+.lab-choice {
+  max-width: 640px;
+  margin: 1.5rem auto 1.5rem;          /* 🔹 espace plus serré */
+  padding: 1.4rem 1.2rem;              /* 🔹 hauteur réduite */
+  background: linear-gradient(180deg, #fffdf8 0%, #f9f5ea 100%);
+  border: 1px solid rgba(212, 175, 55, 0.25); /* 🔹 bordure plus fine et douce */
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 🔹 ombre plus légère */
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* --- Titre plus discret --- */
+.lab-choice h3 {
+  font-family: 'Raleway', sans-serif;
+  color: #4b2e83;
+  font-size: 1.3rem;          /* 🔹 plus petit */
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.3px;
+}
+
+/* --- Ligne dorée subtile sous le titre --- */
+.lab-choice h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: rgba(212, 175, 55, 0.6);
+  margin: 0.6rem auto 0;
+  border-radius: 2px;
+}
+
+/* --- Paragraphe raffiné --- */
+.lab-choice p {
+  color: #3b3b3b;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-style: italic;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* --- Animation plus douce --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .lab-choice {
+    padding: 1.2rem 1rem;
+    margin: 1rem auto 1.2rem;
+  }
+  .lab-choice h3 {
+    font-size: 1.15rem;
+  }
+  .lab-choice p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+}
+

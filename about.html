@@ -20,11 +20,12 @@
 
   <nav>
     <a href="index.html">Accueil</a>
-    <a href="services.html">Services</a>
     <a href="about.html" class="active">À propos</a>
     <a href="contact.html">Contact</a>
+    <a href="services.html" class="btn">Services 💫</a>
     <a href="blog.html" class="btn">Articles ✨</a>
     <a href="podcasts.html" class="btn">Podcasts 🎧</a>
+    
   </nav>
   <!-- ✅ Garde seulement ceci -->
   <div class="lang-switch">
@@ -48,7 +49,7 @@
   <section class="intro-about">
     <img src="images/mcr.jpg" 
          alt="Portrait de Maria Cristina Bussani" 
-         class="portrait">
+         class="about-photo">
     <div>
       <h2>Qui suis-je ?</h2>
       <p>
@@ -94,11 +95,21 @@
     <ul>
       <li data-icon="📘">
         <strong>La spiritualité au travail</strong><br>
-        <a href="docs/manuel_ajout_article.pdf" target="_blank" class="btn">📄 Lire / Télécharger</a>
+        <a href="docs/manuel_ajout_article.pdf" target="_blank" class="download-btn">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M12 3v12l4-4h-3V3h-2v8H8l4 4zM5 18v2h14v-2H5z"/>
+  </svg>
+  Télécharger
+</a>
       </li>
       <li data-icon="📗">
         <strong>La spiritualité des enfants de 0 à 2 ans</strong><br>
-        <a href="docs/checklist_ajout_article_details.pdf" target="_blank" class="btn">📄 Lire / Télécharger</a>
+        <a href="docs/checklist_ajout_article_details.pdf" target="_blank" class="download-btn">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M12 3v12l4-4h-3V3h-2v8H8l4 4zM5 18v2h14v-2H5z"/>
+  </svg>
+  Télécharger
+</a>
       </li>
     </ul>
   </section>
@@ -116,8 +127,9 @@
 </main>
 
   <!-- Bouton flottant -->
-  <a href="blog.html" class="btn" id="floating-blog">Articles ✨</a>
-  <a href="podcasts.html" class="btn" id="floating-podcasts">Podcasts 🎧</a>
+  <a href="services.html" class="btn floating" id="floating-services">Services 💫</a>
+  <a href="blog.html" class="btn floating" id="floating-blog">Articles ✨</a>
+  <a href="podcasts.html" class="btn floating" id="floating-podcasts">Podcasts 🎧</a>
 
 
   <script>

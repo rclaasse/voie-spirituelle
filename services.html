@@ -21,11 +21,11 @@
 
     <nav aria-label="Navigation principale">
       <a href="index.html">Accueil</a>
-      <a href="services.html" class="active">Services</a>
       <a href="about.html">À propos</a>
       <a href="contact.html">Contact</a>
-      <a href="blog.html" class="btn">Articles ✨</a>
-      <a href="podcasts.html" class="btn">Podcasts 🎧</a>
+      <a href="services.html" class="btn">Services 💫</a>
+      <a href="blog.html" class="btn">Articles 📖</a>
+      <a href="podcasts.html" class="btn active">Podcasts 🎧</a>
     </nav>
 
     <!-- Sélecteur de langue -->
@@ -55,124 +55,130 @@
       </p>
     </section>
 
-    <!-- Invitation intuitive -->
-    <div class="lab-choice">
-      <h3>Quel laboratoire vous appelle aujourd’hui ?</h3>
-      <p>🌑 Ombre ou lumière, 🌺 naissance ou parole, chaque chemin révèle une part de vous.  
-      Laissez-vous attirer par celui dont le symbole résonne le plus — c’est souvent le bon point de départ.</p>
-    </div>
-
     <section class="services-section">
-      <p class="services-intro" style="text-align:center; max-width:750px; margin:2rem auto; font-size:1.1rem;">
-        Cinq parcours expérientiels pour réfléchir, créer et se reconnecter à sa lumière intérieure.  
-        Chaque atelier est une invitation à explorer une dimension différente de la vie, à travers le symbole, la parole et la présence.
-      </p>
 
-      <div class="services-grid" 
-           style="display:grid; grid-template-columns:repeat(auto-fit, minmax(350px, 1fr)); gap:2.5rem; padding:1.5rem 3%; align-items:start;">
+  <!-- 🌿 Introduction spirituelle du carrousel -->
+  <div class="lab-choice">
+    <h3>Quel laboratoire vous appelle aujourd’hui ?</h3>
+    <p>
+      🌑 Ombre ou lumière, 🌺 naissance ou parole — chaque chemin révèle une part de vous.  
+      Laissez-vous attirer par celui dont le symbole résonne le plus :  
+      c’est souvent le bon point de départ vers la lumière intérieure.
+    </p>
+  </div>
 
-        <!-- LAB 1 -->
-        <div class="service-card" style="animation:fadeIn 1s ease;">
-          <span class="icon">🌑</span>
-          <h3>L’erreur comme voie vers la vie</h3>
-          <p class="synthese">
-            Découvrir le pouvoir transformateur de l’erreur.  
-            Un chemin jungien qui apprend à regarder la chute comme un seuil de lumière, là où l’ombre et la conscience se rencontrent pour engendrer une nouvelle force créatrice.
-          </p>
-          <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=1200&q=80" 
-               alt="Symbole de l’erreur comme voie de lumière" 
-               loading="lazy" class="service-image">
-          <p>
-            Un atelier de groupe pour redécouvrir la valeur de l’erreur comme passage nécessaire de l’expérience humaine.  
-            Inspiré par la pensée jungienne, cet espace invite à réfléchir sur la chute, l’ombre et les obstacles comme des portes vers la compréhension et la croissance.  
-            À travers l’écriture, la musique, l’art et les techniques analogiques, les participants transforment ce qui semblait « perdu » en matière vivante et créative.
-          </p>
-          <a href="lab1.html" class="btn">Lire la suite</a>
-          <p class="mini-invite">🌸 Vivre ce parcours →</p>
-        </div>
+  <!-- 🌸 Carrousel des laboratoires -->
+  <div class="carousel-container">
 
-        <!-- LAB 2 -->
-        <div class="service-card" style="animation:fadeIn 1.1s ease;">
-          <span class="icon">🕯️</span>
-          <h3>Le mystère de l’enfant</h3>
-          <p class="synthese">
-            Un voyage au cœur du mystère de l’enfance, pour celles et ceux qui accompagnent et éduquent.  
-            L’enfant est une âme à écouter, non à corriger — une lumière qui révèle le sens profond du naître et de l’être.
-          </p>
-          <img src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?auto=format&fit=crop&w=1200&q=80" 
-               alt="Lumière et mystère de l’enfance" 
-               loading="lazy" class="service-image">
-          <p>
-            Un atelier dédié au mystère de l’enfance, destiné aux parents, éducateurs et professionnels.  
-            L’enfant n’est pas un objet à interpréter ou à corriger, mais une présence vivante, porteuse de mystère et de lumière.  
-            À travers la réflexion transgénérationnelle, l’écriture créative et le dessin, on apprend à accompagner chaque enfant sur son propre fil d’âme, en lui restituant une parole d’espérance qui honore son unicité.
-          </p>
-          <a href="lab2.html" class="btn">Lire la suite</a>
-          <p class="mini-invite">🌸 Vivre ce parcours →</p>
-        </div>
+    <!-- Flèche gauche -->
+    <button class="carousel-arrow left" aria-label="Précédent">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+      </svg>
+    </button>
 
-        <!-- LAB 3 -->
-        <div class="service-card" style="animation:fadeIn 1.2s ease;">
-          <span class="icon">🌺</span>
-          <h3>Fécondité et maternité : le berceau de la vie</h3>
-          <p class="synthese">
-            Un atelier pour honorer la maternité comme fécondité intérieure.  
-            Chaque étape — du désir à la séparation — devient une occasion de retrouver la plénitude du corps et de l’esprit qui donnent vie.
-          </p>
-          <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1200&q=80" 
-               alt="Mère et enfant, symbole de vie" 
-               loading="lazy" class="service-image">
-          <p>
-            Un atelier pour redécouvrir la maternité comme expérience de fécondité intérieure.  
-            À travers des lectures, de l’écriture et du dialogue, on explore les étapes de la maternité — du désir à la naissance, de l’allaitement à la séparation — pour renouer avec la force créatrice que chaque femme porte en elle.  
-            Ouvert aux mères, aux futures mères et à celles qui souhaitent comprendre la puissance du “mettre au monde” dans sa dimension symbolique et spirituelle.
-          </p>
-          <a href="lab3.html" class="btn">Lire la suite</a>
-          <p class="mini-invite">🌸 Vivre ce parcours →</p>
-        </div>
+    <div class="services-carousel">
 
-        <!-- LAB 4 -->
-        <div class="service-card" style="animation:fadeIn 1.3s ease;">
-          <span class="icon">🌱</span>
-          <h3>Se reconnecter au sens</h3>
-          <p class="synthese">
-            Retrouver la source authentique de la vie au-delà de la performance.  
-            Un parcours d’écriture et de méditation pour faire éclore la joie dans le processus, et non dans le résultat.
-          </p>
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" 
-               alt="Sentier vert, symbole du sens intérieur" 
-               loading="lazy" class="service-image">
-          <p>
-            Un atelier pour retrouver ce qui, dans la vie, nourrit vraiment, au-delà de la quête de réussite ou de reconnaissance.  
-            Par l’écriture, la méditation, les rêves et la création, on explore son histoire pour y découvrir la source vivante du sens.  
-            Un parcours collectif pour enraciner la joie dans le chemin lui-même — et se relier à la force silencieuse qui anime notre être ici et maintenant.
-          </p>
-          <a href="lab4.html" class="btn">Lire la suite</a>
-          <p class="mini-invite">🌸 Vivre ce parcours →</p>
-        </div>
-
-        <!-- LAB 5 -->
-        <div class="service-card" style="animation:fadeIn 1.4s ease;">
-          <span class="icon">🌟</span>
-          <h3>La narration du potentiel</h3>
-          <p class="synthese">
-            Transformer sa propre histoire en un récit vivant et conscient.  
-            Ici naît le “curriculum de l’âme”, où les expériences et les désirs trouvent leur harmonie.
-          </p>
-          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80" 
-               alt="Lumière et écriture, symbole du potentiel" 
-               loading="lazy" class="service-image">
-          <p>
-            Un atelier consacré à la narration de soi et à la découverte de son propre potentiel.  
-            Loin des cadres rigides et standardisés, il aide à reconnaître sa singularité et à lui donner voix.  
-            L’écriture et l’introspection deviennent des instruments pour bâtir un “curriculum de l’âme” où compétences, désirs et sens personnel s’unissent en harmonie.
-          </p>
-          <a href="lab5.html" class="btn">Lire la suite</a>
-          <p class="mini-invite">🌸 Vivre ce parcours →</p>
-        </div>
-
+      <!-- LAB 1 -->
+      <div class="service-card">
+        <span class="icon">🌑</span>
+        <h3>L’erreur comme voie vers la vie</h3>
+        <p class="synthese">
+          Découvrir le pouvoir transformateur de l’erreur.  
+          Un chemin jungien qui apprend à regarder la chute comme un seuil de lumière, là où l’ombre et la conscience se rencontrent.
+        </p>
+        <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=1200&q=80" 
+             alt="Symbole de l’erreur comme voie de lumière" loading="lazy">
+        <p>
+          Un atelier pour redécouvrir la valeur de l’erreur comme passage nécessaire de l’expérience humaine.  
+          Inspiré par la pensée jungienne, il invite à transformer ce qui semblait « perdu » en matière vivante et créative.
+        </p>
+        <a href="lab1.html" class="btn">Lire la suite</a>
+        <p class="mini-invite">🌸 Vivre ce parcours →</p>
       </div>
-    </section>
+
+      <!-- LAB 2 -->
+      <div class="service-card">
+        <span class="icon">🕯️</span>
+        <h3>Le mystère de l’enfant</h3>
+        <p class="synthese">
+          Un voyage au cœur du mystère de l’enfance, pour celles et ceux qui accompagnent et éduquent.  
+          L’enfant est une âme à écouter, non à corriger — une lumière qui révèle le sens profond du naître et de l’être.
+        </p>
+        <img src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?auto=format&fit=crop&w=1200&q=80" 
+             alt="Lumière et mystère de l’enfance" loading="lazy">
+        <p>
+          Un atelier dédié à l’enfance, destiné aux parents, éducateurs et professionnels.  
+          À travers la réflexion transgénérationnelle et l’écriture créative, on apprend à accompagner chaque enfant sur son propre fil d’âme.
+        </p>
+        <a href="lab2.html" class="btn">Lire la suite</a>
+        <p class="mini-invite">🌸 Vivre ce parcours →</p>
+      </div>
+
+      <!-- LAB 3 -->
+      <div class="service-card">
+        <span class="icon">🌺</span>
+        <h3>Fécondité et maternité : le berceau de la vie</h3>
+        <p class="synthese">
+          Un atelier pour honorer la maternité comme fécondité intérieure.  
+          Chaque étape — du désir à la séparation — devient une occasion de retrouver la plénitude du corps et de l’esprit.
+        </p>
+        <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?auto=format&fit=crop&w=1200&q=80"
+             alt="Mère et enfant, symbole de vie" loading="lazy">
+        <p>
+          Un parcours pour renouer avec la force créatrice que chaque femme porte en elle, à travers la lecture, l’écriture et le dialogue.
+        </p>
+        <a href="lab3.html" class="btn">Lire la suite</a>
+        <p class="mini-invite">🌸 Vivre ce parcours →</p>
+      </div>
+
+      <!-- LAB 4 -->
+      <div class="service-card">
+        <span class="icon">🌱</span>
+        <h3>Se reconnecter au sens</h3>
+        <p class="synthese">
+          Retrouver la source authentique de la vie au-delà de la performance.  
+          Un parcours d’écriture et de méditation pour faire éclore la joie dans le processus.
+        </p>
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
+             alt="Sentier vert, symbole du sens intérieur" loading="lazy">
+        <p>
+          On explore son histoire pour y découvrir la source vivante du sens, et enraciner la joie dans le chemin lui-même.
+        </p>
+        <a href="lab4.html" class="btn">Lire la suite</a>
+        <p class="mini-invite">🌸 Vivre ce parcours →</p>
+      </div>
+
+      <!-- LAB 5 -->
+      <div class="service-card">
+        <span class="icon">🌟</span>
+        <h3>La narration du potentiel</h3>
+        <p class="synthese">
+          Transformer sa propre histoire en un récit vivant et conscient.  
+          Ici naît le “curriculum de l’âme”, où les expériences et les désirs trouvent leur harmonie.
+        </p>
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80"
+             alt="Lumière et écriture, symbole du potentiel" loading="lazy">
+        <p>
+          Un atelier consacré à la narration de soi et à la découverte de son propre potentiel.
+        </p>
+        <a href="lab5.html" class="btn">Lire la suite</a>
+        <p class="mini-invite">🌸 Vivre ce parcours →</p>
+      </div>
+
+    </div> <!-- fin .services-carousel -->
+
+    <!-- Flèche droite -->
+    <button class="carousel-arrow right" aria-label="Suivant">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M8.59 16.59 10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+      </svg>
+    </button>
+
+  </div> <!-- fin .carousel-container -->
+</section>
+
+
 
     <!-- Bloc de motivation -->
     <section class="call-to-action">
@@ -193,9 +199,10 @@
 
   </main>
 
-  <!-- Boutons flottants -->
-  <a href="blog.html" class="btn" id="floating-blog">Articles ✨</a>
-  <a href="podcasts.html" class="btn" id="floating-podcasts">Podcasts 🎧</a>
+    <!-- Bouton flottant -->
+  <a href="services.html" class="btn floating" id="floating-services">Services 💫</a>
+  <a href="blog.html" class="btn floating" id="floating-blog">Articles ✨</a>
+  <a href="podcasts.html" class="btn floating" id="floating-podcasts">Podcasts 🎧</a>
 
   <!-- Script burger -->
   <script>
@@ -215,6 +222,37 @@
       overlay.classList.remove('active');
     });
   </script>
+
+  <script>
+  // Apparition fluide des cartes au scroll
+  const cards = document.querySelectorAll('.service-card');
+  const reveal = () => {
+    const trigger = window.innerHeight * 0.85;
+    cards.forEach(card => {
+      const top = card.getBoundingClientRect().top;
+      if (top < trigger) card.classList.add('visible');
+    });
+  };
+  window.addEventListener('scroll', reveal);
+  reveal(); // pour les cartes visibles dès le chargement
+</script>
+
+<script>
+const carousel = document.querySelector('.services-carousel');
+const leftArrow = document.querySelector('.carousel-arrow.left');
+const rightArrow = document.querySelector('.carousel-arrow.right');
+
+rightArrow.addEventListener('click', () => {
+  carousel.scrollBy({ left: carousel.offsetWidth * 0.8, behavior: 'smooth' });
+});
+
+leftArrow.addEventListener('click', () => {
+  carousel.scrollBy({ left: -carousel.offsetWidth * 0.8, behavior: 'smooth' });
+});
+</script>
+
+
+
 
   <!-- Footer -->
   <footer>
