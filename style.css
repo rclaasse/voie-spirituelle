@@ -1498,3 +1498,33 @@ body.podcasts header h1 {
 }
 
 
+/* ================================================
+   📱 Version mobile — Boutons flottants ajustés à gauche
+   ================================================ */
+@media (max-width: 768px) {
+
+  #floating-blog,
+  #floating-podcasts {
+    position: fixed !important;
+    left: 16px !important;
+    right: auto !important;
+    font-size: 0.8rem !important;
+    padding: 8px 14px !important;
+    border-radius: 25px !important;
+    width: auto !important;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    z-index: 9999;
+  }
+
+  #floating-blog {
+    bottom: 70px !important;
+    background: #d4af37 !important;
+    color: #2c2c2c !important;
+  }
+
+  #floating-podcasts {
+    bottom: 20px !important;
+    background: #4b2e83 !important;
+    color: #fff !important;
+  }
+}
