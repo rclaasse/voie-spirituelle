@@ -55,7 +55,7 @@
   <h3><a href="article1.html">La lumière intérieure ✨</a></h3>
   <p><em>Publié le 15 septembre 2025</em></p>
   <p>
-    Chaque être humain porte en lui une étincelle de lumière, souvent dissimulée sous les voiles du doute...
+    Chaque être humain porte en lui une <span class="bold-on-scroll">étincelle de lumière</span>, souvent dissimulée sous les <span class="bold-on-scroll">voiles du doute...</span>
   </p>
   <a href="article1.html" class="btn">Lire l’article</a>
 </article>
@@ -70,7 +70,7 @@
   <h3><a href="article2.html">Le chemin de la paix 🌿</a></h3>
   <p><em>Publié le 10 septembre 2025</em></p>
   <p>
-    La paix intérieure se construit pas à pas, grâce à l’écoute, la méditation et la présence à soi-même...
+    La <span class="bold-on-scroll">paix intérieure se construit pas à pas</span>, grâce à l’écoute, la méditation et la <span class="bold-on-scroll">présence à soi-même...</span>
   </p>
   <a href="article2.html" class="btn">Lire l’article</a>
 </article>
@@ -85,7 +85,7 @@
   <h3><a href="article3.html">Le lotus sacré 🌸</a></h3>
   <p><em>Publié le 1er septembre 2025</em></p>
   <p>
-    Le lotus, symbole de pureté et de transformation, nous enseigne que la beauté peut naître même de la boue...
+    Le lotus, symbole de <span class="bold-on-scroll">pureté et de transformation</span>, nous enseigne que la beauté peut naître même de la boue...
   </p>
   <a href="article3.html" class="btn">Lire l’article</a>
 </article>
@@ -187,5 +187,17 @@
     </a>
   </div>
 </footer>
+<script>
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const windowHeight = window.innerHeight;
+  const bodyHeight = document.body.offsetHeight;
+
+  // Si on est tout en bas (ou presque)
+  if (scrollTop + windowHeight >= bodyHeight - 20) {
+    document.querySelectorAll('.bold-on-scroll').forEach(el => el.classList.add('active'));
+  }
+});
+</script>
 </body>
 </html>

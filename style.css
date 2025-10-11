@@ -1191,3 +1191,23 @@ section li.star::after {
    ------------------------------------------------------------
    Fichier commenté et optimisé pour compréhension complète
    ============================================================ */
+
+
+/* ============================================================
+   ✨ MISE EN ÉVIDENCE À LA FIN DE LA PAGE
+   ------------------------------------------------------------
+   - Les mots ciblés deviennent gras + surlignés en jaune
+   - Activation automatique quand on atteint le bas de la page
+   ============================================================ */
+.bold-on-scroll {
+  font-weight: normal;
+  background: none;
+  transition: all 0.6s ease;
+}
+
+.bold-on-scroll.active {
+  font-weight: bold;
+  background: linear-gradient(transparent 60%, #fff3a6 60%);
+  color: #2c2c2c; /* tu peux mettre #4b2e83 pour un contraste plus fort */
+}
+
