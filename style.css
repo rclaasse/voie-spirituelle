@@ -1258,4 +1258,49 @@ section li.star::after {
     display: none;
   }
 }
+/* ============================================================
+   📱 Ajustement de la hauteur des cartes du carrousel en mobile
+   ------------------------------------------------------------
+   - Réduit la hauteur visuelle sans modifier la largeur
+   ============================================================ */
+@media (max-width: 768px) {
+  .carousel-card {
+    padding: 0.8rem 0.8rem 1rem; /* ✅ moins de marge interne */
+    max-height: 450px;           /* ✅ hauteur maximale contrôlée */
+    overflow: hidden;             /* ✅ coupe proprement le surplus éventuel */
+  }
+
+  .carousel-card img {
+    max-height: 120px;            /* ✅ image plus compacte */
+    margin: 0.4rem auto 0.6rem;
+  }
+
+  .carousel-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .carousel-card .synthese {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+  }
+
+  .carousel-card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+
+  .carousel-card .btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+
+  .carousel-card .mini-invite {
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+  }
+}
 
