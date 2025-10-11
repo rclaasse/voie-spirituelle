@@ -1,10 +1,47 @@
 /* ============================================================
    🌿 STYLE PRINCIPAL — Voie Spirituelle
-   Version finale complète (2025)
+   ------------------------------------------------------------
+   Version optimisée et entièrement commentée (2025)
+   Par : ChatGPT + Raphael
+   Objectif :
+   - Garder le même rendu et comportement qu'avant
+   - Supprimer doublons
+   - Ajouter des commentaires clairs
    ============================================================ */
 
-/* ===== BASE ===== */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ============================================================
+   🧭 TABLE DES MATIÈRES
+   ------------------------------------------------------------
+   1. BASE GÉNÉRALE
+   2. HEADER (Titre et fond)
+   3. NAVIGATION PRINCIPALE
+   4. SÉLECTEUR DE LANGUE (Lang Switch)
+   5. MENU BURGER (Mobile)
+   6. STRUCTURE DES SECTIONS GÉNÉRALES
+   7. BOUTONS GÉNÉRAUX + FLOTTANTS
+   8. ANIMATIONS GÉNÉRALES
+   9. FOOTER (Pied de page)
+   10. SERVICES (Cartes et carrousel)
+   11. LABS (Cadres thématiques)
+   12. CONTACT (Formulaire)
+   13. À PROPOS (Biographie, parcours)
+   14. RÉPONSES RESPONSIVE (Mobile)
+   ============================================================ */
+
+
+/* ============================================================
+   1️⃣ SECTION BASE GÉNÉRALE
+   ------------------------------------------------------------
+   - Définit la typographie, couleurs et fond principal
+   - Applique un design doux et lumineux cohérent avec le thème
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: 'Merriweather', serif;
@@ -13,9 +50,20 @@ body {
   color: #2c2c2c;
 }
 
-img { max-width: 100%; height: auto; display: block; }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-/* ===== HEADER ===== */
+
+/* ============================================================
+   2️⃣ SECTION HEADER
+   ------------------------------------------------------------
+   - Gère le bandeau supérieur du site
+   - Comprend le titre doré et les bords arrondis inférieurs
+   ============================================================ */
+
 header {
   background: linear-gradient(135deg, #4b2e83, #2c2c2c);
   color: white;
@@ -31,10 +79,20 @@ header h1 {
   font-size: 2.6rem;
   margin-bottom: 1rem;
   color: #d4af37;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 }
 
-/* ===== NAVIGATION ===== */
-nav { text-align: center; }
+
+/* ============================================================
+   3️⃣ SECTION NAVIGATION PRINCIPALE
+   ------------------------------------------------------------
+   - Barre de menu horizontale
+   - Liens standard + boutons “Services”, “Articles”, “Podcasts”
+   ============================================================ */
+
+nav {
+  text-align: center;
+}
 
 nav a {
   margin: 0 14px;
@@ -44,10 +102,12 @@ nav a {
   transition: 0.3s;
 }
 
-nav a:hover { color: #d4af37; }
+nav a:hover {
+  color: #d4af37;
+}
 
-/* ✅ Boutons unifiés : Services / Articles / Podcasts */
-nav .nav-btn {
+/* --- Boutons principaux du menu --- */
+nav .btn {
   background: linear-gradient(90deg, #b28dd2, #d9c2ef);
   color: #2c2c2c;
   padding: 8px 18px;
@@ -55,123 +115,289 @@ nav .nav-btn {
   margin-left: 10px;
   font-size: 0.9rem;
   font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
 }
-nav .nav-btn:hover {
+
+nav .btn:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   background: linear-gradient(90deg, #a075c6, #c8aee6);
 }
 
-/* ===== LANG SWITCH ===== */
+
+/* ============================================================
+   4️⃣ SECTION SÉLECTEUR DE LANGUE (LANG SWITCH)
+   ------------------------------------------------------------
+   - Bloc en haut à droite : drapeaux + FR / IT
+   ============================================================ */
+
 .lang-switch {
   position: absolute;
-  top: 18px; right: 20px;
-  display: flex; align-items: center; justify-content: center;
-  gap: 10px; font-size: 0.95rem;
+  top: 18px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.95rem;
   color: #fdf6e3;
-  background: rgba(0,0,0,0.25);
-  padding: 6px 14px; border-radius: 20px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 6px 14px;
+  border-radius: 20px;
   backdrop-filter: blur(4px);
   z-index: 999;
 }
 
 .lang-switch a {
-  display: flex; align-items: center; gap: 4px;
-  color: #d4af37; text-decoration: none; font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #d4af37;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .lang-switch img {
-  display: block; width: 20px; height: 14px;
-  border-radius: 3px; box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  display: block;
+  width: 20px;
+  height: 14px;
+  border-radius: 3px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
-/* ===== BURGER MENU ===== */
+
+/* ============================================================
+   5️⃣ SECTION MENU BURGER (MOBILE)
+   ------------------------------------------------------------
+   - Contrôle du menu mobile avec l’icône “burger”
+   - Animation en croix lors de l’ouverture
+   ============================================================ */
+
 .burger {
-  display: none; flex-direction: column; justify-content: space-between;
-  width: 28px; height: 22px; background: none; border: none; cursor: pointer;
-  position: absolute; top: 20px; right: 20px; z-index: 1100;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1100;
 }
 
 .burger span {
-  display: block; height: 3px; width: 100%;
-  background: #fff; border-radius: 2px; transition: all 0.4s ease;
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.4s ease;
 }
 
-.burger.active span:nth-child(1){transform:rotate(45deg)translate(5px,5px);}
-.burger.active span:nth-child(2){opacity:0;}
-.burger.active span:nth-child(3){transform:rotate(-45deg)translate(6px,-6px);}
+/* --- Animation en croix quand actif --- */
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
 
-/* Overlay */
+/* --- Overlay derrière le menu mobile --- */
 .overlay {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.5);
-  opacity: 0; visibility: hidden; transition: opacity 0.4s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
   z-index: 1000;
 }
-.overlay.active { opacity: 1; visibility: visible; }
 
-/* ===== SECTIONS GÉNÉRALES ===== */
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* ============================================================
+   6️⃣ SECTION DES BLOCS <section>
+   ------------------------------------------------------------
+   - Apparence commune de toutes les sections
+   ============================================================ */
+
 section {
-  max-width: 900px; margin: 2.5rem auto; padding: 2rem;
-  background: #fff; border-radius: 15px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
   animation: fadeIn 0.8s ease-in-out;
 }
 
 section h2 {
-  font-family: 'Raleway', sans-serif; color: #4b2e83;
-  margin-bottom: 1rem; border-left: 5px solid #d4af37; padding-left: 0.5rem;
+  font-family: 'Raleway', sans-serif;
+  color: #4b2e83;
+  margin-bottom: 1rem;
+  border-left: 5px solid #d4af37;
+  padding-left: 0.5rem;
 }
 
-/* ===== BOUTONS ===== */
-.btn, .cta {
-  display: inline-block; background: #4b2e83; color: white;
-  padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
-}
-.btn:hover, .cta:hover {
-  background: #2c2c2c; color: #d4af37;
-  transform: scale(1.05); box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-}
-
-/* ===== BOUTONS FLOTTANTS ===== */
-.floating {
-  position: fixed; right: 20px;
-  background: #4b2e83; color: white;
-  font-size: 0.9rem; font-weight: 600;
-  padding: 10px 18px; border-radius: 30px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-  z-index: 1050; transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-#floating-services { bottom: 160px; background: #d4af37; color: #2c2c2c; }
-#floating-blog { bottom: 100px; background: #b28dd2; color: #2c2c2c; }
-#floating-podcasts { bottom: 40px; background: #4b2e83; color: #fff; }
-.floating:hover { transform: scale(1.05); box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
-
-/* ===== FOOTER ===== */
-footer {
-  text-align: center; padding: 1rem;
-  background: #2c2c2c; font-size: 0.9em; color: #fdf6e3;
-  margin-top: 2rem; border-top: 3px solid #d4af37;
-}
-.social-links { margin-top: 1rem; }
-.social-icon {
-  margin: 0 15px; display: inline-block; color: #d4af37;
-  transition: color 0.3s, transform 0.2s;
-}
-.social-icon:hover { transform: scale(1.3); }
-.social-icon.facebook:hover { color:#1877F2; }
-.social-icon.instagram:hover { color:#C13584; }
-.social-icon.youtube:hover { color:#FF0000; }
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeIn { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
 
 /* ============================================================
-   💫 PAGE SERVICES — Version équilibrée et animée
+   7️⃣ SECTION BOUTONS (GÉNÉRAUX ET FLOTTANTS)
+   ------------------------------------------------------------
+   - Styles pour les boutons standards et fixes à droite
    ============================================================ */
 
+.btn,
+.cta {
+  display: inline-block;
+  background: #4b2e83;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+
+.btn:hover,
+.cta:hover {
+  background: #2c2c2c;
+  color: #d4af37;
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Boutons flottants fixes à droite --- */
+.floating {
+  position: fixed;
+  right: 20px;
+  background: #4b2e83;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 30px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  z-index: 1050;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#floating-services {
+  bottom: 160px;
+  background: #d4af37;
+  color: #2c2c2c;
+}
+#floating-blog {
+  bottom: 100px;
+  background: #b28dd2;
+  color: #2c2c2c;
+}
+#floating-podcasts {
+  bottom: 40px;
+  background: #4b2e83;
+  color: #fff;
+}
+
+.floating:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* --- On masque les boutons flottants sur mobile --- */
+@media (max-width: 768px) {
+  .floating {
+    display: none;
+  }
+}
+/* ============================================================
+   8️⃣ SECTION ANIMATIONS GÉNÉRALES
+   ------------------------------------------------------------
+   - Définition des effets “fadeIn” et “pulseGlow”
+   ============================================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2),
+      0 0 40px rgba(212, 175, 55, 0.15);
+  }
+  100% {
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.3),
+      0 0 70px rgba(212, 175, 55, 0.25);
+  }
+}
+
+
+/* ============================================================
+   9️⃣ SECTION FOOTER
+   ------------------------------------------------------------
+   - Pied de page avec liens et icônes sociales
+   ============================================================ */
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #2c2c2c;
+  font-size: 0.9em;
+  color: #fdf6e3;
+  margin-top: 2rem;
+  border-top: 3px solid #d4af37;
+}
+
+.social-links {
+  margin-top: 1rem;
+}
+
+.social-icon {
+  margin: 0 15px;
+  display: inline-block;
+  color: #d4af37;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.social-icon:hover {
+  transform: scale(1.3);
+}
+
+.social-icon.facebook:hover {
+  color: #1877f2;
+}
+.social-icon.instagram:hover {
+  color: #c13584;
+}
+.social-icon.youtube:hover {
+  color: #ff0000;
+}
+/* ============================================================
+   🔟 SECTION SERVICES — Cartes et Carrousel
+   ------------------------------------------------------------
+   - Présente les différents “Laboratoires”
+   - Inclut les cartes, carrousels et transitions
+   ============================================================ */
+
+/* --- Section principale contenant les cartes --- */
 .services-section {
   max-width: 900px;
   margin: 3rem auto;
@@ -179,31 +405,33 @@ footer {
   text-align: center;
 }
 
-
-/* --- Cartes de service --- */
+/* --- Carte de service individuelle --- */
 .service-card {
   max-width: 380px;
   margin: 0 auto;
   background: #fff;
   padding: 2rem 1.6rem;
   border-radius: 16px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.3);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  border: 1px solid rgba(212,175,55,0.3);
   opacity: 0;
   transform: translateY(40px);
 }
 
+/* --- Apparition fluide au scroll --- */
 .service-card.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* --- Effet de survol --- */
 .service-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* --- Titres et paragraphes dans les cartes --- */
 .service-card h3 {
   color: #4b2e83;
   font-family: 'Raleway', sans-serif;
@@ -218,6 +446,7 @@ footer {
   margin-bottom: 1.2rem;
 }
 
+/* --- Bouton dans les cartes --- */
 .service-card .btn {
   background: linear-gradient(90deg, #b28dd2, #d9c2ef);
   border-radius: 25px;
@@ -230,16 +459,21 @@ footer {
   transform: scale(1.05);
 }
 
+
 /* ============================================================
-   ✨ CADRE SPIRITUEL — "Quel laboratoire vous appelle aujourd’hui ?"
+   🌸 SECTION LAB-CHOICE — “Quel laboratoire vous appelle ?”
+   ------------------------------------------------------------
+   - Cadre spirituel introductif avant le carrousel
+   - Contient halo doré animé et texte centré
    ============================================================ */
+
 .lab-choice {
   max-width: 720px;
   margin: 3.5rem auto;
   background: radial-gradient(circle at top left, #fffdf8 0%, #f8f3e6 100%);
-  border: 1.5px solid rgba(212,175,55,0.4);
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
   border-radius: 22px;
-  box-shadow: 0 0 18px rgba(212,175,55,0.25);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.25);
   padding: 2.8rem 2.2rem;
   text-align: center;
   position: relative;
@@ -247,11 +481,14 @@ footer {
   overflow: hidden;
 }
 
-/* --- Halo doré animé --- */
+/* --- Halo doré animé autour du cadre --- */
 .lab-choice::before {
   content: "";
   position: absolute;
-  top: -3px; left: -3px; right: -3px; bottom: -3px;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
   border-radius: 25px;
   background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(255,255,255,0));
   z-index: 0;
@@ -259,6 +496,7 @@ footer {
   animation: pulseGlow 6s ease-in-out infinite alternate;
 }
 
+/* --- Titre du bloc --- */
 .lab-choice h3 {
   position: relative;
   font-family: 'Raleway', sans-serif;
@@ -269,6 +507,7 @@ footer {
   z-index: 1;
 }
 
+/* --- Ligne dorée sous le titre --- */
 .lab-choice h3::after {
   content: "";
   display: block;
@@ -279,6 +518,7 @@ footer {
   border-radius: 2px;
 }
 
+/* --- Paragraphe central --- */
 .lab-choice p {
   position: relative;
   color: #2c2c2c;
@@ -290,25 +530,152 @@ footer {
   font-style: italic;
 }
 
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 20px rgba(212,175,55,0.2), 0 0 40px rgba(212,175,55,0.15);
-  }
-  100% {
-    box-shadow: 0 0 35px rgba(212,175,55,0.3), 0 0 70px rgba(212,175,55,0.25);
+
+/* ============================================================
+   💫 SECTION CARROUSEL DES LABORATOIRES
+   ------------------------------------------------------------
+   - Permet de faire défiler horizontalement les cartes
+   - Inclut flèches fixes gauche/droite
+   ============================================================ */
+
+.carousel-container {
+  position: relative;
+  max-width: 900px;
+  margin: 3rem auto;
+}
+
+/* --- Bande du carrousel --- */
+.services-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  justify-content: flex-start;
+  align-items: stretch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212,175,55,0.4) transparent;
+}
+
+/* --- Masque la scrollbar sur Chrome/Safari --- */
+.services-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+.services-carousel::-webkit-scrollbar-thumb {
+  background: rgba(212,175,55,0.4);
+  border-radius: 10px;
+}
+
+/* --- Cartes à l’intérieur du carrousel --- */
+.service-card {
+  flex: 0 0 75%;
+  scroll-snap-align: center;
+  background: #fffdf8;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  border: 1px solid rgba(212,175,55,0.3);
+  padding: 1.5rem 1.2rem 1.8rem;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0.9;
+  width: 75%;
+  max-width: 580px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* --- Survol des cartes --- */
+.service-card:hover {
+  transform: scale(1.04);
+  opacity: 1;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Icône + titre alignés --- */
+.service-card h3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #4b2e83;
+  font-size: 1.25rem;
+  margin-bottom: 0.8rem;
+}
+
+/* --- Texte d’intro italique --- */
+.service-card .synthese {
+  font-style: italic;
+  color: #2c2c2c;
+  margin-bottom: 1rem;
+}
+
+/* --- Image de la carte --- */
+.service-card img {
+  display: block;
+  margin: 0.5rem auto 1rem;
+  border-radius: 10px;
+  max-height: 180px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Flèches fixes du carrousel --- */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  background: rgba(255,255,255,0.85);
+  border: 2px solid rgba(212,175,55,0.6);
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  background: #d4af37;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow svg {
+  width: 20px;
+  height: 20px;
+  fill: #4b2e83;
+}
+
+.carousel-arrow.left { left: -20px; }
+.carousel-arrow.right { right: -20px; }
+
+/* --- Cache les flèches sur mobile --- */
+@media (max-width: 768px) {
+  .carousel-arrow {
+    display: none;
   }
 }
 
+
 /* ============================================================
-   💫 Bloc final (call-to-action)
+   💜 SECTION CALL-TO-ACTION FINALE
+   ------------------------------------------------------------
+   - Bloc d’invitation à contacter ou participer
    ============================================================ */
+
 .call-to-action {
   background: linear-gradient(135deg, #f5f0fa, #ede7f6);
   padding: 2.5rem 2rem;
   max-width: 720px;
   margin: 3rem auto;
   border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(212,175,55,0.25);
   text-align: center;
 }
@@ -333,8 +700,12 @@ footer {
 .call-to-action .btn {
   margin-top: 1.5rem;
 }
+
+
 /* ============================================================
-   ✨ CITATION FINALE — mise en forme raffinée et spirituelle
+   ✨ SECTION CITATION FINALE
+   ------------------------------------------------------------
+   - Bloc stylisé avec guillemets dorés
    ============================================================ */
 
 .closing-quote {
@@ -350,9 +721,12 @@ footer {
   color: #2c2c2c;
   position: relative;
   line-height: 1.8;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInQuote 1s ease forwards 0.5s;
 }
 
-/* --- Trait décoratif doré au-dessus --- */
+/* --- Guillemets décoratifs --- */
 .closing-quote::before {
   content: "❝";
   font-size: 2.4rem;
@@ -362,7 +736,6 @@ footer {
   left: 50%;
   transform: translateX(-50%);
 }
-
 .closing-quote::after {
   content: "❞";
   font-size: 2.4rem;
@@ -373,7 +746,7 @@ footer {
   transform: translateX(50%);
 }
 
-/* --- Ligne dorée de séparation --- */
+/* --- Ligne dorée sous la citation --- */
 .closing-quote em {
   display: block;
   margin-top: 1rem;
@@ -385,19 +758,13 @@ footer {
   letter-spacing: 0.5px;
 }
 
-/* --- Animation douce (apparition) --- */
-.closing-quote {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInQuote 1s ease forwards 0.5s;
-}
-
+/* --- Animation d’apparition --- */
 @keyframes fadeInQuote {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Responsive --- */
+/* --- Responsive ajusté --- */
 @media (max-width: 768px) {
   .closing-quote {
     padding: 1.8rem 1.2rem;
@@ -406,273 +773,11 @@ footer {
   .closing-quote::before,
   .closing-quote::after { font-size: 1.8rem; }
 }
-
-
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
-  .services-grid { grid-template-columns: 1fr; }
-  .service-card { max-width: 90%; }
-  .lab-choice, .call-to-action { max-width: 92%; padding: 1.6rem; }
-}
-
-
 /* ============================================================
-   🌸 CARROUSEL DE LABORATOIRES — version immersive et fluide
-   ============================================================ */
-
-.services-carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  gap: 2rem;
-  padding: 2rem 1rem;
-  justify-content: flex-start;
-  align-items: stretch;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(212,175,55,0.4) transparent;
-}
-
-/* --- Masquer scrollbar sur Chrome/Safari --- */
-.services-carousel::-webkit-scrollbar {
-  height: 10px;
-}
-.services-carousel::-webkit-scrollbar-track {
-  background: transparent;
-}
-.services-carousel::-webkit-scrollbar-thumb {
-  background: rgba(212,175,55,0.4);
-  border-radius: 10px;
-}
-
-/* --- Cartes dynamiques --- */
-.service-card {
-  flex: 0 0 80%;
-  scroll-snap-align: center;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  border: 1px solid rgba(212,175,55,0.3);
-  padding: 2rem 1.6rem;
-  text-align: center;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  opacity: 0.9;
-  width: 80%;
-  max-width: 600px;
-}
-
-/* --- Effet focus (carte centrale) --- */
-.service-card:target,
-.service-card:hover {
-  transform: scale(1.05);
-  opacity: 1;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-}
-
-/* --- Adapter les images --- */
-.service-card img {
-  border-radius: 12px;
-  max-height: 220px;
-  object-fit: cover;
-  margin-bottom: 1rem;
-}
-
-/* --- Responsive mobile --- */
-@media (max-width: 768px) {
-  .services-carousel {
-    gap: 1.2rem;
-    padding: 1.5rem 0.6rem;
-  }
-  .service-card {
-    flex: 0 0 88%;
-    padding: 1.5rem;
-  }
-}
-
-
-/* ============================================================
-   🌸 CARROUSEL DE LABORATOIRES — version raffinée avec flèches
-   ============================================================ */
-
-.services-carousel {
-  position: relative;
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  gap: 2rem;
-  padding: 2rem 1rem;
-  justify-content: flex-start;
-  align-items: stretch;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(212,175,55,0.4) transparent;
-}
-
-/* --- Masquer scrollbar sur Chrome/Safari --- */
-.services-carousel::-webkit-scrollbar {
-  height: 8px;
-}
-.services-carousel::-webkit-scrollbar-track {
-  background: transparent;
-}
-.services-carousel::-webkit-scrollbar-thumb {
-  background: rgba(212,175,55,0.4);
-  border-radius: 10px;
-}
-
-/* --- Cartes raffinées --- */
-.service-card {
-  flex: 0 0 75%;
-  scroll-snap-align: center;
-  background: #fffdf8;
-  border-radius: 16px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  border: 1px solid rgba(212,175,55,0.3);
-  padding: 1.5rem 1.2rem 1.8rem;
-  text-align: center;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  opacity: 0.9;
-  width: 75%;
-  max-width: 580px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.service-card:hover {
-  transform: scale(1.04);
-  opacity: 1;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-}
-
-/* --- Icône et titre côte à côte --- */
-.service-card h3 {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-family: 'Raleway', sans-serif;
-  color: #4b2e83;
-  font-size: 1.25rem;
-  margin-bottom: 0.8rem;
-}
-
-.service-card .icon {
-  font-size: 1.5rem;
-  display: inline-block;
-}
-
-/* --- Texte d’introduction avant l’image (en italique) --- */
-.service-card .synthese {
-  font-style: italic;
-  color: #2c2c2c;
-  margin-bottom: 1rem;
-}
-
-/* --- Image centrée --- */
-.service-card img {
-  display: block;
-  margin: 0.5rem auto 1rem;
-  border-radius: 10px;
-  max-height: 180px;
-  width: auto;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-/* --- Texte principal --- */
-.service-card p {
-  font-size: 0.95rem;
-  color: #2c2c2c;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-/* --- Bouton --- */
-.service-card .btn {
-  background: linear-gradient(90deg, #b28dd2, #d9c2ef);
-  border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-.service-card .btn:hover {
-  background: linear-gradient(90deg, #a075c6, #c8aee6);
-  transform: scale(1.05);
-}
-
-/* --- Réduction de hauteur générale --- */
-.service-card p:last-child {
-  margin-bottom: 0;
-}
-
-/* ============================================================
-   🌸 CARROUSEL FIXE — flèches indépendantes du scroll
-   ============================================================ */
-
-.carousel-container {
-  position: relative;
-  max-width: 900px;
-  margin: 3rem auto;
-}
-
-.services-carousel {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  gap: 2rem;
-  padding: 2rem 1rem;
-  justify-content: flex-start;
-  align-items: stretch;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(212,175,55,0.4) transparent;
-}
-
-.services-carousel::-webkit-scrollbar { height: 8px; }
-.services-carousel::-webkit-scrollbar-thumb {
-  background: rgba(212,175,55,0.4);
-  border-radius: 10px;
-}
-
-/* --- Flèches fixes --- */
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
-  background: rgba(255,255,255,0.85);
-  border: 2px solid rgba(212,175,55,0.6);
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  cursor: pointer;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-.carousel-arrow:hover {
-  background: #d4af37;
-  transform: translateY(-50%) scale(1.1);
-}
-.carousel-arrow svg {
-  width: 20px;
-  height: 20px;
-  fill: #4b2e83;
-}
-.carousel-arrow.left { left: -20px; }
-.carousel-arrow.right { right: -20px; }
-
-/* --- Ajustement mobile --- */
-@media (max-width: 768px) {
-  .carousel-arrow { display: none; } /* pas de flèches sur mobile */
-}
-/* ============================================================
-   💌 PAGE CONTACT — Mise en page professionnelle et responsive
+   💌 SECTION CONTACT — Formulaire de contact et disposition
+   ------------------------------------------------------------
+   - Deux colonnes : texte/image à gauche + formulaire à droite
+   - Conception moderne, responsive et douce
    ============================================================ */
 
 .contact {
@@ -795,36 +900,33 @@ footer {
   margin-top: 1rem;
 }
 
-/* --- Responsive (mobile) --- */
+/* --- Responsive mobile --- */
 @media (max-width: 768px) {
   .contact-container {
     flex-direction: column;
     padding: 1.5rem;
   }
-
   .contact-info img {
     margin: 1rem auto;
     width: 90%;
   }
-
-  .contact-form {
-    width: 100%;
-  }
-
-  .contact-form .btn {
-    width: 100%;
-  }
+  .contact-form { width: 100%; }
+  .contact-form .btn { width: 100%; }
 }
 
+
 /* ============================================================
-   🌸 PAGE À PROPOS — Restauration du style doré original
+   📘 SECTION À PROPOS — Biographie et CV
+   ------------------------------------------------------------
+   - Présente le portrait, parcours et recherches
+   - Style doré, arrondi, centré
    ============================================================ */
 
 .intro-about {
   max-width: 520px;
   margin: 3rem auto;
   padding: 1.8rem 2rem;
-  background: #fffdf8;                  /* fond doux ivoire */
+  background: #fffdf8;
   border: 1.5px solid rgba(212,175,55,0.6);
   border-radius: 20px;
   box-shadow: 0 8px 22px rgba(0,0,0,0.08);
@@ -837,7 +939,10 @@ footer {
 .intro-about::before {
   content: "";
   position: absolute;
-  top: -3px; left: -3px; right: -3px; bottom: -3px;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
   border-radius: 20px;
   background: linear-gradient(135deg, rgba(212,175,55,0.15), transparent 70%);
   pointer-events: none;
@@ -854,7 +959,7 @@ footer {
   letter-spacing: 0.5px;
 }
 
-/* ✅ Photo arrondie et douce */
+/* --- Portrait circulaire --- */
 .intro-about img {
   display: block;
   max-width: 40%;
@@ -871,7 +976,7 @@ footer {
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-/* ✅ Responsive */
+/* --- Responsive --- */
 @media (max-width: 768px) {
   .intro-about {
     max-width: 90%;
@@ -882,8 +987,9 @@ footer {
   }
 }
 
+
 /* ============================================================
-   ✨ LISTES PERSONNALISÉES — Puces dorées et icônes stylées
+   📜 LISTES PERSONNALISÉES — Puces dorées et icônes
    ============================================================ */
 
 section ul {
@@ -900,7 +1006,7 @@ section li {
   font-size: 1rem;
 }
 
-/* ✅ Puce dorée élégante */
+/* --- Puce dorée élégante --- */
 section li::before {
   content: "•";
   position: absolute;
@@ -911,7 +1017,7 @@ section li::before {
   line-height: 1.2;
 }
 
-/* --- Variante avec petite étoile à droite --- */
+/* --- Variante étoile --- */
 section li.star::after {
   content: "";
   position: absolute;
@@ -924,8 +1030,9 @@ section li.star::after {
   opacity: 0.9;
 }
 
+
 /* ============================================================
-   🪶 BOUTON "TÉLÉCHARGER" — Élégance dorée et lisibilité
+   🪶 BOUTON “TÉLÉCHARGER” — Élégant et lisible
    ============================================================ */
 
 .download-btn {
@@ -950,7 +1057,6 @@ section li.star::after {
   color: #2c2c2c;
 }
 
-/* --- Petite icône SVG dorée à gauche --- */
 .download-btn svg {
   width: 18px;
   height: 18px;
@@ -958,390 +1064,13 @@ section li.star::after {
 }
 
 
-
 /* ============================================================
-   🌿 AJUSTEMENTS FINAUX — Espacements, tailles et harmonie
-   ============================================================ */
-
-/* --- Section générale des laboratoires --- */
-.services-section {
-  margin-top: 2rem;   /* Réduit l’espace avec le bloc précédent */
-  margin-bottom: 2rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0;
-}
-
-/* --- Cadre "Quel laboratoire..." --- */
-.lab-choice {
-  max-width: 680px;
-  margin: 1.8rem auto 2rem; /* 🔹 réduit l’espace avant/après */
-  padding: 2rem 1.6rem;
-}
-
-/* --- Carrousel --- */
-.carousel-container {
-  margin-top: 1rem;   /* 🔹 espace réduit entre intro et carrousel */
-}
-
-/* --- Cartes du carrousel --- */
-.service-card {
-  flex: 0 0 65%;               /* 🔹 cartes plus étroites */
-  max-width: 520px;
-  padding: 1.6rem 1.2rem;      /* 🔹 moins d’espace interne */
-  margin: 0 auto;
-  border-radius: 14px;
-  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-}
-
-/* --- Texte à l’intérieur des cartes --- */
-.service-card p {
-  font-size: 0.95rem;
-  line-height: 1.55;
-  margin-bottom: 0.8rem; /* 🔹 réduit les espacements internes */
-}
-
-/* --- Bouton "Lire la suite" plus fin et compact --- */
-.service-card .btn {
-  display: inline-block;
-  background: linear-gradient(90deg, #b28dd2, #d9c2ef);
-  padding: 8px 16px;         /* 🔹 plus petit */
-  font-size: 0.85rem;
-  border-radius: 20px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-.service-card .btn:hover {
-  background: linear-gradient(90deg, #a075c6, #c8aee6);
-  transform: scale(1.05);
-}
-
-/* --- Supprime la ligne "Vivre ce parcours" --- */
-.service-card .mini-invite {
-  display: none;
-}
-
-/* --- Images centrées --- */
-.service-card img {
-  display: block;
-  margin: 0.5rem auto 1rem;
-  border-radius: 10px;
-  max-height: 180px;
-  width: auto;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* --- Ajustement responsive --- */
-@media (max-width: 768px) {
-  .service-card {
-    flex: 0 0 88%;
-    max-width: 90%;
-    padding: 1.2rem;
-  }
-  .lab-choice {
-    margin: 1.2rem auto;
-    padding: 1.5rem;
-  }
-}
-
-/* ============================================================
-   🌼 CADRE INTRO "Quel laboratoire..." — version allégée et discrète
-   ============================================================ */
-
-.lab-choice {
-  max-width: 640px;
-  margin: 1.5rem auto 1.5rem;          /* 🔹 espace plus serré */
-  padding: 1.4rem 1.2rem;              /* 🔹 hauteur réduite */
-  background: linear-gradient(180deg, #fffdf8 0%, #f9f5ea 100%);
-  border: 1px solid rgba(212, 175, 55, 0.25); /* 🔹 bordure plus fine et douce */
-  border-radius: 16px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 🔹 ombre plus légère */
-  text-align: center;
-  animation: fadeIn 0.8s ease-in-out;
-}
-
-/* --- Titre plus discret --- */
-.lab-choice h3 {
-  font-family: 'Raleway', sans-serif;
-  color: #4b2e83;
-  font-size: 1.3rem;          /* 🔹 plus petit */
-  font-weight: 600;
-  margin-bottom: 0.6rem;
-  letter-spacing: 0.3px;
-}
-
-/* --- Ligne dorée subtile sous le titre --- */
-.lab-choice h3::after {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: rgba(212, 175, 55, 0.6);
-  margin: 0.6rem auto 0;
-  border-radius: 2px;
-}
-
-/* --- Paragraphe raffiné --- */
-.lab-choice p {
-  color: #3b3b3b;
-  font-size: 1rem;
-  line-height: 1.6;
-  font-style: italic;
-  max-width: 520px;
-  margin: 0 auto;
-}
-
-/* --- Animation plus douce --- */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
-  .lab-choice {
-    padding: 1.2rem 1rem;
-    margin: 1rem auto 1.2rem;
-  }
-  .lab-choice h3 {
-    font-size: 1.15rem;
-  }
-  .lab-choice p {
-    font-size: 0.95rem;
-    line-height: 1.55;
-  }
-}
-
-/* ============================================================
-   📱 NAVIGATION MOBILE — Menu burger & overlay
-   ============================================================ */
-
-/* Cacher la navigation sur mobile au départ */
-@media (max-width: 768px) {
-  nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100%;
-    background: linear-gradient(180deg, #4b2e83, #2c2c2c);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 1.5rem;
-    transition: right 0.4s ease;
-    z-index: 1001;
-    padding-top: 4rem;
-  }
-
-  /* Quand le menu est ouvert */
-  nav.active {
-    right: 0;
-  }
-
-  /* Liens dans le menu mobile */
-  nav a {
-    color: #fdf6e3;
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-decoration: none;
-    display: block;
-    transition: color 0.3s;
-  }
-
-  nav a:hover {
-    color: #d4af37;
-  }
-
-  /* Boutons “Articles”, “Podcasts”, “Services” en version mobile */
-  nav a.btn {
-    background: #d4af37;
-    color: #2c2c2c;
-    padding: 10px 24px;
-    border-radius: 30px;
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  }
-
-  /* Bouton burger visible uniquement sur mobile */
-  .burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 28px;
-    height: 22px;
-    position: absolute;
-    top: 22px;
-    right: 22px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1100;
-  }
-
-  .burger span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background: #fff;
-    border-radius: 2px;
-    transition: all 0.4s ease;
-  }
-
-  /* Animation du burger */
-  .burger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  .burger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .burger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
-
-  /* Overlay (fond semi-transparent) */
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease;
-    z-index: 1000;
-  }
-
-  .overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-/* ============================================================
-   📱 NAVIGATION MOBILE — Menu burger & overlay
-   ============================================================ */
-
-/* Cacher la navigation sur mobile au départ */
-@media (max-width: 768px) {
-  nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    height: 100%;
-    background: linear-gradient(180deg, #4b2e83, #2c2c2c);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 1.5rem;
-    transition: right 0.4s ease;
-    z-index: 1001;
-    padding-top: 4rem;
-  }
-
-  /* Quand le menu est ouvert */
-  nav.active {
-    right: 0;
-  }
-
-  /* Liens dans le menu mobile */
-  nav a {
-    color: #fdf6e3;
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-decoration: none;
-    display: block;
-    transition: color 0.3s;
-  }
-
-  nav a:hover {
-    color: #d4af37;
-  }
-
-  /* Boutons “Articles”, “Podcasts”, “Services” en version mobile */
-  nav a.btn {
-    background: #d4af37;
-    color: #2c2c2c;
-    padding: 10px 24px;
-    border-radius: 30px;
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  }
-
-  /* Bouton burger visible uniquement sur mobile */
-  .burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 28px;
-    height: 22px;
-    position: absolute;
-    top: 22px;
-    right: 22px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1100;
-  }
-
-  .burger span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background: #fff;
-    border-radius: 2px;
-    transition: all 0.4s ease;
-  }
-
-  /* Animation du burger */
-  .burger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  .burger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .burger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
-
-  /* Overlay (fond semi-transparent) */
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease;
-    z-index: 1000;
-  }
-
-  .overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-/* ============================================================
-   📱 NAVIGATION MOBILE — Menu burger & overlay (version épurée)
+   📱 NAVIGATION MOBILE — Version burger & overlay
+   ------------------------------------------------------------
+   - Transforme la nav en panneau latéral sur mobile
    ============================================================ */
 
 @media (max-width: 768px) {
-
-  /* --- Menu mobile fermé par défaut --- */
   nav {
     position: fixed;
     top: 0;
@@ -1360,12 +1089,8 @@ section li.star::after {
     z-index: 1001;
   }
 
-  /* --- Menu ouvert --- */
-  nav.active {
-    right: 0;
-  }
+  nav.active { right: 0; }
 
-  /* --- Liens du menu --- */
   nav a {
     color: #fdf6e3;
     font-size: 1.3rem;
@@ -1381,21 +1106,14 @@ section li.star::after {
     transform: translateY(0);
   }
 
-  /* --- Apparition progressive des liens --- */
   nav.active a:nth-child(1) { transition-delay: 0.1s; }
   nav.active a:nth-child(2) { transition-delay: 0.2s; }
   nav.active a:nth-child(3) { transition-delay: 0.3s; }
 
-  nav a:hover {
-    color: #d4af37;
-  }
+  nav a:hover { color: #d4af37; }
 
-  /* --- Supprimer complètement les boutons (Services, Articles, Podcasts) --- */
-  nav a.btn {
-    display: none !important;
-  }
+  nav a.btn { display: none !important; }
 
-  /* --- Bouton burger --- */
   .burger {
     display: flex;
     flex-direction: column;
@@ -1420,7 +1138,6 @@ section li.star::after {
     transition: all 0.4s ease;
   }
 
-  /* --- Animation du burger --- */
   .burger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
@@ -1431,7 +1148,6 @@ section li.star::after {
     transform: rotate(-45deg) translate(6px, -6px);
   }
 
-  /* --- Overlay (fond sombre derrière le menu) --- */
   .overlay {
     position: fixed;
     top: 0;
@@ -1449,28 +1165,29 @@ section li.star::after {
     opacity: 1;
     visibility: visible;
   }
-}
 
-
-/* Lang switch dans menu burger */
-.lang-switch.mobile {
-  display: none;
-  text-align: center;
-  margin-bottom: 1rem;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-.lang-switch.mobile img {
-  margin-right: 4px;
-  vertical-align: middle;
-}
-
-@media (max-width: 768px) {
+  /* --- Lang-switch mobile visible dans le menu --- */
   .lang-switch.mobile {
     display: block;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.1rem;
   }
-  /* Cache le sélecteur principal du header */
+
+  .lang-switch.mobile img {
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  /* Cache le sélecteur principal du header sur mobile */
   header > .lang-switch {
     display: none;
   }
 }
+
+/* ============================================================
+   ✅ FIN DU FICHIER — Voie Spirituelle (2025)
+   ------------------------------------------------------------
+   Fichier commenté et optimisé pour compréhension complète
+   ============================================================ */
