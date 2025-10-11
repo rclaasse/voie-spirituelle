@@ -1203,4 +1203,58 @@ section li.star::after {
   background: linear-gradient(transparent 60%, #fff3a6 60%);
   color: #2c2c2c; /* tu peux mettre #4b2e83 pour un contraste plus fort */
 }
+/* ============================================================
+   📱 HEADER MOBILE FIXE ET COMPACT
+   ------------------------------------------------------------
+   - Réduit la hauteur du bandeau violet
+   - Rend le titre plus petit
+   - Garde le header et le menu burger visibles au scroll
+   ============================================================ */
+
+@media (max-width: 768px) {
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1200; /* au-dessus du reste */
+    background: linear-gradient(135deg, #4b2e83, #2c2c2c);
+    padding: 0.8rem 1rem; /* ✅ beaucoup plus fin */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+
+  /* ✅ Le titre devient plus petit */
+  header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #d4af37;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+
+  /* ✅ Espace réservé sous le header pour que le contenu ne passe pas dessous */
+  body {
+    padding-top: 70px; /* ajuste selon la hauteur du header */
+  }
+
+  /* ✅ Le menu burger reste bien placé */
+  .burger {
+    position: fixed;
+    top: 18px;
+    right: 20px;
+    z-index: 1300;
+  }
+
+  /* ✅ Le menu déroulant (nav.active) s’affiche sous le header fixe */
+  nav {
+    top: 60px; /* juste en dessous du header */
+    height: calc(100% - 60px);
+  }
+
+  /* ✅ On masque le ruban arrondi du header sur mobile */
+  header::after {
+    display: none;
+  }
+}
 
