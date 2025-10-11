@@ -1265,13 +1265,13 @@ section li.star::after {
    ============================================================ */
 @media (max-width: 768px) {
   .carousel-card {
-    padding: 0.8rem 0.8rem 1rem; /* ✅ moins de marge interne */
-    max-height: 450px;           /* ✅ hauteur maximale contrôlée */
-    overflow: hidden;             /* ✅ coupe proprement le surplus éventuel */
+    padding: 0.8rem 0.8rem 1rem;
+    max-height: none;         
+    overflow: visible;         
   }
 
   .carousel-card img {
-    max-height: 120px;            /* ✅ image plus compacte */
+    max-height: 120px;
     margin: 0.4rem auto 0.6rem;
   }
 
@@ -1296,6 +1296,7 @@ section li.star::after {
     padding: 0.5rem 0.9rem;
     font-size: 0.85rem;
     margin-top: 0.5rem;
+    align-self: center;       
   }
 
   .carousel-card .mini-invite {
@@ -1303,4 +1304,5 @@ section li.star::after {
     margin-top: 0.4rem;
   }
 }
+
 
