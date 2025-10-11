@@ -57,15 +57,7 @@
 
     <section class="services-section">
 
-  <!-- 🌿 Introduction spirituelle du carrousel -->
-  <div class="lab-choice">
-    <h3>Quel laboratoire vous appelle aujourd’hui ?</h3>
-    <p>
-      🌑 Ombre ou lumière, 🌺 naissance ou parole — chaque chemin révèle une part de vous.  
-      Laissez-vous attirer par celui dont le symbole résonne le plus :  
-      c’est souvent le bon point de départ vers la lumière intérieure.
-    </p>
-  </div>
+  <h3 class="carousel-title">Quel laboratoire vous appelle aujourd’hui ?</h3>
 
   <!-- 🌸 Carrousel des laboratoires -->
   <div class="carousel-container">
@@ -242,17 +234,16 @@ const carousel = document.querySelector('.services-carousel');
 const leftArrow = document.querySelector('.carousel-arrow.left');
 const rightArrow = document.querySelector('.carousel-arrow.right');
 
+const cardWidth = document.querySelector('.carousel-card').offsetWidth + 32; // 32px ≈ ton gap
+
 rightArrow.addEventListener('click', () => {
-  carousel.scrollBy({ left: carousel.offsetWidth * 0.8, behavior: 'smooth' });
+  carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
 });
 
 leftArrow.addEventListener('click', () => {
-  carousel.scrollBy({ left: -carousel.offsetWidth * 0.8, behavior: 'smooth' });
+  carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
 });
 </script>
-
-
-
 
   <!-- Footer -->
   <footer>

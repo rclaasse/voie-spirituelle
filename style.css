@@ -451,79 +451,6 @@ footer {
   background: linear-gradient(90deg, #a075c6, #c8aee6);
   transform: scale(1.05);
 }
-
-
-/* ============================================================
-   🌸 SECTION LAB-CHOICE — “Quel laboratoire vous appelle ?”
-   ------------------------------------------------------------
-   - Cadre spirituel introductif avant le carrousel
-   - Contient halo doré animé et texte centré
-   ============================================================ */
-
-.lab-choice {
-  max-width: 720px;
-  margin: 3.5rem auto;
-  background: radial-gradient(circle at top left, #fffdf8 0%, #f8f3e6 100%);
-  border: 1.5px solid rgba(212, 175, 55, 0.4);
-  border-radius: 22px;
-  box-shadow: 0 0 18px rgba(212, 175, 55, 0.25);
-  padding: 2.8rem 2.2rem;
-  text-align: center;
-  position: relative;
-  animation: fadeIn 1.2s ease-in-out;
-  overflow: hidden;
-}
-
-/* --- Halo doré animé autour du cadre --- */
-.lab-choice::before {
-  content: "";
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  right: -3px;
-  bottom: -3px;
-  border-radius: 25px;
-  background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(255,255,255,0));
-  z-index: 0;
-  pointer-events: none;
-  animation: pulseGlow 6s ease-in-out infinite alternate;
-}
-
-/* --- Titre du bloc --- */
-.lab-choice h3 {
-  position: relative;
-  font-family: 'Raleway', sans-serif;
-  color: #4b2e83;
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  z-index: 1;
-}
-
-/* --- Ligne dorée sous le titre --- */
-.lab-choice h3::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: #d4af37;
-  margin: 0.8rem auto 0;
-  border-radius: 2px;
-}
-
-/* --- Paragraphe central --- */
-.lab-choice p {
-  position: relative;
-  color: #2c2c2c;
-  font-size: 1.05rem;
-  line-height: 1.75;
-  max-width: 600px;
-  margin: 0 auto;
-  z-index: 1;
-  font-style: italic;
-}
-
-
 /* ============================================================
    💫 SECTION CARROUSEL DES LABORATOIRES
    ------------------------------------------------------------
@@ -531,10 +458,35 @@ footer {
    - Inclut flèches fixes gauche/droite
    ============================================================ */
 
+.carousel-title {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.4rem;
+  color: #4b2e83;
+  font-weight: 600;
+  margin-top: 0.4rem;   
+  margin-bottom: 0.3rem;  
+  line-height: 1.2;
+  position: relative;
+}
+
+/* Petite ligne dorée décorative */
+.carousel-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #d4af37;
+  margin: 0.25rem auto 0;
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
 .carousel-container {
   position: relative;
   max-width: 900px;
-  margin: 3rem auto;
+  margin-top: 0.3rem !important;  
+  margin-bottom: 1rem !important;   
 }
 
 /* --- Bande du carrousel --- */
@@ -562,7 +514,8 @@ footer {
 
 /* --- Cartes à l’intérieur du carrousel --- */
 .carousel-card {
-  flex: 0 0 80%;        
+  
+flex: 0 0 80%;        
   scroll-snap-align: center;
   background: #fffdf8;
   border-radius: 16px;
@@ -577,7 +530,7 @@ footer {
   margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .carousel-card:hover {
@@ -604,6 +557,9 @@ footer {
   margin-bottom: 0.8rem;    
   line-height: 1.45;
 }
+.carousel-card p {
+  flex-grow: 1; /* ✅ permet au texte de prendre l’espace restant */
+}
 
 /* --- Image de la carte --- */
 .carousel-card img {
@@ -613,6 +569,10 @@ footer {
   max-height: 150px;        
   object-fit: cover;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+.carousel-card .btn {
+  margin-top: auto; /* ✅ pousse le bouton en bas du flex */
+  align-self: center;
 }
 
 
@@ -668,6 +628,7 @@ footer {
   padding: 2.5rem 2rem;
   max-width: 720px;
   margin: 3rem auto;
+  margin-top: 2rem !important;
   border-radius: 18px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(212,175,55,0.25);
@@ -1264,8 +1225,20 @@ section li.star::after {
    - Réduit la hauteur visuelle sans modifier la largeur
    ============================================================ */
 @media (max-width: 768px) {
+  .carousel-title {
+    font-size: 1.2rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.2rem;
+  }
+  .carousel-title::after {
+    width: 30px;
+    height: 1.5px;
+    margin-top: 0.2rem;
+  }
+}
   .carousel-card {
-    padding: 0.8rem 0.8rem 1rem;
+    justify-content: flex-start;
+    padding-bottom: 1rem;
     max-height: none;         
     overflow: visible;         
   }
@@ -1295,7 +1268,7 @@ section li.star::after {
   .carousel-card .btn {
     padding: 0.5rem 0.9rem;
     font-size: 0.85rem;
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
     align-self: center;       
   }
 
@@ -1303,6 +1276,6 @@ section li.star::after {
     font-size: 0.8rem;
     margin-top: 0.4rem;
   }
-}
+
 
 
