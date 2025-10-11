@@ -1277,5 +1277,103 @@ section li.star::after {
     margin-top: 0.4rem;
   }
 
+/* ============================================================
+   🌿 FICHE ATELIER — Détails des laboratoires (lab1–lab5)
+   ------------------------------------------------------------
+   - Présente les informations concrètes et pratiques
+   - Style clair et doux
+   ============================================================ */
+.lab-details {
+  max-width: 800px;
+  margin: 2rem auto 3rem;
+  background: #fffdf8;
+  padding: 2rem 2.2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  border: 1px solid rgba(212,175,55,0.3);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.lab-details h2 {
+  color: #4b2e83;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  border-left: 4px solid #d4af37;
+  padding-left: 0.5rem;
+}
+
+.lab-details h3 {
+  color: #2c2c2c;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.lab-details p {
+  color: #2c2c2c;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.lab-details ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.8rem 0 1.2rem;
+}
+
+.lab-details li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.lab-details li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #d4af37;
+  font-size: 1.2rem;
+}
+
+/* --- Colonnes Inputs / Outputs --- */
+.lab-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.lab-columns > div {
+  flex: 1 1 300px;
+  background: #fdf8ef;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+/* --- Bouton inscription --- */
+.lab-details .btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: linear-gradient(90deg, #b28dd2, #d9c2ef);
+  color: #2c2c2c;
+  font-weight: 600;
+  padding: 0.8rem 1.6rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+.lab-details .btn:hover {
+  background: linear-gradient(90deg, #a075c6, #c8aee6);
+  transform: scale(1.05);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .lab-columns {
+    flex-direction: column;
+  }
+}
 
 
