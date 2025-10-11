@@ -1369,11 +1369,54 @@ section li.star::after {
   transform: scale(1.05);
 }
 
-/* --- Responsive --- */
 @media (max-width: 768px) {
+  /* --- Conteneur général plus léger --- */
+  .lab-details {
+    padding: 1.2rem 1.2rem;
+    background: #fffdf8;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  }
+
+  .lab-details h2 {
+    font-size: 1.1rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.4rem;
+    border-left: 3px solid #d4af37;
+    padding-left: 0.4rem;
+  }
+
+  .lab-details p,
+  .lab-details li {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  /* --- Colonne Inputs / Outputs : devient pile verticale --- */
   .lab-columns {
     flex-direction: column;
+    gap: 1rem;
+  }
+
+  .lab-columns > div {
+    background: #f8f5ef;
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  .lab-columns h3 {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* --- Bouton d’inscription centré et lisible --- */
+  .lab-details .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.95rem;
   }
 }
-
-
