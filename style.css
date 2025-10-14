@@ -1733,10 +1733,14 @@ section li.star::after {
   #floating-services,
   #floating-blog,
   #floating-podcasts {
-    transition: bottom 0.6s ease, transform 0.6s ease;
+    /* 🌿 transition plus lente, plus douce, plus pro */
+    transition:
+      bottom 1.2s cubic-bezier(0.25, 0.8, 0.25, 1),
+      transform 1.2s cubic-bezier(0.25, 0.8, 0.25, 1),
+      opacity 0.8s ease;
   }
 
-  /* ✅ Quand la vidéo est en lecture */
+  /* ✅ Déplacement des 3 boutons quand la vidéo joue */
   .floating-shift #floating-services {
     bottom: 40%;
     transform: translateY(0);
