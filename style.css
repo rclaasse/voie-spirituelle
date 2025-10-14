@@ -1725,3 +1725,31 @@ section li.star::after {
   box-shadow: 0 2px 6px rgba(0,0,0,0.25);
   pointer-events: none;
 }
+
+/* ============================================================
+   📱 DÉPLACEMENT DES BOUTONS FLOTTANTS — position à 40 % (mobile)
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+  #floating-services,
+  #floating-blog,
+  #floating-podcasts {
+    transition: bottom 0.6s ease, transform 0.6s ease;
+  }
+
+  /* ✅ Quand la vidéo est en lecture */
+  .floating-shift #floating-services {
+    bottom: 40%;
+    transform: translateY(0);
+  }
+
+  .floating-shift #floating-blog {
+    bottom: calc(40% - 70px);
+    transform: translateY(0);
+  }
+
+  .floating-shift #floating-podcasts {
+    bottom: calc(40% - 140px);
+    transform: translateY(0);
+  }
+}
+

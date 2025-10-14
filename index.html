@@ -246,6 +246,28 @@
     progressContainer.addEventListener('touchstart', (e) => { isDragging = true; seek(e); });
     document.addEventListener('touchmove', (e) => { if (isDragging) seek(e); });
     document.addEventListener('touchend', () => isDragging = false);
+
+    // 🎬 Déplacer les boutons flottants pendant la lecture vidéo — uniquement mobile
+      const floatingButtonsContainer = document.body;
+
+      videoElement.addEventListener('play', () => {
+        if (window.innerWidth <= 768) {
+          floatingButtonsContainer.classList.add('floating-shift');
+        }
+      });
+
+      videoElement.addEventListener('pause', () => {
+        if (window.innerWidth <= 768) {
+          floatingButtonsContainer.classList.remove('floating-shift');
+        }
+      });
+
+      videoElement.addEventListener('ended', () => {
+        if (window.innerWidth <= 768) {
+          floatingButtonsContainer.classList.remove('floating-shift');
+        }
+      });
+
   </script>
 
 
