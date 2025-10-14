@@ -1466,4 +1466,152 @@ section li.star::after {
     margin-top: 1rem;
     font-size: 0.95rem;
   }
+/* ============================================================
+   🌿 VIDÉO FLOTTANTE DE PRÉSENTATION
+   ------------------------------------------------------------ */
+
+.video-floating {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 999;
+  background: var(--accent-light);
+  border: 2px solid var(--accent-hover);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease;
+}
+
+.video-wrapper {
+  position: relative;
+}
+
+.video-wrapper video {
+  width: 260px;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  transition: none;
+}
+
+.video-floating.expanded {
+  transform: scale(1.6);
+  transform-origin: bottom left;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+/* ✅ Boutons intégrés à la vidéo avec effet fade + slide */
+.video-overlay-buttons {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  gap: 0.4rem;
+  opacity: 0;
+  transform: translateY(20px); /* ↓ départ en dessous */
+  pointer-events: none;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* ✅ Apparition fluide */
+.video-overlay-buttons.visible {
+  opacity: 1;
+  transform: translateY(0); /* ↑ glissement vers le haut */
+  pointer-events: auto;
+}
+
+/* ✅ Style des boutons */
+.video-overlay-buttons .btn {
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+  color: var(--text-color);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.25s ease, background 0.3s ease;
+}
+
+.video-overlay-buttons .btn:hover {
+  transform: scale(1.07);
+  background: linear-gradient(90deg, var(--accent-hover), var(--accent-light));
+}
+
+/* ============================================================
+   🌿 VERSION MOBILE — Vidéo flottante bas gauche
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+  /* ✅ Position : bas gauche (comme desktop mais plus compacte) */
+  .video-floating {
+    bottom: 15px;
+    left: 15px;
+    right: auto;
+    width: 180px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    transform-origin: bottom left;
+  }
+
+  /* ✅ Taille vidéo réduite */
+  .video-wrapper video {
+    width: 180px;
+    border-radius: 10px;
+  }
+
+  /* ✅ Quand agrandie : légère mise en avant */
+  .video-floating.expanded {
+    transform: scale(1.4);
+    bottom: 30px;
+    left: 30px;
+  }
+
+  /* ✅ Boutons centrés dans la vidéo */
+  .video-overlay-buttons {
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%) scale(0.95);
+    gap: 0.6rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ✅ Apparition fluide */
+  .video-overlay-buttons.visible {
+    transform: translate(50%, 50%) scale(1);
+    opacity: 1;
+  }
+
+  /* ✅ Style adapté */
+  .video-overlay-buttons .btn {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 18px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .video-overlay-buttons .btn:hover {
+    transform: scale(1.05);
+  }
+}
+/* ============================================================
+   🌸 ANIMATION D’APPARITION — Vidéo flottante douce
+   ------------------------------------------------------------ */
+@keyframes videoFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ✅ Appliquer l’effet sur le conteneur vidéo */
+.video-floating {
+  animation: videoFadeIn 1.2s ease-out 0.4s both;
+}
 

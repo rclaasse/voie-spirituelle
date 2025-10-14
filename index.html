@@ -82,6 +82,24 @@
   <a href="blog.html" class="btn floating" id="floating-blog">Articles 📖</a>
   <a href="podcasts.html" class="btn floating" id="floating-podcasts">Podcasts 🎧</a>
 
+  <!-- 🌿 Vidéo de présentation flottante -->
+  <div class="video-floating">
+    <div class="video-wrapper">
+      <video id="introVideo" controls preload="auto" playsinline>
+        <source src="videos/pres.mp4?v=3" type="video/mp4">
+        Votre navigateur ne prend pas en charge la lecture vidéo.
+      </video>
+
+      <!-- ✅ Boutons flottants dans la vidéo -->
+      <div id="videoButtons" class="video-overlay-buttons">
+        <a href="video2.html" class="btn">🌸 Suite 1</a>
+        <a href="video3.html" class="btn">🌿 Suite 2</a>
+      </div>
+    </div>
+  </div>
+
+
+
   <script>
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('nav');
@@ -102,15 +120,39 @@
   </script>
 
   <script>
-window.addEventListener("scroll", function() {
-  const header = document.querySelector("header");
-  if (window.scrollY > 80) {
-    header.classList.add("shrink");
-  } else {
-    header.classList.remove("shrink");
-  }
-});
-</script>
+    window.addEventListener("scroll", function() {
+      const header = document.querySelector("header");
+      if (window.scrollY > 80) {
+        header.classList.add("shrink");
+      } else {
+        header.classList.remove("shrink");
+      }
+    });
+  </script>
+
+  <script>
+    const video = document.getElementById('introVideo');
+    const container = document.querySelector('.video-floating');
+    const buttons = document.getElementById('videoButtons');
+
+    // ✅ Clic sur la vidéo → agrandir/réduire
+    video.addEventListener('click', (e) => {
+      if (e.target.tagName.toLowerCase() === 'button') return;
+      container.classList.toggle('expanded');
+    });
+
+    // ✅ Affiche les boutons après 28 secondes
+    video.addEventListener('timeupdate', () => {
+      if (video.currentTime >= 28 && !buttons.classList.contains('visible')) {
+        buttons.classList.add('visible');
+      }
+    });
+
+    // (Optionnel) Les cacher à la fin
+    video.addEventListener('ended', () => {
+      buttons.classList.remove('visible');
+    });
+  </script>
 
 
   <!-- Footer -->
