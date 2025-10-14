@@ -268,6 +268,14 @@
         }
       });
 
+      // 🌿 Apparition fluide des boutons flottants après le chargement
+      window.addEventListener('load', () => {
+        // délai léger pour éviter le "flash"
+        setTimeout(() => {
+          document.body.classList.add('floating-ready');
+        }, 300);
+      });
+
   </script>
 
 

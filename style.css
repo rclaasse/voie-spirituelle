@@ -1753,3 +1753,24 @@ section li.star::after {
   }
 }
 
+/* ============================================================
+   🌿 ANIMATION D’APPARITION DES BOUTONS FLOTTANTS AU CHARGEMENT
+   ------------------------------------------------------------ */
+
+/* État initial (invisible au chargement) */
+#floating-services,
+#floating-blog,
+#floating-podcasts {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* État animé une fois chargés */
+body.floating-ready #floating-services,
+body.floating-ready #floating-blog,
+body.floating-ready #floating-podcasts {
+  opacity: 1;
+  transform: translateY(0);
+}
+
