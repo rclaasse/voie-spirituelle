@@ -29,6 +29,18 @@
    14. RÉPONSES RESPONSIVE (Mobile)
    ============================================================ */
 
+/* === PALETTE PRINCIPALE === */
+:root {
+  --bg-color: #F4F7F2;
+  --text-color: #2C2C2C;
+  --accent-color: #2E8B57;
+  --accent-light: #D7E4D0;
+  --accent-hover: #A9C9A4;
+  --footer-bg: #2E8B57;
+  --footer-gradient: #A9C9A4;
+  --header-gradient-start: #2E8B57;
+  --header-gradient-end: #A9C9A4;
+}
 
 /* ============================================================
    1️⃣ SECTION BASE GÉNÉRALE
@@ -36,7 +48,6 @@
    - Définit la typographie, couleurs et fond principal
    - Applique un design doux et lumineux cohérent avec le thème
    ============================================================ */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -44,10 +55,10 @@
 }
 
 body {
-  font-family: 'Merriweather', serif;
+  font-family: 'Raleway', sans-serif;
   line-height: 1.6;
-  background: linear-gradient(180deg, #fdf6e3 0%, #f9f3e7 100%);
-  color: #2c2c2c;
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
 img {
@@ -65,7 +76,7 @@ img {
    ============================================================ */
 
 header {
-  background: linear-gradient(135deg, #4b2e83, #2c2c2c);
+  background:linear-gradient(135deg,var(--header-gradient-start),var(--header-gradient-end));
   color: white;
   padding: 2.5rem 1rem;
   text-align: center;
@@ -78,7 +89,7 @@ header h1 {
   font-family: 'Raleway', sans-serif;
   font-size: 2.6rem;
   margin-bottom: 1rem;
-  color: #d4af37;
+  color: var(--accent-light);
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -96,19 +107,19 @@ nav {
 
 nav a {
   margin: 0 14px;
-  color: #fdf6e3;
+  color: var(--accent-light);
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
 }
 
 nav a:hover {
-  color: #d4af37;
+  color: var(--accent-hover);
 }
 
 /* --- Boutons principaux du menu --- */
 nav .btn {
-  background: linear-gradient(90deg, #b28dd2, #d9c2ef);
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
   color: #2c2c2c;
   padding: 8px 18px;
   border-radius: 20px;
@@ -121,7 +132,7 @@ nav .btn {
 nav .btn:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  background: linear-gradient(90deg, #a075c6, #c8aee6);
+  background: linear-gradient(90deg, var(--accent-hover), var(--accent-light));
 }
 
 
@@ -152,7 +163,7 @@ nav .btn:hover {
   display: flex;
   align-items: center;
   gap: 4px;
-  color: #d4af37;
+  color: var(--accent-hover); /* ✅ vert mousse clair */
   text-decoration: none;
   font-weight: 600;
 }
@@ -238,7 +249,7 @@ section {
   max-width: 900px;
   margin: 2.5rem auto;
   padding: 2rem;
-  background: #fff;
+  background:var(--bg-color);
   border-radius: 15px;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
   animation: fadeIn 0.8s ease-in-out;
@@ -246,9 +257,9 @@ section {
 
 section h2 {
   font-family: 'Raleway', sans-serif;
-  color: #4b2e83;
+  color:var(--accent-color);
   margin-bottom: 1rem;
-  border-left: 5px solid #d4af37;
+  border-left:5px solid var(--accent-hover);
   padding-left: 0.5rem;
 }
 
@@ -262,19 +273,19 @@ section h2 {
 .btn,
 .cta {
   display: inline-block;
-  background: #4b2e83;
-  color: white;
+  background:var(--accent-color);
+  color:#fff;
   padding: 12px 24px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+  transition:transform .2s,box-shadow .2s,background .3s;
 }
 
 .btn:hover,
 .cta:hover {
-  background: #2c2c2c;
-  color: #d4af37;
+  background:var(--accent-hover);
+  color:var(--text-color);
   transform: scale(1.05);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
@@ -283,8 +294,8 @@ section h2 {
 .floating {
   position: fixed;
   right: 20px;
-  background: #4b2e83;
-  color: white;
+  background:var(--accent-color);
+  color:#fff;
   font-size: 0.9rem;
   font-weight: 600;
   padding: 10px 18px;
@@ -296,17 +307,17 @@ section h2 {
 
 #floating-services {
   bottom: 160px;
-  background: #d4af37;
+  background:var(--accent-hover); color:var(--text-color);
   color: #2c2c2c;
 }
 #floating-blog {
   bottom: 100px;
-  background: #b28dd2;
+  background:var(--accent-light); color:var(--text-color);
   color: #2c2c2c;
 }
 #floating-podcasts {
   bottom: 40px;
-  background: #4b2e83;
+  background:var(--accent-color); color:#fff;
   color: #fff;
 }
 
@@ -352,11 +363,11 @@ section h2 {
 footer {
   text-align: center;
   padding: 1rem;
-  background: #2c2c2c;
+  background:var(--text-color);
   font-size: 0.9em;
-  color: #fdf6e3;
+  color:var(--bg-color);
   margin-top: 2rem;
-  border-top: 3px solid #d4af37;
+  border-top:3px solid var(--accent-hover);
 }
 
 .social-links {
@@ -366,9 +377,10 @@ footer {
 .social-icon {
   margin: 0 15px;
   display: inline-block;
-  color: #d4af37;
+  color: var(--accent-color); /* ✅ vert forêt principal */
   transition: color 0.3s, transform 0.2s;
 }
+
 
 .social-icon:hover {
   transform: scale(1.3);
@@ -426,7 +438,7 @@ footer {
 
 /* --- Titres et paragraphes dans les cartes --- */
 .service-card h3 {
-  color: #4b2e83;
+  color: var(--accent-color); /* ✅ vert forêt principal */
   font-family: 'Raleway', sans-serif;
   margin-bottom: 0.8rem;
   font-size: 1.2rem;
@@ -441,14 +453,14 @@ footer {
 
 /* --- Bouton dans les cartes --- */
 .service-card .btn {
-  background: linear-gradient(90deg, #b28dd2, #d9c2ef);
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
   border-radius: 25px;
   font-size: 0.9rem;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 .service-card .btn:hover {
-  background: linear-gradient(90deg, #a075c6, #c8aee6);
+  background: linear-gradient(90deg, var(--accent-hover), var(--accent-light));
   transform: scale(1.05);
 }
 /* ============================================================
@@ -462,7 +474,7 @@ footer {
   text-align: center;
   font-family: 'Raleway', sans-serif;
   font-size: 1.4rem;
-  color: #4b2e83;
+  color: var(--accent-color); /* ✅ vert forêt principal */
   font-weight: 600;
   margin-top: 0.4rem;   
   margin-bottom: 0.3rem;  
@@ -476,7 +488,7 @@ footer {
   display: block;
   width: 40px;
   height: 2px;
-  background: #d4af37;
+  background: var(--accent-hover); /* ✅ vert mousse clair */
   margin: 0.25rem auto 0;
   border-radius: 2px;
   opacity: 0.9;
@@ -500,7 +512,7 @@ footer {
   justify-content: flex-start;
   align-items: stretch;
   scrollbar-width: thin;
-  scrollbar-color: rgba(212,175,55,0.4) transparent;
+  scrollbar-color: var(--accent-hover) transparent; /* ✅ vert mousse clair */
 }
 
 /* --- Masque la scrollbar sur Chrome/Safari --- */
@@ -508,19 +520,18 @@ footer {
   height: 8px;
 }
 .services-carousel::-webkit-scrollbar-thumb {
-  background: rgba(212,175,55,0.4);
+  background: var(--accent-hover); /* ✅ vert mousse clair */
   border-radius: 10px;
 }
 
 /* --- Cartes à l’intérieur du carrousel --- */
 .carousel-card {
-  
-flex: 0 0 80%;        
+  flex: 0 0 80%;        
   scroll-snap-align: center;
-  background: #fffdf8;
+  background: var(--accent-light); /* vert brume clair #D7E4D0 */
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(212,175,55,0.3);
+  border: 1px solid color-mix(in srgb, var(--accent-hover) 40%, transparent); /* ✅ vert mousse doux */
   padding: 1.2rem 1rem 1.4rem; 
   text-align: center;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -545,7 +556,7 @@ flex: 0 0 80%;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  color: #4b2e83;
+  color: var(--accent-color); /* ✅ vert forêt principal */
   font-size: 1.15rem;       
   margin-bottom: 0.6rem;
 }
@@ -584,7 +595,7 @@ flex: 0 0 80%;
   width: 42px;
   height: 42px;
   background: rgba(255,255,255,0.85);
-  border: 2px solid rgba(212,175,55,0.6);
+  border: 2px solid var(--accent-hover); /* ✅ vert mousse clair */
   border-radius: 50%;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   cursor: pointer;
@@ -596,14 +607,14 @@ flex: 0 0 80%;
 }
 
 .carousel-arrow:hover {
-  background: #d4af37;
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
   transform: translateY(-50%) scale(1.1);
 }
 
 .carousel-arrow svg {
   width: 20px;
   height: 20px;
-  fill: #4b2e83;
+  fill: var(--accent-color); /* ✅ vert forêt principal */
 }
 
 .carousel-arrow.left { left: -20px; }
@@ -624,21 +635,21 @@ flex: 0 0 80%;
    ============================================================ */
 
 .call-to-action {
-  background: linear-gradient(135deg, #f5f0fa, #ede7f6);
+  background: linear-gradient(135deg, var(--accent-light), var(--bg-color)); /* ✅ vert brume vers fond clair */
   padding: 2.5rem 2rem;
   max-width: 720px;
   margin: 3rem auto;
   margin-top: 2rem !important;
   border-radius: 18px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(212,175,55,0.25);
+  border: 1px solid var(--accent-hover); /* ✅ vert mousse doux */
   text-align: center;
 }
 
 .call-to-action h2 {
-  color: #4b2e83;
+  color: var(--accent-color); /* ✅ vert forêt principal */
   font-family: 'Raleway', sans-serif;
-  border-bottom: 2px solid #d4af37;
+  border-bottom: 2px solid var(--accent-hover); /* ✅ vert mousse clair */
   display: inline-block;
   padding-bottom: 0.3rem;
   margin-bottom: 1rem;
@@ -667,13 +678,13 @@ flex: 0 0 80%;
   max-width: 720px;
   margin: 3.5rem auto 4rem;
   padding: 2rem 2.2rem;
-  background: radial-gradient(circle at top, #fffdf8 0%, #f7f2e8 100%);
-  border: 1.5px solid rgba(212,175,55,0.35);
+  background: radial-gradient(circle at top, var(--accent-light) 0%, var(--bg-color) 100%); /* ✅ du vert brume au fond clair */
+  border: 1.5px solid var(--accent-hover); /* ✅ vert mousse clair */
   border-radius: 18px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   text-align: center;
   font-style: italic;
-  color: #2c2c2c;
+  color: var(--text-color);
   position: relative;
   line-height: 1.8;
   opacity: 0;
@@ -685,30 +696,31 @@ flex: 0 0 80%;
 .closing-quote::before {
   content: "❝";
   font-size: 2.4rem;
-  color: rgba(212,175,55,0.4);
+  color: color-mix(in srgb, var(--accent-hover) 70%, transparent); /* ✅ vert mousse doux translucide */
   position: absolute;
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
 }
+
 .closing-quote::after {
   content: "❞";
   font-size: 2.4rem;
-  color: rgba(212,175,55,0.4);
+  color: color-mix(in srgb, var(--accent-hover) 70%, transparent); /* ✅ même ton que le haut */
   position: absolute;
   bottom: 10px;
   right: 50%;
   transform: translateX(50%);
 }
 
-/* --- Ligne dorée sous la citation --- */
+/* --- Ligne verte sous la citation --- */
 .closing-quote em {
   display: block;
   margin-top: 1rem;
   font-style: normal;
-  color: #4b2e83;
+  color: var(--accent-color); /* ✅ vert forêt profond */
   font-weight: 600;
-  border-top: 1px solid rgba(212,175,55,0.5);
+  border-top: 1px solid var(--accent-hover); /* ✅ ligne vert mousse */
   padding-top: 0.8rem;
   letter-spacing: 0.5px;
 }
@@ -751,7 +763,7 @@ flex: 0 0 80%;
   padding: 2rem;
   background: #fff;
   border-radius: 18px;
-  border: 1.5px solid rgba(212,175,55,0.4);
+  border: 1.5px solid var(--accent-hover); /* ✅ vert mousse clair */
   box-shadow: 0 8px 22px rgba(0,0,0,0.08);
   animation: fadeIn 0.8s ease-in-out;
 }
@@ -771,8 +783,8 @@ flex: 0 0 80%;
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
   font-size: 1.8rem;
-  color: #4b2e83;
-  border-bottom: 2px solid #d4af37;
+  color: var(--accent-color); /* ✅ vert forêt principal */
+  border-bottom: 2px solid var(--accent-hover); /* ✅ vert mousse clair */
   display: inline-block;
   padding-bottom: 0.3rem;
   margin-bottom: 1.2rem;
@@ -802,7 +814,7 @@ flex: 0 0 80%;
 .contact-form label {
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
-  color: #4b2e83;
+  color: var(--accent-color); /* ✅ vert forêt principal */
   margin-bottom: 0.3rem;
 }
 
@@ -810,9 +822,9 @@ flex: 0 0 80%;
 .contact-form textarea {
   width: 100%;
   padding: 0.8rem 1rem;
-  border: 1.5px solid rgba(75,46,131,0.25);
+  border: 1.5px solid color-mix(in srgb, var(--accent-color) 25%, transparent); /* ✅ bordure vert forêt translucide */
   border-radius: 10px;
-  background: #fffdf8;
+  background: var(--bg-color); /* ✅ fond clair et naturel */
   font-family: 'Merriweather', serif;
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -820,15 +832,15 @@ flex: 0 0 80%;
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #d4af37;
-  box-shadow: 0 0 8px rgba(212,175,55,0.3);
+  border-color: var(--accent-hover); /* ✅ vert mousse au focus */
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent-hover) 60%, transparent); /* ✅ halo vert doux */
   outline: none;
 }
 
 /* --- Bouton Envoyer --- */
 .contact-form .btn {
   align-self: center;
-  background: linear-gradient(90deg, #b28dd2, #d9c2ef);
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
   color: #2c2c2c;
   border: none;
   padding: 12px 28px;
@@ -842,7 +854,7 @@ flex: 0 0 80%;
 
 .contact-form .btn:hover {
   transform: translateY(-2px);
-  background: linear-gradient(90deg, #a075c6, #c8aee6);
+  background: linear-gradient(90deg, var(--accent-hover), var(--accent-light));
   box-shadow: 0 10px 18px rgba(0,0,0,0.15);
 }
 
@@ -851,7 +863,7 @@ flex: 0 0 80%;
   text-align: center;
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
-  color: #4b2e83;
+  color: var(--accent-color); /* ✅ vert forêt principal */
   margin-top: 1rem;
 }
 
@@ -881,8 +893,8 @@ flex: 0 0 80%;
   max-width: 520px;
   margin: 3rem auto;
   padding: 1.8rem 2rem;
-  background: #fffdf8;
-  border: 1.5px solid rgba(212,175,55,0.6);
+  background: var(--bg-color); /* ✅ fond clair naturel */
+  border: 1.5px solid var(--accent-hover); /* ✅ vert mousse clair */
   border-radius: 20px;
   box-shadow: 0 8px 22px rgba(0,0,0,0.08);
   text-align: justify;
@@ -899,17 +911,17 @@ flex: 0 0 80%;
   right: -3px;
   bottom: -3px;
   border-radius: 20px;
-  background: linear-gradient(135deg, rgba(212,175,55,0.15), transparent 70%);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-hover) 30%, transparent), transparent 70%); /* ✅ halo vert mousse translucide */
   pointer-events: none;
 }
 
 .intro-about h2 {
   text-align: center;
-  color: #4b2e83;
+  color: var(--accent-color); /* ✅ vert forêt */
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
   margin-bottom: 1.2rem;
-  border-bottom: 1.5px solid #d4af37;
+  border-bottom: 1.5px solid var(--accent-hover); /* ✅ ligne vert mousse */
   padding-bottom: 0.5rem;
   letter-spacing: 0.5px;
 }
@@ -920,7 +932,7 @@ flex: 0 0 80%;
   max-width: 40%;
   margin: 1.2rem auto 1.8rem;
   border-radius: 50%;
-  border: 1px solid rgba(212,175,55,0.5);
+  border: 1px solid var(--accent-hover); /* ✅ bordure vert mousse */
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
   opacity: 0.95;
   transition: transform 0.4s ease, box-shadow 0.3s ease;
@@ -961,13 +973,13 @@ section li {
   font-size: 1rem;
 }
 
-/* --- Puce dorée élégante --- */
+/* --- Puce verte élégante --- */
 section li::before {
   content: "•";
   position: absolute;
   left: 0;
   top: 0;
-  color: #d4af37;
+  color: var(--accent-hover); /* ✅ vert mousse clair */
   font-size: 1.3rem;
   line-height: 1.2;
 }
@@ -995,8 +1007,8 @@ section li.star::after {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: linear-gradient(90deg, #d4af37, #e8d18c);
-  color: #2c2c2c;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover)); /* ✅ dégradé vert forêt → mousse */
+  color: var(--text-color);
   font-weight: 600;
   padding: 10px 22px;
   border-radius: 25px;
@@ -1006,17 +1018,18 @@ section li.star::after {
 }
 
 .download-btn:hover {
-  background: linear-gradient(90deg, #c8a028, #f2dc96);
+  background: linear-gradient(90deg, var(--accent-hover), var(--accent-light)); /* ✅ vert clair et brume au survol */
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-  color: #2c2c2c;
+  color: var(--text-color);
 }
 
 .download-btn svg {
   width: 18px;
   height: 18px;
-  fill: #2c2c2c;
+  fill: var(--text-color); /* ✅ cohérent avec le texte du bouton */
 }
+
 
 
 /* ============================================================
@@ -1032,7 +1045,7 @@ section li.star::after {
     right: -100%;
     width: 70%;
     height: 100%;
-    background: linear-gradient(180deg, #4b2e83, #2c2c2c);
+    background: linear-gradient(180deg, var(--header-gradient-start), var(--header-gradient-end)); /* ✅ du vert forêt au vert mousse */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1047,7 +1060,7 @@ section li.star::after {
   nav.active { right: 0; }
 
   nav a {
-    color: #fdf6e3;
+    color: var(--accent-light); /* ✅ vert brume clair pour bon contraste */
     font-size: 1.3rem;
     font-weight: 600;
     text-decoration: none;
@@ -1065,10 +1078,13 @@ section li.star::after {
   nav.active a:nth-child(2) { transition-delay: 0.2s; }
   nav.active a:nth-child(3) { transition-delay: 0.3s; }
 
-  nav a:hover { color: #d4af37; }
+  nav a:hover { 
+    color: var(--accent-hover); /* ✅ vert mousse clair au survol */
+  }
 
   nav a.btn { display: none !important; }
 
+  /* --- Icône burger --- */
   .burger {
     display: flex;
     flex-direction: column;
@@ -1103,6 +1119,7 @@ section li.star::after {
     transform: rotate(-45deg) translate(6px, -6px);
   }
 
+  /* --- Fond d’assombrissement derrière le menu --- */
   .overlay {
     position: fixed;
     top: 0;
@@ -1120,6 +1137,7 @@ section li.star::after {
     opacity: 1;
     visibility: visible;
   }
+}
 
   /* --- Lang-switch mobile visible dans le menu --- */
   .lang-switch.mobile {
@@ -1139,7 +1157,7 @@ section li.star::after {
   header > .lang-switch {
     display: none;
   }
-}
+
 
 /* ============================================================
    ✅ FIN DU FICHIER — Voie Spirituelle (2025)
@@ -1180,7 +1198,7 @@ section li.star::after {
     left: 0;
     width: 100%;
     z-index: 1200; /* au-dessus du reste */
-    background: linear-gradient(135deg, #4b2e83, #2c2c2c);
+    background: linear-gradient(135deg, var(--header-gradient-start), var(--header-gradient-end));
     padding: 0.8rem 1rem; /* ✅ beaucoup plus fin */
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -1189,11 +1207,11 @@ section li.star::after {
 
   /* ✅ Le titre devient plus petit */
   header h1 {
-    font-size: 1.5rem;
-    margin: 0;
-    color: #d4af37;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  }
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--accent-light); /* ✅ vert clair au lieu du doré */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
 
   /* ✅ Espace réservé sous le header pour que le contenu ne passe pas dessous */
   body {
@@ -1286,21 +1304,21 @@ section li.star::after {
 .lab-details {
   max-width: 800px;
   margin: 2rem auto 3rem;
-  background: #fffdf8;
+  background:var(--bg-color);
   padding: 2rem 2.2rem;
   border-radius: 16px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-  border: 1px solid rgba(212,175,55,0.3);
+  border:1px solid color-mix(in oklab, var(--accent-hover) 40%, transparent);
   animation: fadeIn 1s ease-in-out;
 }
 
 .lab-details h2 {
-  color: #4b2e83;
+  color:var(--accent-color);
   font-family: 'Raleway', sans-serif;
   font-size: 1.3rem;
   margin-top: 1.5rem;
   margin-bottom: 0.8rem;
-  border-left: 4px solid #d4af37;
+  border-left:4px solid var(--accent-hover);
   padding-left: 0.5rem;
 }
 
@@ -1334,9 +1352,10 @@ section li.star::after {
   position: absolute;
   left: 0;
   top: 0;
-  color: #d4af37;
+  color: var(--accent-hover); /* ✅ vert mousse clair */
   font-size: 1.2rem;
 }
+
 
 /* --- Colonnes Inputs / Outputs --- */
 .lab-columns {
@@ -1357,23 +1376,25 @@ section li.star::after {
 .lab-details .btn {
   display: inline-block;
   margin-top: 1rem;
-  background: linear-gradient(90deg, #b28dd2, #d9c2ef);
-  color: #2c2c2c;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover)); /* ✅ dégradé vert forêt → mousse */
+  color: var(--text-color);
   font-weight: 600;
   padding: 0.8rem 1.6rem;
   border-radius: 25px;
   transition: all 0.3s ease;
 }
+
 .lab-details .btn:hover {
-  background: linear-gradient(90deg, #a075c6, #c8aee6);
+  background: linear-gradient(90deg, var(--accent-hover), var(--accent-light)); /* ✅ dégradé vert mousse → brume douce */
   transform: scale(1.05);
 }
 
+/* --- Version mobile --- */
 @media (max-width: 768px) {
   /* --- Conteneur général plus léger --- */
   .lab-details {
     padding: 1.2rem 1.2rem;
-    background: #fffdf8;
+    background: var(--bg-color); /* ✅ fond vert clair naturel */
     border-radius: 12px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.05);
   }
@@ -1382,7 +1403,7 @@ section li.star::after {
     font-size: 1.1rem;
     margin-top: 1.2rem;
     margin-bottom: 0.4rem;
-    border-left: 3px solid #d4af37;
+    border-left: 3px solid var(--accent-hover); /* ✅ vert mousse clair */
     padding-left: 0.4rem;
   }
 
@@ -1391,6 +1412,7 @@ section li.star::after {
     font-size: 0.9rem;
     line-height: 1.4;
   }
+}
 
   /* --- Colonne Inputs / Outputs : devient pile verticale --- */
   .lab-columns {
@@ -1423,4 +1445,4 @@ section li.star::after {
     margin-top: 1rem;
     font-size: 0.95rem;
   }
-}
+
