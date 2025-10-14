@@ -85,22 +85,38 @@
   <!-- 🌿 Vidéo de présentation flottante -->
   <div class="video-floating">
     <div class="video-wrapper">
-      <video id="introVideo" controls preload="auto" playsinline>
-        <source src="videos/Pres.mp4?v=3" type="video/mp4">
-        Votre navigateur ne prend pas en charge la lecture vidéo.
+      <video id="introVideo" playsinline preload="auto" >
+        <source src="videos/Pres.mp4" type="video/mp4">
       </video>
 
-      <!-- ✅ Boutons flottants dans la vidéo -->
-      <div id="videoButtons" class="video-overlay-buttons">
-        <a href="video2.html" class="btn">🌸 Suite 1</a>
-        <a href="video3.html" class="btn">🌿 Suite 2</a>
+      <!-- ✅ Icône /pause -->
+      <div class="video-play-icon" id="videoPlayIcon">
+        <svg id="playSymbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <polygon points="8,5 19,12 8,19" fill="currentColor"/>
+        </svg>
+        <svg id="pauseSymbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display:none;">
+          <rect x="6" y="5" width="4" height="14" fill="currentColor"/>
+          <rect x="14" y="5" width="4" height="14" fill="currentColor"/>
+        </svg>
+      </div>
+
+
+      <!-- ✅ Barre de progression -->
+      <div class="video-progress">
+        <div class="video-progress-bar" id="videoProgressBar"></div>
+        <div class="video-progress-handle" id="videoProgressHandle"></div>
+      </div>
+
+      <!-- ✅ Boutons flottants -->
+      <div class="video-overlay-buttons" id="videoButtons">
+        <a href="video2.html" class="btn">🌿 Voir la suite</a>
+        <a href="video3.html" class="btn">✨ Explorer</a>
       </div>
     </div>
   </div>
 
-  <!-- Voile de fond pour l’effet lightbox -->
+  <!-- ✅ Voile arrière -->
   <div class="video-backdrop"></div>
-
 
   <script>
     const burger = document.querySelector('.burger');
@@ -134,28 +150,104 @@
 
   <script>
     const videoContainer = document.querySelector('.video-floating');
-    const videoElement = videoContainer.querySelector('video');
+    const videoElement = document.querySelector('#introVideo');
     const overlayButtons = document.getElementById('videoButtons');
     const backdrop = document.querySelector('.video-backdrop');
+    const playIcon = document.getElementById('videoPlayIcon');
+    const progressBar = document.getElementById('videoProgressBar');
+    const progressHandle = document.getElementById('videoProgressHandle');
+    const progressContainer = document.querySelector('.video-progress');
 
-    // ✅ Toggle agrandissement au clic sur la vidéo
-    videoContainer.addEventListener('click', (e) => {
-      if (e.target.closest('.btn')) return; // ignore les clics sur boutons
-      videoContainer.classList.toggle('expanded');
+    // --- Icônes SVG Play / Pause ---
+    const playSymbol = document.getElementById("playSymbol");
+    const pauseSymbol = document.getElementById("pauseSymbol");
+
+    // ✅ 1. Afficher le bouton Play dès le chargement
+    window.addEventListener("load", () => {
+      playSymbol.style.display = "block";
+      pauseSymbol.style.display = "none";
+      playIcon.classList.add("visible");   // reste affiché
     });
 
-    // ✅ Ferme la vidéo quand on clique sur le fond assombri
+    // 🎬 Lecture / pause + agrandissement
+    videoElement.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (videoElement.paused) {
+        videoElement.play();
+        videoContainer.classList.add('expanded');
+        toggleIcons(true);   // afficher pause
+        playIcon.classList.remove("visible"); // cacher l’icône Play
+      } else {
+        videoElement.pause();
+        videoContainer.classList.remove('expanded');
+        toggleIcons(false);  // afficher play
+        playIcon.classList.add("visible");    // réafficher le bouton
+      }
+    });
+
+    // ✋ Clique sur le fond sombre → pause et fermeture
     backdrop.addEventListener('click', () => {
+      videoElement.pause();
       videoContainer.classList.remove('expanded');
+      toggleIcons(false);
+      playIcon.classList.add("visible");
     });
 
-    // ✅ Affiche les boutons après 19 secondes
+    // --- Fonction pour basculer les icônes ---
+    function toggleIcons(isPlaying) {
+      if (isPlaying) {
+        playSymbol.style.display = "none";
+        pauseSymbol.style.display = "block";
+      } else {
+        playSymbol.style.display = "block";
+        pauseSymbol.style.display = "none";
+      }
+    }
+
+    // 🕒 Mise à jour de la barre de progression
     videoElement.addEventListener('timeupdate', () => {
-      if (videoElement.currentTime >= 19 && !overlayButtons.classList.contains('visible')) {
+      if (!videoElement.duration) return;
+      const ratio = videoElement.currentTime / videoElement.duration;
+      const progress = ratio * 100;
+      progressBar.style.width = `${progress}%`;
+      progressHandle.style.left = `${progress}%`;
+
+      // Boutons visibles à partir de 28 s
+      if (videoElement.currentTime >= 28 && !overlayButtons.classList.contains('visible')) {
         overlayButtons.classList.add('visible');
       }
     });
+
+    // 🎚️ Clic précis sur la barre
+    progressContainer.addEventListener('click', (e) => {
+      const rect = progressContainer.getBoundingClientRect();
+      const clickX = Math.min(Math.max(e.clientX - rect.left, 0), rect.width);
+      const ratio = clickX / rect.width;
+      videoElement.currentTime = ratio * videoElement.duration;
+    });
+
+    // 🎚️ Glissement fluide desktop + mobile
+    let isDragging = false;
+    const seek = (evt) => {
+      const rect = progressContainer.getBoundingClientRect();
+      const clientX = evt.clientX ?? evt.touches?.[0]?.clientX;
+      if (clientX === undefined) return;
+      const posX = Math.min(Math.max(clientX - rect.left, 0), rect.width);
+      const ratio = posX / rect.width;
+      videoElement.currentTime = ratio * videoElement.duration;
+    };
+
+    progressContainer.addEventListener('mousedown', (e) => { isDragging = true; seek(e); });
+    document.addEventListener('mouseup', () => isDragging = false);
+    document.addEventListener('mousemove', (e) => { if (isDragging) seek(e); });
+
+    progressContainer.addEventListener('touchstart', (e) => { isDragging = true; seek(e); });
+    document.addEventListener('touchmove', (e) => { if (isDragging) seek(e); });
+    document.addEventListener('touchend', () => isDragging = false);
   </script>
+
 
 
 

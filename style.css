@@ -1606,16 +1606,18 @@ section li.star::after {
   }
 
   /* ✅ Style adapté */
-  .video-overlay-buttons .btn {
-    font-size: 0.75rem;
-    padding: 0.4rem 0.8rem;
-    border-radius: 18px;
-    background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  }
+.video-overlay-buttons .btn {
+  font-size: 0.65rem;                /* 🧩 police plus fine */
+  padding: 0.25rem 0.6rem;           /* 🧩 boutons plus compacts */
+  border-radius: 14px;               /* 🌿 coins légèrement plus ronds */
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+  box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+  min-width: 70px;                   /* ✋ taille tactile minimale */
+  text-align: center;
+}
 
   .video-overlay-buttons .btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 }
 /* ============================================================
@@ -1655,4 +1657,71 @@ section li.star::after {
 .video-floating.expanded + .video-backdrop {
   opacity: 1;
   visibility: visible;
+}
+/* ============================================================
+   ▶️ INDICATEUR DE LECTURE / PAUSE + BARRE DE PROGRESSION
+   ------------------------------------------------------------ */
+
+/* --- Icône Play/Pause --- */
+.video-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 48px;
+  height: 48px;
+  color: var(--accent-color); /* ✅ vert forêt */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.3s ease;
+  z-index: 5;
+}
+
+.video-play-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.video-play-icon.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* --- Barre de progression --- */
+.video-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 14px; /* ✅ plus large et plus tactile */
+  width: 100%;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.video-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+  border-radius: 8px;
+  transition: width 0.15s linear;
+}
+
+.video-progress:hover {
+  opacity: 0.9;
+  transform: translate(-50%, 50%) scale(1.15);
+}
+/* --- Curseur rond --- */
+.video-progress-handle {
+  position: absolute;
+  bottom: 50%;
+  left: 0%;
+  transform: translate(-50%, 50%);
+  width: 14px;
+  height: 14px;
+  background: var(--accent-color);
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  pointer-events: none;
 }
