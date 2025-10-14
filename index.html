@@ -252,19 +252,19 @@
 
       videoElement.addEventListener('play', () => {
         if (window.innerWidth <= 768) {
-          floatingButtonsContainer.classList.add('floating-shift');
+          document.body.classList.add('floating-shift');
         }
       });
 
       videoElement.addEventListener('pause', () => {
         if (window.innerWidth <= 768) {
-          floatingButtonsContainer.classList.remove('floating-shift');
+          document.body.classList.remove('floating-shift');
         }
       });
 
       videoElement.addEventListener('ended', () => {
         if (window.innerWidth <= 768) {
-          floatingButtonsContainer.classList.remove('floating-shift');
+          document.body.classList.remove('floating-shift');
         }
       });
 

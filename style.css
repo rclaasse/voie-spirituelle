@@ -1727,35 +1727,64 @@ section li.star::after {
 }
 
 /* ============================================================
-   📱 DÉPLACEMENT DES BOUTONS FLOTTANTS — position à 40 % (mobile)
+   📱 DÉPLACEMENT DES BOUTONS FLOTTANTS — transition améliorée
    ------------------------------------------------------------ */
 @media (max-width: 768px) {
+  /* 🌿 Transition plus fluide, lente et perceptible */
   #floating-services,
   #floating-blog,
   #floating-podcasts {
-    /* 🌿 transition plus lente, plus douce, plus pro */
+    position: fixed;
+    right: 20px;
     transition:
-      bottom 1.2s cubic-bezier(0.25, 0.8, 0.25, 1),
-      transform 1.2s cubic-bezier(0.25, 0.8, 0.25, 1),
-      opacity 0.8s ease;
+      bottom 1.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+      transform 1.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+      opacity 1s ease;
+    will-change: bottom, transform;
   }
 
-  /* ✅ Déplacement des 3 boutons quand la vidéo joue */
-  .floating-shift #floating-services {
-    bottom: 40%;
-    transform: translateY(0);
+  /* --- Position par défaut (repos bas) --- */
+  #floating-services {
+    bottom: 40px;
+  }
+  #floating-blog {
+    bottom: 100px;
+  }
+  #floating-podcasts {
+    bottom: 160px;
   }
 
-  .floating-shift #floating-blog {
-    bottom: calc(40% - 70px);
-    transform: translateY(0);
+  /* --- Pendant la lecture vidéo --- */
+  body.floating-shift #floating-services {
+    bottom: 50%;
+    transform: translateY(-50%);
+  }
+  body.floating-shift #floating-blog {
+    bottom: calc(50% - 70px);
+    transform: translateY(-50%);
+  }
+  body.floating-shift #floating-podcasts {
+    bottom: calc(50% - 140px);
+    transform: translateY(-50%);
   }
 
-  .floating-shift #floating-podcasts {
-    bottom: calc(40% - 140px);
+  /* --- Apparition initiale --- */
+  #floating-services,
+  #floating-blog,
+  #floating-podcasts {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  body.floating-ready #floating-services,
+  body.floating-ready #floating-blog,
+  body.floating-ready #floating-podcasts {
+    opacity: 1;
     transform: translateY(0);
+    transition: opacity 1.2s ease, transform 1.2s ease;
   }
 }
+
 
 /* ============================================================
    🌿 ANIMATION D’APPARITION DES BOUTONS FLOTTANTS AU CHARGEMENT
