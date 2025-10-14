@@ -76,21 +76,41 @@ img {
    ============================================================ */
 
 header {
-  background:linear-gradient(135deg,var(--header-gradient-start),var(--header-gradient-end));
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1200;
+  background: linear-gradient(135deg, var(--header-gradient-start), var(--header-gradient-end));
   color: white;
-  padding: 2.5rem 1rem;
+  padding: 1.4rem 1rem; /* ✅ un peu plus fin */
   text-align: center;
-  border-bottom-left-radius: 25% 8%;
-  border-bottom-right-radius: 25% 8%;
-  position: relative;
+  border-bottom: 2px solid var(--accent-hover); /* ✅ fine ligne mousse */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* ✅ légère ombre douce */
 }
 
+/* Ajuste la taille du titre pour ne pas écraser le contenu */
 header h1 {
-  font-family: 'Raleway', sans-serif;
-  font-size: 2.6rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
   color: var(--accent-light);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  margin: 0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* === Décale le contenu pour ne pas qu’il passe sous le header === */
+body {
+  padding-top: 100px; /* ajuste selon la hauteur réelle du header */
+}
+
+header.shrink {
+  padding: 0.6rem 1rem;
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+  transition: all 0.4s ease;
+}
+
+header.shrink h1 {
+  font-size: 1.4rem;
+  transition: font-size 0.4s ease;
 }
 
 

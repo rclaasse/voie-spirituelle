@@ -153,9 +153,17 @@
       overlay.classList.remove('active');
     });
   </script>
+    <script>
+window.addEventListener("scroll", function() {
+  const header = document.querySelector("header");
+  if (window.scrollY > 80) {
+    header.classList.add("shrink");
+  } else {
+    header.classList.remove("shrink");
+  }
+});
+</script>
   
-  <!-- Bottone flottante -->
-  <a href="podcast_it.html" class="btn" id="floating-podcasts">Podcast 🎧</a>
 
   <!-- Footer -->
   <footer>
