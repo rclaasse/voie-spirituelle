@@ -131,28 +131,31 @@
   </script>
 
   <script>
-    const video = document.getElementById('introVideo');
-    const container = document.querySelector('.video-floating');
-    const buttons = document.getElementById('videoButtons');
+    const videoContainer = document.querySelector('.video-floating');
+    const videoElement = videoContainer.querySelector('video');
+    const overlayButtons = document.getElementById('videoButtons');
 
-    // ✅ Clic sur la vidéo → agrandir/réduire
-    video.addEventListener('click', (e) => {
-      if (e.target.tagName.toLowerCase() === 'button') return;
-      container.classList.toggle('expanded');
+    // ✅ Toggle agrandissement au clic sur le conteneur
+    videoContainer.addEventListener('click', (e) => {
+      // Empêche le clic sur les boutons d’agrandir/rétrécir la vidéo
+      if (e.target.closest('.btn')) return;
+      
+      // Ajoute ou retire la classe .expanded
+      videoContainer.classList.toggle('expanded');
+      console.log("clic détecté — classe .expanded:", videoContainer.classList.contains('expanded'));
     });
 
-    // ✅ Affiche les boutons après 28 secondes
-    video.addEventListener('timeupdate', () => {
-      if (video.currentTime >= 28 && !buttons.classList.contains('visible')) {
-        buttons.classList.add('visible');
+    // ✅ Affichage des boutons à partir de 28 secondes
+    videoElement.addEventListener('timeupdate', () => {
+      if (videoElement.currentTime >= 28 && !overlayButtons.classList.contains('visible')) {
+        overlayButtons.classList.add('visible');
       }
     });
-
-    // (Optionnel) Les cacher à la fin
-    video.addEventListener('ended', () => {
-      buttons.classList.remove('visible');
-    });
   </script>
+
+
+
+
 
 
   <!-- Footer -->

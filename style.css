@@ -1471,6 +1471,7 @@ section li.star::after {
    ------------------------------------------------------------ */
 
 .video-floating {
+  width: 260px;              /* ✅ limite la taille normale */
   position: fixed;
   bottom: 30px;
   left: 30px;
@@ -1480,7 +1481,9 @@ section li.star::after {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  animation: videoFadeIn 1.2s ease-out 0.4s both;
 }
 
 .video-wrapper {
@@ -1488,18 +1491,29 @@ section li.star::after {
 }
 
 .video-wrapper video {
-  width: 260px;
+  width: 100%;               /* ✅ la vidéo s’adapte au conteneur */
   height: auto;
   display: block;
   border-radius: 14px;
-  transition: none;
+  transition: transform 0.4s ease; /* ✅ pour le petit zoom fluide */
 }
 
 .video-floating.expanded {
-  transform: scale(1.6);
-  transform-origin: bottom left;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+  width: 420px;                  /* ✅ élargit le cadre */
+  height: auto;
+  bottom: 40px;                  /* ✅ petit ajustement vertical */
+  left: 40px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+  transition: all 0.4s ease-in-out; /* ✅ anime l’agrandissement */
+  z-index: 1000;
 }
+
+
+.video-floating.expanded video {
+  transform: scale(1.05);
+}
+
+
 
 /* ✅ Boutons intégrés à la vidéo avec effet fade + slide */
 .video-overlay-buttons {
@@ -1552,20 +1566,28 @@ section li.star::after {
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0,0,0,0.25);
     transform-origin: bottom left;
+    cursor: pointer;
   }
 
-  /* ✅ Taille vidéo réduite */
-  .video-wrapper video {
-    width: 180px;
-    border-radius: 10px;
-  }
+.video-wrapper video {
+  width: 100%;               /* ✅ la vidéo s’adapte au conteneur */
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  transition: transform 0.4s ease; /* ✅ pour le petit zoom fluide */
+}
+
 
   /* ✅ Quand agrandie : légère mise en avant */
   .video-floating.expanded {
-    transform: scale(1.4);
-    bottom: 30px;
-    left: 30px;
+    width: 300px;
+    bottom: 25px;
+    left: 25px;
   }
+
+.video-floating.expanded video {
+  transform: scale(1.1); /* ✅ léger zoom de la vidéo elle-même */
+}
 
   /* ✅ Boutons centrés dans la vidéo */
   .video-overlay-buttons {
@@ -1613,5 +1635,6 @@ section li.star::after {
 /* ✅ Appliquer l’effet sur le conteneur vidéo */
 .video-floating {
   animation: videoFadeIn 1.2s ease-out 0.4s both;
+  cursor: pointer;
 }
 
