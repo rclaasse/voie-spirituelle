@@ -98,6 +98,8 @@
     </div>
   </div>
 
+  <!-- Voile de fond pour l’effet lightbox -->
+  <div class="video-backdrop"></div>
 
 
   <script>
@@ -134,27 +136,26 @@
     const videoContainer = document.querySelector('.video-floating');
     const videoElement = videoContainer.querySelector('video');
     const overlayButtons = document.getElementById('videoButtons');
+    const backdrop = document.querySelector('.video-backdrop');
 
-    // ✅ Toggle agrandissement au clic sur le conteneur
+    // ✅ Toggle agrandissement au clic sur la vidéo
     videoContainer.addEventListener('click', (e) => {
-      // Empêche le clic sur les boutons d’agrandir/rétrécir la vidéo
-      if (e.target.closest('.btn')) return;
-      
-      // Ajoute ou retire la classe .expanded
+      if (e.target.closest('.btn')) return; // ignore les clics sur boutons
       videoContainer.classList.toggle('expanded');
-      console.log("clic détecté — classe .expanded:", videoContainer.classList.contains('expanded'));
     });
 
-    // ✅ Affichage des boutons à partir de 28 secondes
+    // ✅ Ferme la vidéo quand on clique sur le fond assombri
+    backdrop.addEventListener('click', () => {
+      videoContainer.classList.remove('expanded');
+    });
+
+    // ✅ Affiche les boutons après 19 secondes
     videoElement.addEventListener('timeupdate', () => {
-      if (videoElement.currentTime >= 28 && !overlayButtons.classList.contains('visible')) {
+      if (videoElement.currentTime >= 19 && !overlayButtons.classList.contains('visible')) {
         overlayButtons.classList.add('visible');
       }
     });
   </script>
-
-
-
 
 
 

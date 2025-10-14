@@ -1637,4 +1637,22 @@ section li.star::after {
   animation: videoFadeIn 1.2s ease-out 0.4s both;
   cursor: pointer;
 }
+/* ============================================================
+   🌙 EFFET DE FOND (BACKDROP) — Lors de l’agrandissement vidéo
+   ------------------------------------------------------------ */
+.video-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);      /* ✅ voile sombre semi-transparent */
+  backdrop-filter: blur(4px);           /* ✅ léger flou pour effet ciné */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+  z-index: 950; /* juste en dessous de la vidéo */
+}
 
+/* ✅ Apparition du voile quand la vidéo est agrandie */
+.video-floating.expanded + .video-backdrop {
+  opacity: 1;
+  visibility: visible;
+}
