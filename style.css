@@ -1727,63 +1727,52 @@ section li.star::after {
 }
 
 /* ============================================================
-   📱 DÉPLACEMENT DES BOUTONS FLOTTANTS — transition améliorée
+   📱 TRANSITION FLUIDE DES BOUTONS FLOTTANTS (mobile)
    ------------------------------------------------------------ */
 @media (max-width: 768px) {
-  /* 🌿 Transition plus fluide, lente et perceptible */
   #floating-services,
   #floating-blog,
   #floating-podcasts {
     position: fixed;
     right: 20px;
+    opacity: 1;
+    transform: translateY(0); /* position de base */
     transition:
-      bottom 1.5s cubic-bezier(0.25, 0.8, 0.25, 1),
-      transform 1.5s cubic-bezier(0.25, 0.8, 0.25, 1),
-      opacity 1s ease;
-    will-change: bottom, transform;
+      transform 1.2s cubic-bezier(0.25, 0.8, 0.25, 1),
+      opacity 0.8s ease;
+    z-index: 900;
   }
 
-  /* --- Position par défaut (repos bas) --- */
-  #floating-services {
-    bottom: 40px;
-  }
-  #floating-blog {
-    bottom: 100px;
-  }
-  #floating-podcasts {
-    bottom: 160px;
-  }
+  /* positions de base (repos) */
+  #floating-services { bottom: 160px; }
+  #floating-blog { bottom: 100px; }
+  #floating-podcasts { bottom: 40px; }
 
-  /* --- Pendant la lecture vidéo --- */
+  /* ✅ état animé pendant la vidéo */
   body.floating-shift #floating-services {
-    bottom: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-120px);
   }
   body.floating-shift #floating-blog {
-    bottom: calc(50% - 70px);
-    transform: translateY(-50%);
+    transform: translateY(-180px);
   }
   body.floating-shift #floating-podcasts {
-    bottom: calc(50% - 140px);
-    transform: translateY(-50%);
+    transform: translateY(-240px);
   }
 
-  /* --- Apparition initiale --- */
+  /* ✅ apparition progressive au chargement */
   #floating-services,
   #floating-blog,
   #floating-podcasts {
     opacity: 0;
-    transform: translateY(20px);
   }
-
   body.floating-ready #floating-services,
   body.floating-ready #floating-blog,
   body.floating-ready #floating-podcasts {
     opacity: 1;
-    transform: translateY(0);
-    transition: opacity 1.2s ease, transform 1.2s ease;
+    transition: opacity 1s ease;
   }
 }
+
 
 
 /* ============================================================
