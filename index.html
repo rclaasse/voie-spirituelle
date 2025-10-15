@@ -51,14 +51,38 @@
       <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80" 
            alt="Bougies spirituelles" 
            loading="lazy">
-      <h2 id="intro">Un chemin intérieur vers la paix</h2>
-      <p>
-        Dans la lumière des bougies et le silence sacré,
-        je vous accompagne à renouer avec votre âme et à ouvrir la voie de la guérison intérieure.
-      </p>
-      <p>
-        Par la spiritualité et la psychothérapie, trouvez l’harmonie entre l’esprit, le cœur et le divin.
-      </p>
+      <h2 id="intro">Bienvenue à toutes et à tous 🌿</h2>
+        <p>
+          Je vous accueille dans cet espace virtuel en espérant que vous puissiez le sentir comme un lieu sûr et chaleureux.  
+          Idéalement, j’aimerais que ce site devienne le conteneur d’idées et d’impulsions qui captent l’instinct du lecteur et le transportent dans un 
+          <em>« monde possible »</em>, un espace de changement.
+        </p>
+
+        <p>
+          Je me présente à vous avec le rôle que j’aimerais jouer — oui, <span class="bold-on-scroll">jouer</span>, un mot que vous entendrez et lirez souvent ici, prononcé de manière sérieuse et digne.  
+          Je voudrais parler d’un <span class="bold-on-scroll">jeu sérieux et fluide</span> on, à votre part sage, celle qui habite chacun de nous et sait, 
+          qui connaît par l’expérience des vies vécues dans l’âme.
+        </p>
+
+        <p>
+          Cette partie qui va déjà bien, qui est en paix avec son destin et qui tend vers le flux naturel de son existence.  
+          Une partie qui connaît la Vie, car elle en est issue, et qui est capable de relancer tous ces moments où elle semble s’être enlisée 
+          dans des dynamiques stériles, immobiles, marécageuses.
+        </p>
+
+        <p>
+          Mon rôle, tel que je l’interprète moi-même — en tant que personne avant tout et seulement ensuite à travers les compétences que je mets en jeu dans mon travail — 
+          est précisément de vouloir préparer le chemin à cette <span class="bold-on-scroll">partie sage</span> ; me mettre en contact avec elle, lui donner le courage de sortir.  
+          Sortir du masque, sortir de l’habitude, sortir de la tristesse que la vie porte, pour pouvoir prononcer la Parole et peu à peu 
+          construire un espace de dialogue avec vous dans un espace sûr, protégé, chaleureux…
+        </p>
+
+        <p>
+          Voici donc mon vœu pour vous, tout comme des pèlerins sur le <em>Camino de Santiago de Compostela</em> — que j’ai eu la chance d’emprunter avec une grande âme amie — :  
+          que vous puissiez faire un <span class="bold-on-scroll">Bon chemin</span>.  
+          Pas un chemin parfait, pas un chemin facile.
+        </p>
+
       <a href="services.html" class="btn">Explorer l’accompagnement</a>
     </section>
 
@@ -151,6 +175,19 @@
         header.classList.add("shrink");
       } else {
         header.classList.remove("shrink");
+      }
+    });
+  </script>
+
+  <script>
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const bodyHeight = document.body.offsetHeight;
+
+      // Si on est tout en bas (ou presque)
+      if (scrollTop + windowHeight >= bodyHeight - 20) {
+        document.querySelectorAll('.bold-on-scroll').forEach(el => el.classList.add('active'));
       }
     });
   </script>
