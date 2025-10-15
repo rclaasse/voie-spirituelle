@@ -281,21 +281,68 @@
       updateSecondOverlayVisibility();
     });
 
-    /* 🎚️ Navigation dans la barre */
-    const seek = evt => {
+    /* 🎚️ Barre de progression améliorée — style YouTube */
+      let isDragging = false;
+
+      function updateProgressBar() {
+        if (!videoElement.duration || isDragging) return; // 🔒 on bloque pendant le drag
+        const ratio = videoElement.currentTime / videoElement.duration;
+        const p = ratio * 100;
+        progressBar.style.width = `${p}%`;
+        progressHandle.style.left = `${p}%`;
+      }
+
+      videoElement.addEventListener("timeupdate", updateProgressBar);
+
+      /* 🖱️ Gestion du clic et du glisser sur la barre */
+      progressContainer.addEventListener("mousedown", e => {
+        isDragging = true;
+        seekToPosition(e);
+      });
+
+      document.addEventListener("mousemove", e => {
+        if (isDragging) seekToPosition(e);
+      });
+
+      document.addEventListener("mouseup", e => {
+        if (isDragging) {
+          isDragging = false;
+          seekToPosition(e);
+        }
+      });
+
+      /* 📱 Support tactile */
+      progressContainer.addEventListener("touchstart", e => {
+        isDragging = true;
+        seekToPosition(e.touches[0]);
+      });
+
+      document.addEventListener("touchmove", e => {
+        if (isDragging) seekToPosition(e.touches[0]);
+      });
+
+      document.addEventListener("touchend", e => {
+        if (isDragging) {
+          isDragging = false;
+          seekToPosition(e.changedTouches[0]);
+        }
+      });
+
+    /* 🔍 Fonction de calcul commune */
+    function seekToPosition(evt) {
       const rect = progressContainer.getBoundingClientRect();
-      const x = (evt.clientX ?? evt.touches?.[0]?.clientX) - rect.left;
-      const ratio = Math.min(Math.max(x / rect.width, 0), 1);
+      const x = Math.min(Math.max(evt.clientX - rect.left, 0), rect.width);
+      const ratio = x / rect.width;
       videoElement.currentTime = ratio * videoElement.duration;
-    };
-    let drag = false;
-    progressContainer.addEventListener("click", seek);
-    progressContainer.addEventListener("mousedown", () => drag = true);
-    document.addEventListener("mouseup", () => drag = false);
-    document.addEventListener("mousemove", e => { if (drag) seek(e); });
-    progressContainer.addEventListener("touchstart", e => { drag = true; seek(e); });
-    document.addEventListener("touchmove", e => { if (drag) seek(e); });
-    document.addEventListener("touchend", () => drag = false);
+
+      // 💫 maj visuelle immédiate
+      const p = ratio * 100;
+      progressBar.style.width = `${p}%`;
+      progressHandle.style.left = `${p}%`;
+    }
+
+
+
 
     /* 💫 Déplacement des boutons flottants (mobile) */
     videoElement.addEventListener("play", () => {
