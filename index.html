@@ -110,7 +110,7 @@
       <!-- ✅ Boutons flottants -->
       <div class="video-overlay-buttons" id="videoButtons">
         <a href="video2.html" class="btn">🌿 Voir la suite</a>
-        <a href="video3.html" class="btn">✨ Explorer</a>
+        <a href="services.html" class="btn">✨ Explorer</a>
       </div>
     </div>
   </div>
@@ -149,135 +149,153 @@
   </script>
 
   <script>
-    const videoContainer = document.querySelector('.video-floating');
-    const videoElement = document.querySelector('#introVideo');
-    const overlayButtons = document.getElementById('videoButtons');
-    const backdrop = document.querySelector('.video-backdrop');
-    const playIcon = document.getElementById('videoPlayIcon');
-    const progressBar = document.getElementById('videoProgressBar');
-    const progressHandle = document.getElementById('videoProgressHandle');
-    const progressContainer = document.querySelector('.video-progress');
+  const videoContainer = document.querySelector('.video-floating');
+  const videoElement = document.querySelector('#introVideo');
+  const overlayButtons = document.getElementById('videoButtons');
+  const backdrop = document.querySelector('.video-backdrop');
+  const playIcon = document.getElementById('videoPlayIcon');
+  const progressBar = document.getElementById('videoProgressBar');
+  const progressHandle = document.getElementById('videoProgressHandle');
+  const progressContainer = document.querySelector('.video-progress');
+  const playSymbol = document.getElementById("playSymbol");
+  const pauseSymbol = document.getElementById("pauseSymbol");
 
-    // --- Icônes SVG Play / Pause ---
-    const playSymbol = document.getElementById("playSymbol");
-    const pauseSymbol = document.getElementById("pauseSymbol");
+  /* ============================================================
+     ▶️ 1. Icône Play visible dès le chargement
+     ------------------------------------------------------------ */
+  window.addEventListener("load", () => {
+    playSymbol.style.display = "block";
+    pauseSymbol.style.display = "none";
+    playIcon.classList.add("visible");
+  });
 
-    // ✅ 1. Afficher le bouton Play dès le chargement
-    window.addEventListener("load", () => {
-      playSymbol.style.display = "block";
-      pauseSymbol.style.display = "none";
-      playIcon.classList.add("visible");   // reste affiché
-    });
+  /* ============================================================
+     🎬 2. Lecture / Pause + Agrandissement
+     ------------------------------------------------------------ */
+  videoElement.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
 
-    // 🎬 Lecture / pause + agrandissement
-    videoElement.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      if (videoElement.paused) {
-        videoElement.play();
-        videoContainer.classList.add('expanded');
-        toggleIcons(true);   // afficher pause
-        playIcon.classList.remove("visible"); // cacher l’icône Play
-      } else {
-        videoElement.pause();
-        videoContainer.classList.remove('expanded');
-        toggleIcons(false);  // afficher play
-        playIcon.classList.add("visible");    // réafficher le bouton
-      }
-    });
-
-    // ✋ Clique sur le fond sombre → pause et fermeture
-    backdrop.addEventListener('click', () => {
+    if (videoElement.paused) {
+      videoElement.play();
+      videoContainer.classList.add('expanded');
+      toggleIcons(true);
+      playIcon.classList.remove("visible");
+    } else {
       videoElement.pause();
       videoContainer.classList.remove('expanded');
       toggleIcons(false);
       playIcon.classList.add("visible");
-    });
+    }
+  });
 
-    // --- Fonction pour basculer les icônes ---
-    function toggleIcons(isPlaying) {
-      if (isPlaying) {
-        playSymbol.style.display = "none";
-        pauseSymbol.style.display = "block";
-      } else {
-        playSymbol.style.display = "block";
-        pauseSymbol.style.display = "none";
-      }
+  backdrop.addEventListener('click', () => {
+    videoElement.pause();
+    videoContainer.classList.remove('expanded');
+    toggleIcons(false);
+    playIcon.classList.add("visible");
+  });
+
+  function toggleIcons(isPlaying) {
+    playSymbol.style.display = isPlaying ? "none" : "block";
+    pauseSymbol.style.display = isPlaying ? "block" : "none";
+  }
+
+  /* ============================================================
+     ⏳ 3. Barre de progression + glissement
+     ------------------------------------------------------------ */
+  videoElement.addEventListener('timeupdate', () => {
+    if (!videoElement.duration) return;
+    const ratio = videoElement.currentTime / videoElement.duration;
+    const progress = ratio * 100;
+    progressBar.style.width = `${progress}%`;
+    progressHandle.style.left = `${progress}%`;
+
+    // Boutons visibles à partir de 28 s
+    if (videoElement.currentTime >= 28 && !overlayButtons.classList.contains('visible')) {
+      overlayButtons.classList.add('visible');
+    }
+  });
+
+  const seek = (evt) => {
+    const rect = progressContainer.getBoundingClientRect();
+    const clientX = evt.clientX ?? evt.touches?.[0]?.clientX;
+    if (clientX === undefined) return;
+    const posX = Math.min(Math.max(clientX - rect.left, 0), rect.width);
+    const ratio = posX / rect.width;
+    videoElement.currentTime = ratio * videoElement.duration;
+  };
+
+  let isDragging = false;
+  progressContainer.addEventListener('click', seek);
+  progressContainer.addEventListener('mousedown', (e) => { isDragging = true; seek(e); });
+  document.addEventListener('mouseup', () => isDragging = false);
+  document.addEventListener('mousemove', (e) => { if (isDragging) seek(e); });
+  progressContainer.addEventListener('touchstart', (e) => { isDragging = true; seek(e); });
+  document.addEventListener('touchmove', (e) => { if (isDragging) seek(e); });
+  document.addEventListener('touchend', () => isDragging = false);
+
+  /* ============================================================
+     💫 4. Déplacement des boutons flottants (mobile)
+     ------------------------------------------------------------ */
+  videoElement.addEventListener('play', () => {
+    if (window.innerWidth <= 768) document.body.classList.add('floating-shift');
+  });
+  videoElement.addEventListener('pause', () => {
+    if (window.innerWidth <= 768) document.body.classList.remove('floating-shift');
+  });
+  videoElement.addEventListener('ended', () => {
+    if (window.innerWidth <= 768) document.body.classList.remove('floating-shift');
+  });
+
+  window.addEventListener('load', () => {
+    setTimeout(() => document.body.classList.add('floating-ready'), 300);
+  });
+
+  /* ============================================================
+     🌿 5. Apparition / disparition de la vidéo selon le scroll
+     ------------------------------------------------------------ */
+  let videoShown = false;
+  let videoClicked = false;
+  let isPlaying = false;
+
+  // --- apparition progressive (fade + slide)
+  const videoFloating = document.querySelector(".video-floating");
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollY / scrollableHeight) * 100;
+
+    // ✅ Apparition à partir de 60 %
+    if (scrollPercent > 60 && !videoShown) {
+      videoFloating.classList.add("video-visible");
+      videoShown = true;
     }
 
-    // 🕒 Mise à jour de la barre de progression
-    videoElement.addEventListener('timeupdate', () => {
-      if (!videoElement.duration) return;
-      const ratio = videoElement.currentTime / videoElement.duration;
-      const progress = ratio * 100;
-      progressBar.style.width = `${progress}%`;
-      progressHandle.style.left = `${progress}%`;
+    // ✅ Disparition au-dessus de 50 %, sauf si cliquée ou en lecture
+    else if (scrollPercent < 50 && videoShown && !videoClicked && !isPlaying) {
+      videoFloating.classList.remove("video-visible");
+      videoShown = false;
+    }
+  });
 
-      // Boutons visibles à partir de 28 s
-      if (videoElement.currentTime >= 28 && !overlayButtons.classList.contains('visible')) {
-        overlayButtons.classList.add('visible');
-      }
-    });
+  // ✅ Si la vidéo est cliquée → reste visible
+  videoFloating.addEventListener("click", () => {
+    videoClicked = true;
+    videoFloating.classList.add("video-visible");
+  });
 
-    // 🎚️ Clic précis sur la barre
-    progressContainer.addEventListener('click', (e) => {
-      const rect = progressContainer.getBoundingClientRect();
-      const clickX = Math.min(Math.max(e.clientX - rect.left, 0), rect.width);
-      const ratio = clickX / rect.width;
-      videoElement.currentTime = ratio * videoElement.duration;
-    });
+  // ✅ Si la vidéo est en lecture → reste visible
+  videoElement.addEventListener("play", () => {
+    isPlaying = true;
+    videoFloating.classList.add("video-visible");
+  });
 
-    // 🎚️ Glissement fluide desktop + mobile
-    let isDragging = false;
-    const seek = (evt) => {
-      const rect = progressContainer.getBoundingClientRect();
-      const clientX = evt.clientX ?? evt.touches?.[0]?.clientX;
-      if (clientX === undefined) return;
-      const posX = Math.min(Math.max(clientX - rect.left, 0), rect.width);
-      const ratio = posX / rect.width;
-      videoElement.currentTime = ratio * videoElement.duration;
-    };
-
-    progressContainer.addEventListener('mousedown', (e) => { isDragging = true; seek(e); });
-    document.addEventListener('mouseup', () => isDragging = false);
-    document.addEventListener('mousemove', (e) => { if (isDragging) seek(e); });
-
-    progressContainer.addEventListener('touchstart', (e) => { isDragging = true; seek(e); });
-    document.addEventListener('touchmove', (e) => { if (isDragging) seek(e); });
-    document.addEventListener('touchend', () => isDragging = false);
-
-    // 🎬 Déplacer les boutons flottants pendant la lecture vidéo — uniquement mobile
-      const floatingButtonsContainer = document.body;
-
-      videoElement.addEventListener('play', () => {
-        if (window.innerWidth <= 768) {
-          document.body.classList.add('floating-shift');
-        }
-      });
-
-      videoElement.addEventListener('pause', () => {
-        if (window.innerWidth <= 768) {
-          document.body.classList.remove('floating-shift');
-        }
-      });
-
-      videoElement.addEventListener('ended', () => {
-        if (window.innerWidth <= 768) {
-          document.body.classList.remove('floating-shift');
-        }
-      });
-
-      // 🌿 Apparition fluide des boutons flottants après le chargement
-      window.addEventListener('load', () => {
-        // délai léger pour éviter le "flash"
-        setTimeout(() => {
-          document.body.classList.add('floating-ready');
-        }, 300);
-      });
-
-  </script>
-
+  // ✅ Si la vidéo est en pause → redevient masquable
+  videoElement.addEventListener("pause", () => {
+    isPlaying = false;
+  });
+</script>
 
 
 

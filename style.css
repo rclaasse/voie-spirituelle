@@ -1806,4 +1806,34 @@ body.floating-ready #floating-podcasts {
   opacity: 1;
   transform: translateY(0);
 }
+/* ============================================================
+   🌿 APPARITION CINÉMATIQUE DE LA VIDÉO SELON LE SCROLL
+   ------------------------------------------------------------ */
+.video-floating {
+  animation: none !important;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(60px) scale(0.9); /* départ plus bas + réduit */
+  transition:
+    opacity 1.2s cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 1.2s cubic-bezier(0.25, 0.8, 0.25, 1),
+    visibility 1s ease;
+  will-change: opacity, transform;
+}
+
+/* ✅ Quand elle devient visible (après scroll) */
+.video-floating.video-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+@media (max-width: 768px) {
+  .video-floating {
+    transition:
+      opacity 1.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+      transform 1.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+      visibility 1s ease;
+  }
+}
 
