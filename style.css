@@ -1837,3 +1837,16 @@ body.floating-ready #floating-podcasts {
   }
 }
 
+/* 🌿 Transition douce entre deux vidéos */
+#introVideo.fade-out {
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#introVideo.fade-in {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+

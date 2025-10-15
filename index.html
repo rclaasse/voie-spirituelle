@@ -109,11 +109,12 @@
 
       <!-- ✅ Boutons flottants -->
       <div class="video-overlay-buttons" id="videoButtons">
-        <a href="video2.html" class="btn">🌿 Voir la suite</a>
+        <a href="#" class="btn next-video" data-src="videos/Pres1.mp4">🌿 Voir la suite</a>
         <a href="services.html" class="btn">✨ Explorer</a>
       </div>
     </div>
   </div>
+
 
   <!-- ✅ Voile arrière -->
   <div class="video-backdrop"></div>
@@ -151,27 +152,50 @@
   <script>
   const videoContainer = document.querySelector('.video-floating');
   const videoElement = document.querySelector('#introVideo');
+  const videoSource = videoElement.querySelector('source');
   const overlayButtons = document.getElementById('videoButtons');
   const backdrop = document.querySelector('.video-backdrop');
+
   const playIcon = document.getElementById('videoPlayIcon');
+  const playSymbol = document.getElementById('playSymbol');
+  const pauseSymbol = document.getElementById('pauseSymbol');
+
   const progressBar = document.getElementById('videoProgressBar');
   const progressHandle = document.getElementById('videoProgressHandle');
   const progressContainer = document.querySelector('.video-progress');
-  const playSymbol = document.getElementById("playSymbol");
-  const pauseSymbol = document.getElementById("pauseSymbol");
 
-  /* ============================================================
-     ▶️ 1. Icône Play visible dès le chargement
-     ------------------------------------------------------------ */
-  window.addEventListener("load", () => {
-    playSymbol.style.display = "block";
-    pauseSymbol.style.display = "none";
-    playIcon.classList.add("visible");
+  const nextVideoButtons = document.querySelectorAll('.next-video');
+
+  // États
+  let videoShown = false;     // vidéo rendue visible par le scroll
+  let videoClicked = false;   // vidéo explicitement cliquée (reste visible)
+  let isPlaying = false;      // en lecture
+
+  /* ========== 1) Init ========== */
+  window.addEventListener('load', () => {
+    // Icône play visible au lancement
+    playSymbol.style.display = 'block';
+    pauseSymbol.style.display = 'none';
+    playIcon.classList.add('visible');
+
+    // Apparition progressive des boutons flottants
+    setTimeout(() => document.body.classList.add('floating-ready'), 300);
   });
 
-  /* ============================================================
-     🎬 2. Lecture / Pause + Agrandissement
-     ------------------------------------------------------------ */
+  /* ========== 2) Play/Pause + agrandissement ========== */
+  function setIcons(playing) {
+    if (playing) {
+      playSymbol.style.display = 'none';
+      pauseSymbol.style.display = 'block';
+      playIcon.classList.remove('visible');
+    } else {
+      playSymbol.style.display = 'block';
+      pauseSymbol.style.display = 'none';
+      playIcon.classList.add('visible');
+    }
+  }
+
+  // Clic vidéo : toggle
   videoElement.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -179,48 +203,64 @@
     if (videoElement.paused) {
       videoElement.play();
       videoContainer.classList.add('expanded');
-      toggleIcons(true);
-      playIcon.classList.remove("visible");
+      isPlaying = true;
+      videoClicked = true; // l’utilisateur a cliqué → on garde visible
+      setIcons(true);
+      videoContainer.classList.add('video-visible');
     } else {
       videoElement.pause();
       videoContainer.classList.remove('expanded');
-      toggleIcons(false);
-      playIcon.classList.add("visible");
+      isPlaying = false;
+      videoClicked = false; // pourra de nouveau disparaître au scroll haut
+      setIcons(false);
     }
   });
 
+  // Synchroniser icônes même si lecture vient d’un autre événement
+  videoElement.addEventListener('play', () => {
+    isPlaying = true;
+    setIcons(true);
+    videoContainer.classList.add('video-visible');
+    if (window.innerWidth <= 768) document.body.classList.add('floating-shift');
+  });
+
+  videoElement.addEventListener('pause', () => {
+    isPlaying = false;
+    setIcons(false);
+    if (window.innerWidth <= 768) document.body.classList.remove('floating-shift');
+  });
+
+  // Ne pas faire disparaître en fin de lecture
+  videoElement.addEventListener('ended', () => {
+    isPlaying = false;
+    // On ne retire PAS .video-visible
+    // L’utilisateur peut cliquer pour réduire, puis scroller pour la faire disparaître.
+  });
+
+  // Clic sur le backdrop : pause + réduit
   backdrop.addEventListener('click', () => {
     videoElement.pause();
     videoContainer.classList.remove('expanded');
-    toggleIcons(false);
-    playIcon.classList.add("visible");
+    setIcons(false);
   });
 
-  function toggleIcons(isPlaying) {
-    playSymbol.style.display = isPlaying ? "none" : "block";
-    pauseSymbol.style.display = isPlaying ? "block" : "none";
-  }
-
-  /* ============================================================
-     ⏳ 3. Barre de progression + glissement
-     ------------------------------------------------------------ */
+  /* ========== 3) Barre de progression (click + drag + touch) ========== */
   videoElement.addEventListener('timeupdate', () => {
     if (!videoElement.duration) return;
-    const ratio = videoElement.currentTime / videoElement.duration;
-    const progress = ratio * 100;
+    const progress = (videoElement.currentTime / videoElement.duration) * 100;
     progressBar.style.width = `${progress}%`;
     progressHandle.style.left = `${progress}%`;
 
     // Boutons visibles à partir de 28 s
-    if (videoElement.currentTime >= 28 && !overlayButtons.classList.contains('visible')) {
+    if (videoElement.currentTime >= 28) {
       overlayButtons.classList.add('visible');
     }
   });
 
   const seek = (evt) => {
     const rect = progressContainer.getBoundingClientRect();
-    const clientX = evt.clientX ?? evt.touches?.[0]?.clientX;
-    if (clientX === undefined) return;
+    const clientX = evt.clientX ?? (evt.touches && evt.touches[0]?.clientX);
+    if (clientX == null) return;
     const posX = Math.min(Math.max(clientX - rect.left, 0), rect.width);
     const ratio = posX / rect.width;
     videoElement.currentTime = ratio * videoElement.duration;
@@ -231,71 +271,61 @@
   progressContainer.addEventListener('mousedown', (e) => { isDragging = true; seek(e); });
   document.addEventListener('mouseup', () => isDragging = false);
   document.addEventListener('mousemove', (e) => { if (isDragging) seek(e); });
+
   progressContainer.addEventListener('touchstart', (e) => { isDragging = true; seek(e); });
   document.addEventListener('touchmove', (e) => { if (isDragging) seek(e); });
   document.addEventListener('touchend', () => isDragging = false);
 
-  /* ============================================================
-     💫 4. Déplacement des boutons flottants (mobile)
-     ------------------------------------------------------------ */
-  videoElement.addEventListener('play', () => {
-    if (window.innerWidth <= 768) document.body.classList.add('floating-shift');
-  });
-  videoElement.addEventListener('pause', () => {
-    if (window.innerWidth <= 768) document.body.classList.remove('floating-shift');
-  });
-  videoElement.addEventListener('ended', () => {
-    if (window.innerWidth <= 768) document.body.classList.remove('floating-shift');
-  });
-
-  window.addEventListener('load', () => {
-    setTimeout(() => document.body.classList.add('floating-ready'), 300);
-  });
-
-  /* ============================================================
-     🌿 5. Apparition / disparition de la vidéo selon le scroll
-     ------------------------------------------------------------ */
-  let videoShown = false;
-  let videoClicked = false;
-  let isPlaying = false;
-
-  // --- apparition progressive (fade + slide)
-  const videoFloating = document.querySelector(".video-floating");
-  window.addEventListener("scroll", () => {
+  /* ========== 4) Apparition/disparition au scroll ========== */
+  window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = (scrollY / scrollableHeight) * 100;
 
-    // ✅ Apparition à partir de 60 %
     if (scrollPercent > 60 && !videoShown) {
-      videoFloating.classList.add("video-visible");
+      videoContainer.classList.add('video-visible');
       videoShown = true;
-    }
-
-    // ✅ Disparition au-dessus de 50 %, sauf si cliquée ou en lecture
-    else if (scrollPercent < 50 && videoShown && !videoClicked && !isPlaying) {
-      videoFloating.classList.remove("video-visible");
+    } else if (scrollPercent < 50 && videoShown && !videoClicked && !isPlaying) {
+      videoContainer.classList.remove('video-visible');
       videoShown = false;
     }
   });
 
-  // ✅ Si la vidéo est cliquée → reste visible
-  videoFloating.addEventListener("click", () => {
+  // Si on clique sur le conteneur, on le marque comme "cliqué" (reste visible)
+  document.querySelector('.video-floating').addEventListener('click', () => {
     videoClicked = true;
-    videoFloating.classList.add("video-visible");
+    videoContainer.classList.add('video-visible');
   });
 
-  // ✅ Si la vidéo est en lecture → reste visible
-  videoElement.addEventListener("play", () => {
-    isPlaying = true;
-    videoFloating.classList.add("video-visible");
-  });
+  /* ========== 5) “Voir la suite” — charger nouvelle vidéo ========== */
+  nextVideoButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const newSrc = btn.dataset.src;
+      if (!newSrc) return;
 
-  // ✅ Si la vidéo est en pause → redevient masquable
-  videoElement.addEventListener("pause", () => {
-    isPlaying = false;
+      // Remise à zéro UI
+      overlayButtons.classList.remove('visible');
+
+      // Changement de source + lecture
+      videoSource.src = newSrc;
+      videoElement.load();
+      videoElement.play();
+
+      // États : visible + agrandie + considérée "cliquée"
+      videoContainer.classList.add('video-visible');
+      videoContainer.classList.add('expanded');
+      isPlaying = true;
+      videoClicked = true;
+
+      // Icônes à jour
+      setIcons(true);
+    });
   });
 </script>
+
+
+
 
 
 
