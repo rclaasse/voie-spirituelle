@@ -1902,3 +1902,38 @@ body.floating-ready #floating-podcasts {
 }
 
 
+/* 📱 Optimisation mobile de la barre vidéo */
+@media (max-width: 768px) {
+  .video-progress {
+    height: 10px; /* zone plus large pour le doigt */
+  }
+
+  .video-progress:hover {
+    height: 12px;
+  }
+
+  /* Le curseur (handle) reste visible et un peu plus gros */
+  .video-progress-handle {
+    width: 20px;
+    height: 20px;
+    opacity: 1; /* toujours visible sur mobile */
+    background: var(--accent-hover);
+    border: 2px solid #fff;
+  }
+
+  /* On augmente un peu la zone de clic autour du handle */
+  .video-progress-handle::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+  }
+
+  /* On évite les tremblements sur petit écran */
+  .video-progress-bar {
+    transition: none;
+  }
+}
