@@ -1487,7 +1487,8 @@ section li.star::after {
 }
 
 .video-wrapper {
-  position: relative;
+  position: relative; /* référence pour les éléments internes */
+  overflow: hidden;   /* évite que les boutons dépassent */
 }
 
 .video-wrapper video {
@@ -1496,6 +1497,39 @@ section li.star::after {
   display: block;
   border-radius: 14px;
   transition: transform 0.4s ease; /* ✅ pour le petit zoom fluide */
+}
+/* Boutons de la seconde vidéo, ancrés AU CONTENEUR DE LA VIDÉO */
+.video-wrapper #secondVideoButtons {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 20;              /* au-dessus de la vidéo */
+  display: flex;
+  flex-direction: column;   /* empile en vertical; mets row si tu préfères côte à côte */
+  gap: 0.4rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+/* Apparition */
+.video-wrapper #secondVideoButtons.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Style boutons interne */
+.video-wrapper #secondVideoButtons .btn {
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+  color: var(--text-color);
+  border-radius: 18px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .video-floating.expanded {
@@ -1849,4 +1883,13 @@ body.floating-ready #floating-podcasts {
   transform: scale(1);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
+.video-backdrop {
+  transition: opacity 0.5s ease;
+}
+.video-backdrop.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 

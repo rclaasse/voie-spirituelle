@@ -85,9 +85,8 @@
   <!-- 🌿 Vidéo de présentation flottante -->
   <div class="video-floating">
     <div class="video-wrapper">
-      <video id="introVideo" playsinline preload="auto" >
-        <source src="videos/Pres.mp4" type="video/mp4">
-      </video>
+      <video id="introVideo" src="videos/Pres.mp4" playsinline preload="auto"></video>
+
 
       <!-- ✅ Icône /pause -->
       <div class="video-play-icon" id="videoPlayIcon">
@@ -114,6 +113,13 @@
       </div>
     </div>
   </div>
+
+  <!-- ✅ Boutons pour la seconde vidéo -->
+    <div class="video-overlay-buttons second-video-buttons" id="secondVideoButtons">
+      <a href="blog.html" class="btn">🌿 Lire</a>
+      <a href="about.html" class="btn">💫 À propos</a>
+      <a href="contact.html" class="btn">📬 Me contacter</a>
+    </div>
 
 
   <!-- ✅ Voile arrière -->
@@ -150,179 +156,270 @@
   </script>
 
   <script>
-  const videoContainer = document.querySelector('.video-floating');
-  const videoElement = document.querySelector('#introVideo');
-  const videoSource = videoElement.querySelector('source');
-  const overlayButtons = document.getElementById('videoButtons');
-  const backdrop = document.querySelector('.video-backdrop');
+    /* ============================================================
+      🔊 Autoriser le son après première interaction
+      ------------------------------------------------------------ */
+    let userInteracted = false;
+    document.addEventListener("click", () => {
+      userInteracted = true;
+      const vid = document.querySelector("#introVideo");
+      if (vid) {
+        vid.muted = false;
+        vid.volume = 1;
+      }
+    }, { once: true });
 
-  const playIcon = document.getElementById('videoPlayIcon');
-  const playSymbol = document.getElementById('playSymbol');
-  const pauseSymbol = document.getElementById('pauseSymbol');
+    /* ============================================================
+      🎬 Initialisation
+      ------------------------------------------------------------ */
+    const videoContainer   = document.querySelector(".video-floating");
+    const videoElement     = document.querySelector("#introVideo");
+    const videoSource      = videoElement.querySelector("source");
+    const overlayButtons   = document.getElementById("videoButtons");
+    const backdrop         = document.querySelector(".video-backdrop");
+    const playIcon         = document.getElementById("videoPlayIcon");
+    const playSymbol       = document.getElementById("playSymbol");
+    const pauseSymbol      = document.getElementById("pauseSymbol");
+    const progressBar      = document.getElementById("videoProgressBar");
+    const progressHandle   = document.getElementById("videoProgressHandle");
+    const progressContainer= document.querySelector(".video-progress");
 
-  const progressBar = document.getElementById('videoProgressBar');
-  const progressHandle = document.getElementById('videoProgressHandle');
-  const progressContainer = document.querySelector('.video-progress');
+    let isPlaying   = false;
+    let videoClicked= false;
 
-  const nextVideoButtons = document.querySelectorAll('.next-video');
-
-  // États
-  let videoShown = false;     // vidéo rendue visible par le scroll
-  let videoClicked = false;   // vidéo explicitement cliquée (reste visible)
-  let isPlaying = false;      // en lecture
-
-  /* ========== 1) Init ========== */
-  window.addEventListener('load', () => {
-    // Icône play visible au lancement
-    playSymbol.style.display = 'block';
-    pauseSymbol.style.display = 'none';
-    playIcon.classList.add('visible');
-
-    // Apparition progressive des boutons flottants
-    setTimeout(() => document.body.classList.add('floating-ready'), 300);
-  });
-
-  /* ========== 2) Play/Pause + agrandissement ========== */
-  function setIcons(playing) {
-    if (playing) {
-      playSymbol.style.display = 'none';
-      pauseSymbol.style.display = 'block';
-      playIcon.classList.remove('visible');
-    } else {
-      playSymbol.style.display = 'block';
-      pauseSymbol.style.display = 'none';
-      playIcon.classList.add('visible');
-    }
-  }
-
-  // Clic vidéo : toggle
-  videoElement.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    if (videoElement.paused) {
-      videoElement.play();
-      videoContainer.classList.add('expanded');
-      isPlaying = true;
-      videoClicked = true; // l’utilisateur a cliqué → on garde visible
-      setIcons(true);
-      videoContainer.classList.add('video-visible');
-    } else {
-      videoElement.pause();
-      videoContainer.classList.remove('expanded');
-      isPlaying = false;
-      videoClicked = false; // pourra de nouveau disparaître au scroll haut
-      setIcons(false);
-    }
-  });
-
-  // Synchroniser icônes même si lecture vient d’un autre événement
-  videoElement.addEventListener('play', () => {
-    isPlaying = true;
-    setIcons(true);
-    videoContainer.classList.add('video-visible');
-    if (window.innerWidth <= 768) document.body.classList.add('floating-shift');
-  });
-
-  videoElement.addEventListener('pause', () => {
-    isPlaying = false;
-    setIcons(false);
-    if (window.innerWidth <= 768) document.body.classList.remove('floating-shift');
-  });
-
-  // Ne pas faire disparaître en fin de lecture
-  videoElement.addEventListener('ended', () => {
-    isPlaying = false;
-    // On ne retire PAS .video-visible
-    // L’utilisateur peut cliquer pour réduire, puis scroller pour la faire disparaître.
-  });
-
-  // Clic sur le backdrop : pause + réduit
-  backdrop.addEventListener('click', () => {
-    videoElement.pause();
-    videoContainer.classList.remove('expanded');
-    setIcons(false);
-  });
-
-  /* ========== 3) Barre de progression (click + drag + touch) ========== */
-  videoElement.addEventListener('timeupdate', () => {
-    if (!videoElement.duration) return;
-    const progress = (videoElement.currentTime / videoElement.duration) * 100;
-    progressBar.style.width = `${progress}%`;
-    progressHandle.style.left = `${progress}%`;
-
-    // Boutons visibles à partir de 28 s
-    if (videoElement.currentTime >= 28) {
-      overlayButtons.classList.add('visible');
-    }
-  });
-
-  const seek = (evt) => {
-    const rect = progressContainer.getBoundingClientRect();
-    const clientX = evt.clientX ?? (evt.touches && evt.touches[0]?.clientX);
-    if (clientX == null) return;
-    const posX = Math.min(Math.max(clientX - rect.left, 0), rect.width);
-    const ratio = posX / rect.width;
-    videoElement.currentTime = ratio * videoElement.duration;
-  };
-
-  let isDragging = false;
-  progressContainer.addEventListener('click', seek);
-  progressContainer.addEventListener('mousedown', (e) => { isDragging = true; seek(e); });
-  document.addEventListener('mouseup', () => isDragging = false);
-  document.addEventListener('mousemove', (e) => { if (isDragging) seek(e); });
-
-  progressContainer.addEventListener('touchstart', (e) => { isDragging = true; seek(e); });
-  document.addEventListener('touchmove', (e) => { if (isDragging) seek(e); });
-  document.addEventListener('touchend', () => isDragging = false);
-
-  /* ========== 4) Apparition/disparition au scroll ========== */
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollY / scrollableHeight) * 100;
-
-    if (scrollPercent > 60 && !videoShown) {
-      videoContainer.classList.add('video-visible');
-      videoShown = true;
-    } else if (scrollPercent < 50 && videoShown && !videoClicked && !isPlaying) {
-      videoContainer.classList.remove('video-visible');
-      videoShown = false;
-    }
-  });
-
-  // Si on clique sur le conteneur, on le marque comme "cliqué" (reste visible)
-  document.querySelector('.video-floating').addEventListener('click', () => {
-    videoClicked = true;
-    videoContainer.classList.add('video-visible');
-  });
-
-  /* ========== 5) “Voir la suite” — charger nouvelle vidéo ========== */
-  nextVideoButtons.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const newSrc = btn.dataset.src;
-      if (!newSrc) return;
-
-      // Remise à zéro UI
-      overlayButtons.classList.remove('visible');
-
-      // Changement de source + lecture
-      videoSource.src = newSrc;
-      videoElement.load();
-      videoElement.play();
-
-      // États : visible + agrandie + considérée "cliquée"
-      videoContainer.classList.add('video-visible');
-      videoContainer.classList.add('expanded');
-      isPlaying = true;
-      videoClicked = true;
-
-      // Icônes à jour
-      setIcons(true);
+    /* ▶️ icône play au chargement */
+    window.addEventListener("load", () => {
+      playSymbol.style.display = "block";
+      pauseSymbol.style.display = "none";
+      playIcon.classList.add("visible");
     });
-  });
+
+    /* 🎬 Lecture / pause + gestion du flou */
+    videoElement.addEventListener("click", e => {
+      e.preventDefault(); e.stopPropagation();
+      if (videoElement.paused) {
+        if (userInteracted) { videoElement.muted = false; videoElement.volume = 1; }
+        videoElement.play();
+        videoContainer.classList.add("expanded","video-visible");
+        backdrop.classList.add("active");
+        toggleIcons(true);
+        playIcon.classList.remove("visible");
+        isPlaying = true;
+      } else {
+        videoElement.pause();
+        videoContainer.classList.remove("expanded");
+        backdrop.classList.remove("active");
+        toggleIcons(false);
+        playIcon.classList.add("visible");
+        isPlaying = false;
+      }
+    });
+
+    /* ✋ clic sur le fond sombre → réduire */
+    backdrop.addEventListener("click", () => {
+      videoElement.pause();
+      videoContainer.classList.remove("expanded");
+      backdrop.classList.remove("active");
+      toggleIcons(false);
+      playIcon.classList.add("visible");
+      isPlaying = false;
+    });
+
+    function toggleIcons(on){
+      playSymbol.style.display = on ? "none" : "block";
+      pauseSymbol.style.display = on ? "block" : "none";
+    }
+
+    /* ⏳ Barre de progression */
+    videoElement.addEventListener("timeupdate", () => {
+      if (!videoElement.duration) return;
+      const ratio = videoElement.currentTime / videoElement.duration;
+      const p = ratio * 100;
+      progressBar.style.width = `${p}%`;
+      progressHandle.style.left = `${p}%`;
+
+      if (videoElement.currentTime >= 28)
+        overlayButtons.classList.add("visible");
+
+      updateSecondOverlayVisibility();
+    });
+
+    /* 🎚️ Navigation dans la barre */
+    const seek = evt => {
+      const rect = progressContainer.getBoundingClientRect();
+      const x = (evt.clientX ?? evt.touches?.[0]?.clientX) - rect.left;
+      const ratio = Math.min(Math.max(x / rect.width, 0), 1);
+      videoElement.currentTime = ratio * videoElement.duration;
+    };
+    let drag = false;
+    progressContainer.addEventListener("click", seek);
+    progressContainer.addEventListener("mousedown", () => drag = true);
+    document.addEventListener("mouseup", () => drag = false);
+    document.addEventListener("mousemove", e => { if (drag) seek(e); });
+    progressContainer.addEventListener("touchstart", e => { drag = true; seek(e); });
+    document.addEventListener("touchmove", e => { if (drag) seek(e); });
+    document.addEventListener("touchend", () => drag = false);
+
+    /* 💫 Déplacement des boutons flottants (mobile) */
+    videoElement.addEventListener("play", () => {
+      if (window.innerWidth <= 768) document.body.classList.add("floating-shift");
+    });
+    videoElement.addEventListener("pause", () => {
+      if (window.innerWidth <= 768) document.body.classList.remove("floating-shift");
+    });
+    window.addEventListener("load", () => setTimeout(() => document.body.classList.add("floating-ready"), 300));
+
+    /* 🌿 Apparition / disparition selon scroll */
+    let videoShown = false;
+    window.addEventListener("scroll", () => {
+      const y = window.scrollY;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const percent = (y / max) * 100;
+      if (percent > 60 && !videoShown) {
+        videoContainer.classList.add("video-visible");
+        videoShown = true;
+      } else if (percent < 50 && videoShown && !isPlaying && !videoClicked) {
+        videoContainer.classList.remove("video-visible");
+        videoShown = false;
+      }
+    });
+
+    /* ============================================================
+      🌿 6. Vidéo suivante + boutons internes à 22 s
+      ------------------------------------------------------------ */
+    const nextVideoButtons = document.querySelectorAll(".next-video");
+    const SHOW_AT_SEC = 22;
+    let secondButtonsEl = null;
+    let secondOverlayVisible = false;
+
+    /* Crée le bloc de boutons de la 2e vidéo dans .video-wrapper */
+    function ensureSecondButtons() {
+      if (!secondButtonsEl) {
+        secondButtonsEl = document.createElement("div");
+        secondButtonsEl.id = "secondVideoButtons";
+        secondButtonsEl.className = "video-overlay-buttons";
+        secondButtonsEl.innerHTML = `
+          <a href="blog.html" class="btn">📖 Lire</a>
+          <a href="about.html" class="btn">👤 À propos</a>
+          <a href="contact.html" class="btn">💬 Me contacter</a>
+        `;
+        document.querySelector(".video-wrapper").appendChild(secondButtonsEl);
+      }
+    }
+
+    /* Gère l’apparition des boutons à 22 s (2e vidéo) */
+    function updateSecondOverlayVisibility() {
+      const isSecond = videoElement.currentSrc && videoElement.currentSrc.includes("Pres1.mp4");
+      if (!isSecond) {
+        if (secondButtonsEl) secondButtonsEl.classList.remove("visible");
+        secondOverlayVisible = false;
+        return;
+      }
+      if (!videoElement.duration) return;
+      if (videoElement.currentTime >= SHOW_AT_SEC) {
+        if (!secondOverlayVisible) {
+          secondButtonsEl.classList.add("visible");
+          secondOverlayVisible = true;
+        }
+      } else if (secondOverlayVisible) {
+        secondButtonsEl.classList.remove("visible");
+        secondOverlayVisible = false;
+      }
+    }
+
+    /* Clic “Voir la suite” → charger la 2e vidéo */
+    nextVideoButtons.forEach(btn => {
+      btn.addEventListener("click", e => {
+        e.preventDefault();
+
+        const newSrc = btn.dataset.src;
+        if (!newSrc) return;
+
+        // Effet visuel de transition (si tu l’utilises)
+        videoElement.classList.add("fade-out");
+
+        setTimeout(async () => {
+          try {
+            // 1️⃣ Prépare avant le changement
+            videoElement.pause();
+            videoElement.autoplay = true;
+            videoElement.setAttribute("playsinline", "");
+            videoElement.setAttribute("webkit-playsinline", "");
+
+            // 2️⃣ Change la source
+            videoElement.src = newSrc;
+
+            // 3️⃣ Recharge la vidéo
+            await new Promise(resolve => {
+              const onMeta = () => {
+                videoElement.removeEventListener("loadedmetadata", onMeta);
+                resolve();
+              };
+              videoElement.addEventListener("loadedmetadata", onMeta);
+              if (videoElement.readyState >= 1) resolve();
+            });
+
+            // 4️⃣ Force l’audio avant lecture
+            if (userInteracted) {
+              videoElement.muted = false;
+              videoElement.volume = 1.0;
+            }
+
+            // 5️⃣ Lance la lecture
+            const playPromise = videoElement.play();
+            if (playPromise) {
+              await playPromise.catch(err => {
+                console.warn("Lecture bloquée, tentative de reprise:", err);
+                videoElement.muted = false;
+                videoElement.volume = 1.0;
+                return videoElement.play();
+              });
+            }
+
+            // 🔊 6️⃣ Reforcer le son après lecture (c’est la clé sur Chrome)
+            setTimeout(() => {
+              videoElement.muted = false;
+              videoElement.volume = 1.0;
+            }, 500);
+
+            // 7️⃣ MEP visuelle
+            ensureSecondButtons();
+            overlayButtons.classList.remove("visible");
+            playSymbol.style.display = "none";
+            pauseSymbol.style.display = "block";
+            videoContainer.classList.add("expanded", "video-visible");
+            backdrop.classList.add("active");
+
+          } finally {
+            videoElement.classList.remove("fade-out");
+            videoElement.classList.add("fade-in");
+            setTimeout(() => videoElement.classList.remove("fade-in"), 600);
+          }
+        }, 300);
+
+      });
+    });
+
+
+
+    /* ============================================================
+      🌿 Scroll : disparition quand non en lecture
+      ------------------------------------------------------------ */
+    window.addEventListener("scroll", () => {
+      const y = window.scrollY;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const percent = (y / max) * 100;
+      if (percent > 60 && !videoContainer.classList.contains("video-visible")) {
+        videoContainer.classList.add("video-visible");
+      } else if (percent < 50 && !isPlaying) {
+        videoContainer.classList.remove("video-visible","expanded");
+        backdrop.classList.remove("active");
+      }
+    });
 </script>
+
+
+
 
 
 
