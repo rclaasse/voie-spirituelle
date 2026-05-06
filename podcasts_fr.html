@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Écouter ton cœur ❤️ - Voie Spirituelle</title>
-  <meta name="description" content="Un podcast méditatif pour apprendre à écouter ton cœur et trouver guidance intérieure.">
+  <title>Podcasts - Voie Spirituelle</title>
+  <meta name="description" content="Écoutez les podcasts de Maria Cristina Bussani sur la spiritualité, la méditation et la guérison intérieure.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="podcasts">
+  <!-- Header -->
   <header role="banner">
-    <h1>Écouter ton cœur</h1>
+    <h1>Podcasts & Méditations Guidées</h1>
 
     <!-- Bouton burger -->
     <button class="burger" aria-label="Menu">
@@ -20,63 +21,60 @@
 
     <nav aria-label="Navigation principale">
         <div class="lang-switch">
-  <a href="podcast2.html" title="Version française">
-    <img src="images/fr.png" alt="Français" width="20" height="14"> FR
+  <a href="podcasts_en.html" title="Version anglaise">
+    <img src="https://flagcdn.com/w20/gb.png" alt="English">  EN
   </a>
   |
-  <a href="podcast2_it.html" title="Versione italiana">
+  <a href="podcast_it.html" title="Versione italiana">
     <img src="images/it.png" alt="Italiano" width="20" height="14"> IT
   </a>
 </div>
-      <a href="index.html">Accueil</a>
-      <a href="about.html">À propos</a>
-      <a href="contact.html">Contact</a>
-      <a href="services.html" class="btn">Services 💫</a>
-      <a href="blog.html" class="btn">Articles 📖</a>
-      <a href="podcasts.html" class="btn active">Podcasts 🎧</a>
+      <a href="index_fr.html">Accueil</a>
+      <a href="about_fr.html">À propos</a>
+      <a href="contact_fr.html">Contact</a>
+      <a href="services_fr.html" class="btn">Services 💫</a>
+      <a href="blog_fr.html" class="btn">Articles 📖</a>
+      <a href="podcasts_fr.html" class="btn active">Podcasts 🎧</a>
     </nav>
 
 
     <div class="overlay"></div>
   </header>
 
+  <!-- Contenu principal -->
   <main>
-    <!-- Carte podcast -->
-    <section class="article-card">
-      <span class="post-date"><em>Publié le 20 septembre 2025</em></span>
-      <img 
-        src="images\podcast2.jpg"
-        alt="Scène du Grand Canyon au coucher de soleil"
-        loading="lazy"
-        referrerpolicy="no-referrer"
-        style="max-width:95%;border-radius:12px;margin:1.5rem auto;display:block;box-shadow:0 6px 14px rgba(0,0,0,0.2);">
+    <section aria-labelledby="derniers-podcasts">
+      <h2 id="derniers-podcasts">Derniers podcasts</h2>
 
+      <!-- Podcast 1 -->
+      <article class="podcast-card">
+        <img src="images\podcast1.jpg" 
+             alt="Méditation guidée lumière intérieure" 
+             loading="lazy">
+        <h3><a href="podcast1_fr.html">Méditation guidée : Retrouver sa lumière intérieure ✨</a></h3>
+        <p><em>Publié le 15 septembre 2025</em></p>
+        <p>Un voyage méditatif pour se reconnecter à soi-même et cultiver la paix intérieure.</p>
+        <a href="podcast1_fr.html" class="btn">Écouter</a>
+      </article>
 
-      <h2 id="titre-podcast">Écouter ton cœur 💓</h2>
-      <p>
-        Dans ce podcast, je t’invite à fermer les yeux, respirer profondément
-        et tendre l’oreille vers la voix subtile de ton cœur.  
-        Laisser émerger l’intuition, la guidance intérieure, et la douceur de ton être profond.
-      </p>
+      <!-- Podcast 2 -->
+      <article class="podcast-card">
+        <img src=images\podcast2.jpg 
+             alt="Main posée sur le cœur, écoute intérieure" 
+             loading="lazy">
+        <h3><a href="podcast2_fr.html">Écouter ton cœur ❤️</a></h3>
+        <p><em>Publié le 20 septembre 2025</em></p>
+        <p>Une pratique de pleine conscience pour tendre l’oreille à la voix subtile de ton cœur.</p>
+        <a href="podcast2_fr.html" class="btn">Écouter</a>
+      </article>
 
-      <!-- Lecteur audio -->
-      <audio controls>
-        <source src="podcasts/ecouter_coeur.mp3" type="audio/mpeg">
-        Votre navigateur ne supporte pas la lecture audio.
-      </audio>
-
-      <!-- Navigation podcasts -->
-      <nav class="post-nav">
-        <a href="podcast1.html" class="btn">← Podcast précédent</a>
-        <a href="podcasts.html" class="btn">Retour aux podcasts</a>
-      </nav>
     </section>
   </main>
 
     <!-- Bouton flottant -->
-  <a href="services.html" class="btn floating" id="floating-services">Services 💫</a>
-  <a href="blog.html" class="btn floating" id="floating-blog">Articles 📖</a>
-  <a href="podcasts.html" class="btn floating" id="floating-podcasts">Podcasts 🎧</a>
+  <a href="services_fr.html" class="btn floating" id="floating-services">Services 💫</a>
+  <a href="blog_fr.html" class="btn floating" id="floating-blog">Articles 📖</a>
+  <a href="podcasts_fr.html" class="btn floating" id="floating-podcasts">Podcasts 🎧</a>
 
   <!-- Script burger -->
   <script>
@@ -96,7 +94,7 @@
       overlay.classList.remove('active');
     });
   </script>
-  <script>
+    <script>
 window.addEventListener("scroll", function() {
   const header = document.querySelector("header");
   if (window.scrollY > 80) {
