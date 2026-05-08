@@ -2592,3 +2592,37 @@ body.blog article img {
 
   object-fit: cover;
 }
+
+/* TITRE ARTICLE */
+body.blog article h3 a {
+  color: #2d6a4f;
+  text-decoration: none;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+body.blog article h3 a:hover {
+  color: #40916c;
+}
+
+/* ESPACE */
+body.blog article h3 {
+  margin-top: 1.2rem;
+  margin-bottom: 0.7rem;
+}
+
+/* TEXTE */
+body.blog article p {
+  line-height: 1.8;
+}
+
+/* BOUTON */
+body.blog article .btn {
+  margin-top: 1.2rem;
+
+  padding: 0.85rem 1.5rem;
+
+  border-radius: 16px;
+
+  font-size: 1rem;
+}
