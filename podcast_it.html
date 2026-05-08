@@ -1,123 +1,555 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Podcast - Voie Spirituelle</title>
-  <meta name="description" content="Ascolta i podcast di Maria Cristina Bussani sulla spiritualità, la meditazione e la guarigione interiore.">
+
+  <title>
+    Podcast - Voie Spirituelle
+  </title>
+
+  <meta
+    name="description"
+    content="Ascolta i podcast di Maria Cristina Bussani sulla spiritualità, il benessere interiore e la crescita personale.">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="podcasts">
-  <!-- Header -->
-  <header role="banner">
-    <h1>Podcast e Meditazioni Guidate</h1>
 
-    <!-- Bottone burger -->
-    <button class="burger" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+<!-- =========================================================
+     HEADER
+========================================================= -->
+<header role="banner">
 
-    <nav aria-label="Navigazione principale">
-          <div class="lang-switch">
-  <a href="podcasts_en.html" title="Version anglaise">
-    <img src="https://flagcdn.com/w20/gb.png" alt="English">  EN
-  </a>
-  |
-  <a href="podcast_it.html" title="Versione italiana">
-    <img src="images/it.png" alt="Italiano" width="20" height="14"> IT
-  </a>
+  <h1>
+    Podcast e meditazioni guidate
+  </h1>
+
+  <!-- BURGER -->
+  <button class="burger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- NAV -->
+  <nav aria-label="Navigazione principale">
+
+    <div class="lang-switch">
+
+      <a href="podcasts_en.html" title="English version">
+        <img src="https://flagcdn.com/w20/gb.png" alt="English">
+        EN
+      </a>
+
+      |
+
+      <a href="podcast_it.html" title="Versione italiana">
+        <img src="images/it.png" alt="Italiano" width="20" height="14">
+        IT
+      </a>
+
+    </div>
+
+    <a href="index.html">Home</a>
+    <a href="chi_sono.html">Chi sono</a>
+    <a href="contatti.html">Contatti</a>
+
+    <a href="servizi.html" class="btn">
+      Servizi 💫
+    </a>
+
+    <a href="articoli.html" class="btn">
+      Articoli 📖
+    </a>
+
+    <a href="podcast_it.html" class="btn active">
+      Podcast 🎧
+    </a>
+
+  </nav>
+
+  <div class="overlay"></div>
+
+</header>
+
+
+<main>
+
+
+<!-- =========================================================
+     SERIE PODCAST — LUTTO NELL’INFANZIA
+========================================================= -->
+<section class="podcast-series">
+
+<div class="series-intro">
+
+
+<h3>
+FOCUS • Lutto nell’infanzia
+</h3>
+
+<p>
+Una serie audio in 7 parti dedicata al lutto infantile,
+alla costruzione del significato,
+alle emozioni,
+al corpo
+e alla presenza dell’adulto nell’accompagnare il dolore.
+</p>
+
+<p>
+Un percorso delicato tra psicologia,
+relazione,
+spiritualità
+e sviluppo infantile.
+</p>
+
 </div>
-      <a href="index.html">Home</a>
-      <a href="chi_sono.html">Chi sono</a>
-      <a href="contatti.html">Contatti</a>
-      <a href="servizi.html" class="btn">Servizi 💫</a>
-      <a href="articoli.html" class="btn active">Articoli 📖</a>
-      <a href="podcast_it.html" class="btn">Podcasts 🎧</a>
-    </nav>
 
+<!-- INTRO -->
+<div class="series-episode">
 
+<img
+src="podcasts/intro.jpg"
+alt="Lutto nell'infanzia"
+loading="lazy">
 
-    <div class="overlay"></div>
-  </header>
+<span class="episode-label">
+INTRODUZIONE
+</span>
 
-  <!-- Contenuto principale -->
-  <main>
-    <section aria-labelledby="ultimi-podcast">
-      <h2 id="ultimi-podcast">Ultimi podcast</h2>
+<h4
+class="podcast-open"
+data-audio="podcasts/intro.wav"
+data-title="Perché parlare di lutto nell’infanzia 🎧">
 
-      <!-- Podcast 1 -->
-      <article class="podcast-card">
-        <img src="images/podcast1.jpg" 
-             alt="Meditazione guidata sulla luce interiore" 
-             loading="lazy">
-        <h3><a href="podcast1_it.html">Meditazione guidata: Ritrovare la propria luce interiore ✨</a></h3>
-        <p><em>Pubblicato il 15 settembre 2025</em></p>
-        <p>Un viaggio meditativo per riconnettersi a sé stessi e coltivare la pace interiore.</p>
-        <a href="podcast1_it.html" class="btn">Ascolta</a>
-      </article>
+Perché parlare di lutto nell’infanzia 🎧
 
-      <!-- Podcast 2 -->
-      <article class="podcast-card">
-        <img src="images/podcast2.jpg" 
-             alt="Mano sul cuore, ascolto interiore" 
-             loading="lazy">
-        <h3><a href="podcast2_it.html">Ascolta il tuo cuore ❤️</a></h3>
-        <p><em>Pubblicato il 20 settembre 2025</em></p>
-        <p>Una pratica di consapevolezza per imparare ad ascoltare la voce sottile del proprio cuore.</p>
-        <a href="podcast2_it.html" class="btn">Ascolta</a>
-      </article>
+</h4>
 
-    </section>
-  </main>
+<p class="episode-meta">
+31 sec
+</p>
 
-    <!-- Bouton flottant -->
-  <a href="servizi.html" class="btn floating" id="floating-services">Servizi 💫</a>
-  <a href="articoli.html" class="btn floating" id="floating-blog">Articoli 📖</a>
-  <a href="podcast_it.html" class="btn floating" id="floating-podcasts">Podcasts 🎧</a>
+<p>
+Un’introduzione alla serie:
+perché il lutto infantile
+non riguarda soltanto la perdita,
+ma anche il modo in cui il bambino costruisce significato,
+sicurezza
+e continuità nel mondo.
+</p>
 
+<button
+class="btn podcast-btn"
+data-audio="podcasts/intro.wav"
+data-title="Perché parlare di lutto nell’infanzia 🎧">
 
-  <!-- Script burger -->
-  <script>
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav');
-    const overlay = document.querySelector('.overlay');
+Ascolta
 
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('active');
-      nav.classList.toggle('active');
-      overlay.classList.toggle('active');
-    });
+</button>
 
-    overlay.addEventListener('click', () => {
-      burger.classList.remove('active');
-      nav.classList.remove('active');
-      overlay.classList.remove('active');
-    });
-  </script>
-  <script>
-window.addEventListener("scroll", function() {
-  const header = document.querySelector("header");
-  if (window.scrollY > 80) {
-    header.classList.add("shrink");
-  } else {
-    header.classList.remove("shrink");
-  }
-});
-      // 🌿 Apparition fluide des boutons flottants après le chargement
-      window.addEventListener('load', () => {
-        // délai léger pour éviter le "flash"
-        setTimeout(() => {
-          document.body.classList.add('floating-ready');
-        }, 300);
+</div>
+
+<!-- EPISODIO 1 -->
+<div class="series-episode">
+
+<img
+src="podcasts/episode1.jpg"
+alt="Sistema interno di significato"
+loading="lazy">
+
+<span class="episode-label">
+EPISODIO 1
+</span>
+
+<h4
+class="podcast-open"
+data-audio="podcasts/episode1.wav"
+data-title="Il sistema interno di significato">
+
+Il sistema interno di significato
+
+</h4>
+
+<p class="episode-meta">
+5 min 31 s
+</p>
+
+<p>
+Come il bambino costruisce sicurezza,
+fiducia
+e significato attraverso le relazioni.
+Un episodio dedicato all’attaccamento,
+alla resilienza
+e al modo in cui il lutto scuote le mappe interiori dell’infanzia.
+</p>
+
+<button
+class="btn podcast-btn"
+data-audio="podcasts/episode1.wav"
+data-title="Il sistema interno di significato">
+
+Ascolta
+
+</button>
+
+</div>
+
+<!-- EPISODIO 2 -->
+<div class="series-episode">
+
+<img
+src="podcasts/episode2.jpg"
+alt="Il linguaggio"
+loading="lazy">
+
+<span class="episode-label">
+EPISODIO 2
+</span>
+
+<h4
+class="podcast-open"
+data-audio="podcasts/episode2.wav"
+data-title="Il linguaggio">
+
+Il linguaggio
+
+</h4>
+
+<p class="episode-meta">
+5 min 48 s
+</p>
+
+<p>
+Il bambino ascolta molto più delle parole.
+Silenzi,
+toni,
+corpo
+e presenza emotiva diventano strumenti fondamentali
+nell’accompagnamento del dolore.
+</p>
+
+<button
+class="btn podcast-btn"
+data-audio="podcasts/episode2.wav"
+data-title="Il linguaggio">
+
+Ascolta
+
+</button>
+
+</div>
+
+<!-- EPISODIO 3 -->
+<div class="series-episode">
+
+<img
+src="podcasts/episode3.jpg"
+alt="Il pensiero astratto"
+loading="lazy">
+
+<span class="episode-label">
+EPISODIO 3
+</span>
+
+<h4
+class="podcast-open"
+data-audio="podcasts/episode3.wav"
+data-title="Il pensiero astratto">
+
+Il pensiero astratto
+
+</h4>
+
+<p class="episode-meta">
+5 min 10 s
+</p>
+
+<p>
+Come i bambini comprendono la morte?
+Un episodio dedicato allo sviluppo cognitivo,
+alla concretezza del pensiero infantile
+e all’importanza di parole semplici,
+vere
+e contenitive.
+</p>
+
+<button
+class="btn podcast-btn"
+data-audio="podcasts/episode3.wav"
+data-title="Il pensiero astratto">
+
+Ascolta
+
+</button>
+
+</div>
+
+<!-- EPISODIO 4 -->
+<div class="series-episode">
+
+<img
+src="podcasts/episode4.jpg"
+alt="Le emozioni"
+loading="lazy">
+
+<span class="episode-label">
+EPISODIO 4
+</span>
+
+<h4
+class="podcast-open"
+data-audio="podcasts/episode4.wav"
+data-title="Le emozioni">
+
+Le emozioni
+
+</h4>
+
+<p class="episode-meta">
+7 min 06 s
+</p>
+
+<p>
+Rabbia,
+agitazione,
+silenzio,
+risate improvvise:
+le emozioni infantili nel lutto
+spesso parlano attraverso travestimenti.
+Un episodio sul contenimento emotivo
+e sulla co-regolazione.
+</p>
+
+<button
+class="btn podcast-btn"
+data-audio="podcasts/episode4.wav"
+data-title="Le emozioni">
+
+Ascolta
+
+</button>
+
+</div>
+
+<!-- EPISODIO 5 -->
+<div class="series-episode">
+
+<img
+src="podcasts/episode5.jpg"
+alt="Il corpo e i sintomi"
+loading="lazy">
+
+<span class="episode-label">
+EPISODIO 5
+</span>
+
+<h4
+class="podcast-open"
+data-audio="podcasts/episode5.wav"
+data-title="Il corpo e i sintomi">
+
+Il corpo e i sintomi
+
+</h4>
+
+<p class="episode-meta">
+7 min 50 s
+</p>
+
+<p>
+Quando il dolore non riesce a diventare parola,
+spesso il corpo parla.
+Un episodio dedicato ai sintomi,
+alla psicosomatica infantile
+e al ruolo regolativo delle routine e della presenza adulta.
+</p>
+
+<button
+class="btn podcast-btn"
+data-audio="podcasts/episode5.wav"
+data-title="Il corpo e i sintomi">
+
+Ascolta
+
+</button>
+
+</div>
+
+<!-- CONCLUSIONE -->
+<div class="series-episode">
+
+<img
+src="podcasts/conclusion.jpg"
+alt="Restare accanto"
+loading="lazy">
+
+<span class="episode-label">
+CONCLUSIONE
+</span>
+
+<h4
+class="podcast-open"
+data-audio="podcasts/conclusion.wav"
+data-title="Restare accanto 🌿">
+
+Restare accanto 🌿
+
+</h4>
+
+<p class="episode-meta">
+31 sec
+</p>
+
+<p>
+Una chiusura dedicata alla resilienza,
+alla continuità dei legami
+e alla possibilità di attraversare il dolore
+senza sentirsi soli.
+</p>
+
+<button
+class="btn podcast-btn"
+data-audio="podcasts/conclusion.wav"
+data-title="Restare accanto 🌿">
+
+Ascolta
+
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- =========================================================
+     FLOATING BUTTONS
+========================================================= -->
+<a href="servizi.html"
+   class="btn floating"
+   id="floating-services">
+   Servizi 💫
+</a>
+
+<a href="articoli.html"
+   class="btn floating"
+   id="floating-blog">
+   Articoli 📖
+</a>
+
+<a href="podcast_it.html"
+   class="btn floating"
+   id="floating-podcasts">
+   Podcast 🎧
+</a>
+
+<!-- =========================================================
+     APPARITION ARTICLES
+========================================================= -->
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const articles =
+  document.querySelectorAll("body.podcasts section > article");
+
+  const observer = new IntersectionObserver(
+
+    (entries) => {
+
+      entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+
+        }
+
       });
+
+    },
+
+    { threshold: 0.1 }
+
+  );
+
+  articles.forEach((article) =>
+    observer.observe(article)
+  );
+
+});
+
 </script>
+
+<!-- =========================================================
+     BURGER SCRIPT
+========================================================= -->
+<script>
+
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('nav');
+const overlay = document.querySelector('.overlay');
+
+burger.addEventListener('click', () => {
+
+  burger.classList.toggle('active');
+  nav.classList.toggle('active');
+  overlay.classList.toggle('active');
+
+});
+
+overlay.addEventListener('click', () => {
+
+  burger.classList.remove('active');
+  nav.classList.remove('active');
+  overlay.classList.remove('active');
+
+});
+
+</script>
+
+<!-- =========================================================
+     HEADER SHRINK
+========================================================= -->
+<script>
+
+window.addEventListener("scroll", function() {
+
+  const header = document.querySelector("header");
+
+  if (window.scrollY > 80) {
+
+    header.classList.add("shrink");
+
+  } else {
+
+    header.classList.remove("shrink");
+
+  }
+
+});
+
+window.addEventListener('load', () => {
+
+  setTimeout(() => {
+
+    document.body.classList.add('floating-ready');
+
+  }, 300);
+
+});
+
+</script>
+
   <!-- Footer -->
   <footer>
     © 2025 Maria Cristina Bussani — Tutti i diritti riservati  
 
-    <!-- Icone social -->
     <div class="social-links">
       <a href="https://www.facebook.com/profile.php?id=61558747770364" target="_blank" class="social-icon facebook" aria-label="Facebook">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
@@ -138,5 +570,115 @@ window.addEventListener("scroll", function() {
       </a>
     </div>
   </footer>
+
+  <!-- =========================================================
+     MINI PODCAST PLAYER
+========================================================= -->
+
+<div class="podcast-popup" id="podcastPopup">
+
+<button class="close-popup" id="closePopup">
+×
+</button>
+
+<h4 id="popupTitle">
+Podcast
+</h4>
+
+<audio controls id="popupAudio">
+
+<source id="popupSource" src="" type="audio/mpeg">
+
+</audio>
+
+</div>
+
+<script>
+
+const popup =
+document.getElementById('podcastPopup');
+
+const popupAudio =
+document.getElementById('popupAudio');
+
+const popupSource =
+document.getElementById('popupSource');
+
+const popupTitle =
+document.getElementById('popupTitle');
+
+const closePopup =
+document.getElementById('closePopup');
+
+/* =========================================================
+   OPEN PLAYER FUNCTION
+========================================================= */
+
+function openPodcast(element){
+
+const audio =
+element.dataset.audio;
+
+const title =
+element.dataset.title;
+
+popupSource.src = audio;
+
+popupAudio.load();
+
+popupTitle.textContent = title;
+
+popup.classList.add('active');
+
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+const buttons =
+document.querySelectorAll('.podcast-btn');
+
+buttons.forEach(button => {
+
+button.addEventListener('click', () => {
+
+openPodcast(button);
+
+});
+
+});
+
+/* =========================================================
+   TITLES
+========================================================= */
+
+const titles =
+document.querySelectorAll('.podcast-open');
+
+titles.forEach(title => {
+
+title.addEventListener('click', () => {
+
+openPodcast(title);
+
+});
+
+});
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+closePopup.addEventListener('click', () => {
+
+popup.classList.remove('active');
+
+popupAudio.pause();
+
+});
+
+</script>
+
 </body>
 </html>

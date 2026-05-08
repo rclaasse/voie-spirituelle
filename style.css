@@ -2626,3 +2626,358 @@ body.blog article .btn {
 
   font-size: 1rem;
 }
+/* =========================================================
+   PODCASTS — VERSION PREMIUM AÉRÉE
+========================================================= */
+
+body.podcasts section {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+body.podcasts article {
+  max-width: 620px;
+  margin: 0 auto 5rem auto;
+  padding-bottom: 1rem;
+}
+
+body.podcasts article img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 22px;
+  margin-bottom: 1.5rem;
+}
+
+body.podcasts article h3 {
+  margin-bottom: 0.7rem;
+  line-height: 1.25;
+}
+
+body.podcasts article h3 a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 700;
+  transition: opacity 0.3s ease;
+}
+
+body.podcasts article h3 a:hover {
+  opacity: 0.75;
+}
+
+body.podcasts article em {
+  display: block;
+  margin-bottom: 1rem;
+  opacity: 0.65;
+  font-size: 0.95rem;
+}
+
+body.podcasts article p {
+  line-height: 1.9;
+}
+
+body.podcasts article .btn {
+  margin-top: 1.6rem;
+}
+body.podcasts article {
+  margin: 0 auto 3rem auto;
+}
+body.podcasts main {
+  margin-top: 2rem;
+}
+/* =========================================================
+   PODCAST SERIES
+========================================================= */
+
+.podcast-series {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.series-intro {
+  margin-bottom: 3rem;
+  opacity: 0.8;
+  line-height: 1.9;
+}
+
+.series-episode {
+  padding: 1.7rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.episode-number,
+.episode-tag {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.series-episode h3 a {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+.series-episode h3 a:hover {
+  opacity: 0.7;
+}
+.podcast-series {
+  margin-top: 1.5rem;
+}
+
+.series-intro {
+  margin-bottom: 1.8rem;
+}
+/* =========================================================
+   SERIE PODCAST
+========================================================= */
+
+.podcast-series {
+  margin-top: 2rem;
+}
+
+.series-intro {
+  background: rgba(255,255,255,0.45);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.series-intro h3 {
+  color: var(--accent-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.series-intro p {
+  line-height: 1.9;
+  color: #444;
+}
+
+.series-episode {
+  padding: 1.7rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+.episode-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 0.7rem;
+}
+
+.series-episode h4 {
+  margin-bottom: 0.6rem;
+}
+
+.series-episode h4 a {
+  text-decoration: none;
+  color: var(--accent-color);
+  transition: opacity 0.3s;
+}
+
+.series-episode h4 a:hover {
+  opacity: 0.7;
+}
+
+.episode-meta {
+  color: #888;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.series-episode p {
+  line-height: 1.9;
+  max-width: 750px;
+}
+/* =========================================================
+   IMAGES SERIE PODCAST
+========================================================= */
+
+.series-episode img{
+  width:100%;
+  max-width:640px;
+  height:260px;
+  object-fit:cover;
+  border-radius:24px;
+  margin-bottom:1.3rem;
+  display:block;
+
+  box-shadow:
+  0 8px 24px rgba(0,0,0,0.08);
+}
+/* =========================================================
+   MINI PODCAST POPUP
+========================================================= */
+
+.podcast-open{
+  cursor:pointer;
+}
+
+.podcast-popup{
+
+position:fixed;
+
+bottom:25px;
+right:25px;
+
+width:320px;
+
+background:rgba(255,255,255,0.96);
+
+backdrop-filter:blur(12px);
+
+padding:1.3rem;
+
+border-radius:24px;
+
+box-shadow:
+0 10px 40px rgba(0,0,0,0.12);
+
+z-index:9999;
+
+opacity:0;
+pointer-events:none;
+
+transform:
+translateY(20px);
+
+transition:0.35s ease;
+
+}
+
+.podcast-popup.active{
+
+opacity:1;
+pointer-events:auto;
+
+transform:
+translateY(0);
+
+}
+
+.podcast-popup h4{
+
+margin-bottom:1rem;
+
+font-size:1rem;
+
+color:var(--accent-color);
+
+}
+
+.podcast-popup audio{
+
+width:100%;
+
+}
+
+.close-popup{
+
+position:absolute;
+
+top:10px;
+right:14px;
+
+border:none;
+background:none;
+
+font-size:1.4rem;
+
+cursor:pointer;
+
+color:#777;
+
+}
+.podcast-open{
+
+color:var(--accent-color);
+
+text-decoration:none;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:0.3s ease;
+
+}
+
+.podcast-open:hover{
+
+color:var(--accent-hover);
+
+}
+
+/* =========================================================
+   MOBILE — SERVICES CARDS
+========================================================= */
+
+@media (max-width: 768px){
+
+  .services-grid,
+  .laboratori-grid{
+
+    padding:0 1.2rem;
+
+  }
+
+  .service-card,
+  .laboratorio-card{
+
+    width:100%;
+
+    padding:2rem 1.5rem;
+
+    border-radius:28px;
+
+    margin-bottom:2rem;
+
+  }
+
+}
+/* =========================================================
+   MOBILE SPACING FIX
+========================================================= */
+
+@media (max-width:768px){
+
+  main{
+
+    padding-left:14px;
+    padding-right:14px;
+
+  }
+
+  .services-section,
+  .services-grid,
+  .laboratori-grid{
+
+    padding-left:0;
+    padding-right:0;
+
+  }
+
+  .service-card,
+  .laboratorio-card{
+
+    margin-left:auto;
+    margin-right:auto;
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    border-radius:28px;
+
+  }
+
+}
+body{
+  overflow-x:hidden;
+}
