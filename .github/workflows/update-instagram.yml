@@ -1,32 +1,43 @@
-import json
-import os
-import urllib.request
+name: S-073 - video automatic
 
-TOKEN = os.environ["APIFY_TOKEN"]
+on:
+  workflow_dispatch:
 
-url = (
-    "https://api.apify.com/v2/acts/apify~instagram-scraper/"
-    "run-sync-get-dataset-items"
-)
+  schedule:
+    - cron: "15 7 * * *"
 
-payload = {
-    "directUrls": [
-        "https://www.instagram.com/spiritualitymc/"
-    ],
-    "resultsLimit": 3,
-    "resultsType": "posts"
-}
+permissions:
+  contents: write
 
-request = urllib.request.Request(
-    url,
-    data=json.dumps(payload).encode(),
-    headers={
-        "Authorization": f"Bearer {TOKEN}",
-        "Content-Type": "application/json"
-    }
-)
+jobs:
+  update-videos:
+    runs-on: ubuntu-latest
 
-with urllib.request.urlopen(request) as response:
-    data = json.loads(response.read())
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-print(json.dumps(data, indent=2)[:3000])
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check Instagram
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+        run: python scripts/update_instagram.py
+
+      - name: Commit videos.json
+        shell: bash
+        run: |
+          if git diff --quiet -- videos.json; then
+            echo "No new Reel."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add videos.json
+          git commit -m "Update Instagram Reels"
+          git push
