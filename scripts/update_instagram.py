@@ -179,23 +179,17 @@ def merge_videos(
     latest_reels: list[dict],
     existing_videos: list[dict],
 ) -> list[dict]:
-    merged: list[dict] = []
-    seen_ids: set[str] = set()
+    merged_by_id: dict[str, dict] = {}
 
-    for video in latest_reels + existing_videos:
+    for video in existing_videos + latest_reels:
         if not isinstance(video, dict):
             continue
 
-        url = video.get("url")
-        video_id = (
-            video.get("id")
-            or extract_shortcode(url or "")
-        )
+        url = video.get("url", "")
+        video_id = video.get("id") or extract_shortcode(url)
 
-        if not video_id or not url or video_id in seen_ids:
+        if not video_id or not url:
             continue
-
-        seen_ids.add(video_id)
 
         normalized = {
             "id": video_id,
@@ -205,13 +199,16 @@ def merge_videos(
         if video.get("date"):
             normalized["date"] = video["date"]
 
-        merged.append(normalized)
+        merged_by_id[video_id] = normalized
 
-        if len(merged) >= MAX_VIDEOS:
-            break
+    merged = list(merged_by_id.values())
 
-    return merged
+    merged.sort(
+        key=lambda video: video.get("date", ""),
+        reverse=True,
+    )
 
+    return merged[:MAX_VIDEOS]
 
 def main() -> int:
     token = os.environ.get("APIFY_TOKEN", "").strip()
