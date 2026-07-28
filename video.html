@@ -71,34 +71,8 @@
   <section class="reels-player" aria-label="Video brevi">
 
     <div class="reels-viewport">
-      <div class="reels-track">
-
-        <article class="reel-card">
-            <blockquote
-            class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/reel/DVjYO0xjRZ2/"
-            data-instgrm-version="14"
-            >
-            </blockquote>
-        </article>
-
-        <article class="reel-card">
-        <blockquote
-            class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/reel/DVilRs-DXTF/"
-            data-instgrm-version="14"
-        ></blockquote>
-        </article>
-
-        <article class="reel-card">
-        <blockquote
-            class="instagram-media"
-            data-instgrm-permalink="https://www.instagram.com/reel/DViiqaIjdWz/"
-            data-instgrm-version="14"
-        ></blockquote>
-        </article>
-
-      </div>
+        <div class="reels-track" id="reels-track">
+        </div>
     </div>
 
 <div class="video-thumbnails-carousel">
@@ -111,36 +85,11 @@
     ‹
   </button>
 
-  <div class="video-strip" aria-label="Scegli un video">
-
-    <button
-      class="video-thumbnail active"
-      type="button"
-      data-index="0"
-      aria-label="Ritrovare uno spazio interiore"
-    >
-      <div class="thumbnail-placeholder">Video 1</div>
-    </button>
-
-    <button
-      class="video-thumbnail"
-      type="button"
-      data-index="1"
-      aria-label="Ascoltare senza avere fretta"
-    >
-      <div class="thumbnail-placeholder">Video 2</div>
-    </button>
-
-    <button
-      class="video-thumbnail"
-      type="button"
-      data-index="2"
-      aria-label="La forza dei piccoli passi"
-    >
-      <div class="thumbnail-placeholder">Video 3</div>
-    </button>
-
-  </div>
+    <div
+    class="video-strip"
+    id="video-strip"
+    aria-label="Scegli un video"
+    ></div>
 
   <button
     class="thumb-arrow thumb-arrow-right"
@@ -207,35 +156,118 @@
 </script>
 
 <script>
-  const track = document.querySelector(".reels-track");
-  const cards = [...document.querySelectorAll(".reel-card")];
-  const thumbnails = [...document.querySelectorAll(".video-thumbnail")];
-  const thumbnailStrip = document.querySelector(".video-strip");
+  const track = document.querySelector("#reels-track");
+  const thumbnailStrip = document.querySelector("#video-strip");
   const thumbLeft = document.querySelector(".thumb-arrow-left");
   const thumbRight = document.querySelector(".thumb-arrow-right");
 
+  let videos = [];
   let currentIndex = 0;
   let touchStartX = 0;
 
+  function buildReels() {
+    track.innerHTML = "";
+    thumbnailStrip.innerHTML = "";
+
+    videos.forEach((video, index) => {
+      const article = document.createElement("article");
+      article.className = "reel-card";
+
+      article.innerHTML = `
+        <blockquote
+          class="instagram-media"
+          data-instgrm-permalink="${video.url}"
+          data-instgrm-version="14"
+        ></blockquote>
+      `;
+
+      track.appendChild(article);
+
+      const thumbnail = document.createElement("button");
+      thumbnail.className =
+        index === 0
+          ? "video-thumbnail active"
+          : "video-thumbnail";
+
+      thumbnail.type = "button";
+      thumbnail.dataset.index = index;
+      thumbnail.setAttribute(
+        "aria-label",
+        `Apri il video ${index + 1}`
+      );
+
+      thumbnail.innerHTML = `
+        <div class="thumbnail-placeholder">
+          Video ${index + 1}
+        </div>
+      `;
+
+      thumbnail.addEventListener("click", () => {
+        showVideo(index);
+      });
+
+      thumbnailStrip.appendChild(thumbnail);
+    });
+
+    if (window.instgrm) {
+      window.instgrm.Embeds.process();
+    }
+  }
+
   function showVideo(index) {
-    currentIndex = (index + cards.length) % cards.length;
+    if (!videos.length) {
+      return;
+    }
+
+    currentIndex =
+      (index + videos.length) % videos.length;
 
     track.style.transform =
       `translateX(-${currentIndex * 100}%)`;
 
-    thumbnails.forEach((thumbnail, thumbnailIndex) => {
-      thumbnail.classList.toggle(
-        "active",
-        thumbnailIndex === currentIndex
-      );
-    });
+    document
+      .querySelectorAll(".video-thumbnail")
+      .forEach((thumbnail, thumbnailIndex) => {
+        thumbnail.classList.toggle(
+          "active",
+          thumbnailIndex === currentIndex
+        );
+      });
   }
 
-  thumbnails.forEach((thumbnail) => {
-    thumbnail.addEventListener("click", () => {
-      showVideo(Number(thumbnail.dataset.index));
-    });
-  });
+  async function loadVideos() {
+    try {
+      const response = await fetch(
+        "videos.json",
+        { cache: "no-store" }
+      );
+
+      if (!response.ok) {
+        throw new Error(
+          `Errore HTTP: ${response.status}`
+        );
+      }
+
+      videos = await response.json();
+
+      if (!Array.isArray(videos) || videos.length === 0) {
+        throw new Error(
+          "Il file videos.json non contiene video."
+        );
+      }
+
+      buildReels();
+      showVideo(0);
+    } catch (error) {
+      console.error(error);
+
+      track.innerHTML = `
+        <p class="video-load-error">
+          Impossibile caricare i video.
+        </p>
+      `;
+    }
+  }
 
   track.addEventListener(
     "touchstart",
@@ -246,18 +278,21 @@
   );
 
   track.addEventListener("touchend", (event) => {
-    const touchEndX = event.changedTouches[0].clientX;
-    const difference = touchStartX - touchEndX;
+    const touchEndX =
+      event.changedTouches[0].clientX;
+
+    const difference =
+      touchStartX - touchEndX;
 
     if (Math.abs(difference) < 50) {
       return;
     }
 
-    if (difference > 0) {
-      showVideo(currentIndex + 1);
-    } else {
-      showVideo(currentIndex - 1);
-    }
+    showVideo(
+      difference > 0
+        ? currentIndex + 1
+        : currentIndex - 1
+    );
   });
 
   document.addEventListener("keydown", (event) => {
@@ -269,23 +304,24 @@
       showVideo(currentIndex - 1);
     }
   });
-    if (thumbLeft && thumbRight && thumbnailStrip) {
+
+  if (thumbLeft && thumbRight && thumbnailStrip) {
     thumbLeft.addEventListener("click", () => {
-        thumbnailStrip.scrollBy({
+      thumbnailStrip.scrollBy({
         left: -220,
         behavior: "smooth"
-        });
+      });
     });
 
     thumbRight.addEventListener("click", () => {
-        thumbnailStrip.scrollBy({
+      thumbnailStrip.scrollBy({
         left: 220,
         behavior: "smooth"
-        });
+      });
     });
-    }
+  }
 
-  showVideo(0);
+  loadVideos();
 </script>
 
 <script>
