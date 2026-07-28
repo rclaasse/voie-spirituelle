@@ -3482,3 +3482,11 @@ body{
     right: 10px;
   }
 }
+.video-date {
+  min-height: 24px;
+  margin: 12px auto 4px;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+}

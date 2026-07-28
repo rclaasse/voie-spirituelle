@@ -75,6 +75,8 @@
         </div>
     </div>
 
+<div id="video-date" class="video-date"></div>
+
 <div class="video-thumbnails-carousel">
 
   <button
@@ -214,26 +216,45 @@
     }
   }
 
-  function showVideo(index) {
-    if (!videos.length) {
-      return;
-    }
-
-    currentIndex =
-      (index + videos.length) % videos.length;
-
-    track.style.transform =
-      `translateX(-${currentIndex * 100}%)`;
-
-    document
-      .querySelectorAll(".video-thumbnail")
-      .forEach((thumbnail, thumbnailIndex) => {
-        thumbnail.classList.toggle(
-          "active",
-          thumbnailIndex === currentIndex
-        );
-      });
+function showVideo(index) {
+  if (!videos.length) {
+    return;
   }
+
+  currentIndex =
+    (index + videos.length) % videos.length;
+
+  track.style.transform =
+    `translateX(-${currentIndex * 100}%)`;
+
+  document
+    .querySelectorAll(".video-thumbnail")
+    .forEach((thumbnail, thumbnailIndex) => {
+      thumbnail.classList.toggle(
+        "active",
+        thumbnailIndex === currentIndex
+      );
+    });
+
+  const dateElement =
+    document.getElementById("video-date");
+
+  const selectedVideo = videos[currentIndex];
+
+  if (selectedVideo.date) {
+    const date = new Date(selectedVideo.date);
+
+    dateElement.textContent =
+      "📅 " +
+      date.toLocaleDateString("it-IT", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+  } else {
+    dateElement.textContent = "";
+  }
+}
 
   async function loadVideos() {
     try {
