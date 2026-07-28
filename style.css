@@ -1784,7 +1784,8 @@ section li.star::after {
   /* 🌿 Transition plus fluide, lente et perceptible */
   #floating-services,
   #floating-blog,
-  #floating-podcasts {
+  #floating-podcasts,
+  #floating-video {
     position: fixed;
     right: 20px;
     transition:
@@ -1822,7 +1823,8 @@ section li.star::after {
   /* --- Apparition initiale --- */
   #floating-services,
   #floating-blog,
-  #floating-podcasts {
+  #floating-podcasts,
+  #floating-video {
     opacity: 0;
     transform: translateY(20px);
   }
@@ -1844,7 +1846,8 @@ section li.star::after {
 /* État initial (invisible au chargement) */
 #floating-services,
 #floating-blog,
-#floating-podcasts {
+#floating-podcasts,
+#floating-video {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -1853,7 +1856,8 @@ section li.star::after {
 /* État animé une fois chargés */
 body.floating-ready #floating-services,
 body.floating-ready #floating-blog,
-body.floating-ready #floating-podcasts {
+body.floating-ready #floating-podcasts,
+body.floating-ready #floating-video {
   opacity: 1;
   transform: translateY(0);
 }
