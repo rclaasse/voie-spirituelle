@@ -3215,3 +3215,266 @@ body{
   transform: translateY(0);
 
 }
+
+/* ==========================================================
+   PAGE REELS
+========================================================== */
+
+.video-page {
+  width: min(1000px, 100%);
+  margin: 0 auto;
+  padding: 70px 20px 120px;
+}
+
+.video-page section {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.video-page section h2 {
+  padding-left: 0;
+  border-left: none;
+}
+
+/* ==========================================================
+   VIDÉO PRINCIPALE
+========================================================== */
+
+.reels-viewport {
+  width: min(300px, 100%);
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.reels-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.45s ease;
+  touch-action: pan-y;
+}
+
+.reel-card {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  text-align: center;
+}
+
+.reel-placeholder {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 28px;
+  background: linear-gradient(
+    180deg,
+    #9cb49d,
+    #526b56
+  );
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.16);
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+
+/* ==========================================================
+   CARROUSEL DES MINIATURES
+========================================================== */
+
+.video-thumbnails-carousel{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin-top:20px;
+}
+
+.video-strip{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    scrollbar-width:none;
+    max-width:340px;
+}
+
+.video-strip::-webkit-scrollbar{
+    display:none;
+}
+
+.video-thumbnail {
+  flex: 0 0 58px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  scroll-snap-align: center;
+}
+
+.thumbnail-placeholder {
+  display: flex;
+  width: 58px;
+  aspect-ratio: 9 / 16;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid transparent;
+  border-radius: 12px;
+  background: linear-gradient(
+    180deg,
+    #b2c2aa,
+    #4f6456
+  );
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.video-thumbnail:hover .thumbnail-placeholder {
+  transform: translateY(-3px);
+}
+
+.video-thumbnail.active .thumbnail-placeholder {
+  transform: scale(1.06);
+  border-color: var(--accent-color);
+  box-shadow: 0 6px 14px rgba(46, 139, 87, 0.22);
+}
+
+/* ==========================================================
+   FLÈCHES DES MINIATURES
+========================================================== */
+
+.thumb-arrow {
+  flex-shrink:0;  
+  display: flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: #fff;
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.thumb-arrow:hover {
+  transform: scale(1.08);
+  background: #1f6d43;
+}
+
+/* ==========================================================
+   LIEN GALERIE
+========================================================== */
+
+.video-gallery-link {
+  display: table;
+  margin: 12px auto 0;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.video-gallery-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+  .video-page {
+    padding: 24px 12px 55px;
+  }
+
+  .reels-viewport {
+    width: min(100%, 350px);
+  }
+
+  .reel-placeholder {
+    border-radius: 22px;
+  }
+
+  .video-thumbnails-carousel {
+    grid-template-columns: 34px minmax(0, 1fr) 34px;
+    gap: 10px;
+  }
+
+  .video-strip {
+    justify-content: flex-start;
+  }
+
+  .thumb-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 1.4rem;
+  }
+}
+
+.instagram-media {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.reel-card iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+#floating-video{
+    bottom:220px;
+}
+
+@media (max-width: 768px) {
+  .video-page {
+    width: 100%;
+    padding: 24px 10px 55px;
+  }
+
+  .reels-viewport {
+    width: min(100%, 340px);
+    overflow: hidden;
+  }
+
+  .reel-card,
+  .instagram-media,
+  .reel-card iframe {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .video-thumbnails-carousel {
+    width: 100%;
+    gap: 6px;
+  }
+
+  .video-strip {
+    max-width: calc(100vw - 100px);
+    overflow-x: auto;
+  }
+
+  .floating {
+    font-size: 0.78rem;
+    padding: 8px 12px;
+    right: 10px;
+  }
+}
