@@ -1,0 +1,80 @@
+backend:
+  name: github
+  repo: rclaasse/voie-spirituelle
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: "it"
+
+collections:
+  - name: "articles"
+    label: "Articoli"
+    folder: "content/articles"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+
+    fields:
+      - label: "Titolo"
+        name: "title"
+        widget: "string"
+
+      - label: "Data di pubblicazione"
+        name: "date"
+        widget: "datetime"
+        date_format: "DD/MM/YYYY"
+        time_format: false
+
+      - label: "Descrizione breve"
+        name: "description"
+        widget: "text"
+
+      - label: "Immagine"
+        name: "image"
+        widget: "image"
+
+      - label: "Testo alternativo dell'immagine"
+        name: "image_alt"
+        widget: "string"
+
+      - label: "Contenuto"
+        name: "body"
+        widget: "markdown"
+
+  - name: "podcasts"
+    label: "Podcast"
+    folder: "content/podcasts"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+
+    fields:
+      - label: "Titolo"
+        name: "title"
+        widget: "string"
+
+      - label: "Data di pubblicazione"
+        name: "date"
+        widget: "datetime"
+        date_format: "DD/MM/YYYY"
+        time_format: false
+
+      - label: "Descrizione"
+        name: "description"
+        widget: "text"
+
+      - label: "Immagine"
+        name: "image"
+        widget: "image"
+
+      - label: "File audio o URL"
+        name: "audio"
+        widget: "string"
+
+      - label: "Contenuto"
+        name: "body"
+        widget: "markdown"
