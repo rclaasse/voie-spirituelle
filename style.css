@@ -3566,4 +3566,18 @@ body{
         height:340px;
     }
 
+    .about-text{
+        margin-top: 3px;
+    }
+
+    .about-text h2{
+        margin-top: 0;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .about-text p{
+        text-align: left;
+    }    
+
 }
