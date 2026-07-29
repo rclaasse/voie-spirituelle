@@ -910,7 +910,8 @@ footer {
    ============================================================ */
 
 .intro-about {
-  max-width: 520px;
+  max-width: 900px;
+  width: calc(100% - 40px);
   margin: 3rem auto;
   padding: 1.8rem 2rem;
   background: var(--bg-color); /* ✅ fond clair naturel */
@@ -3489,4 +3490,80 @@ body{
   color: #666;
   font-size: 0.9rem;
   font-style: italic;
+}
+
+#home-banner {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    object-position: center 60%;
+    border-radius: 20px;
+    display: block;
+}
+
+.about-layout {
+  margin-bottom: 0;  
+  display:flex;
+  gap:40px;
+  align-items:flex-start;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 1.12rem;
+  line-height: 1.8;
+  padding-top: 4px;
+  margin-top:8px;
+}
+
+.about-text p {
+  text-align: left;
+  line-height: 1.8;
+  margin-bottom: 0.7rem;
+  max-width: 620px;
+}
+
+.about-text h2 {
+  text-align: left;
+  margin: 0 0 18px;
+  padding: 0;
+  border: none;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: var(--accent-color);
+}
+
+.quote {
+  margin-top: 14px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(46, 139, 87, 0.25);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  font-style: italic;
+  text-align: center;
+}
+
+#chisono-banner {
+    width: 280px;
+    height: 390px;
+    object-fit: cover;
+    object-position: center 25%;
+    border-radius: 22px;
+    flex-shrink: 0;
+    margin-top: 12px;   /* au lieu de -15px */
+}
+
+@media (max-width:900px){
+
+    .about-layout{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    #chisono-banner{
+        width:260px;
+        height:340px;
+    }
+
 }
